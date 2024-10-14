@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    /* Global Font */
+    --global-font-family: "Roboto Mono", monospace;
+    /* SO COLORS  */
+
+    /* Primary Colors */
+    --primary-color: #6200ee;
+    --primary-hover-color: #3700b3;
+
+    --secondary-color: #bb86fc;
+    --secondary-hover-color: #3700b3;
+
+    --text-color-light: #ffffff;
+    --text-color-mid: #868686;
+    --text-color-muted: #535353;
+    --text-color-dark: #313131;
+
+    --background-color: #fcf5fe;
+    --background-dark: #121212;
+
+    --border-color: #b39ddb;
+    --border-color-dark: #7e57c2;
+
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+
+    --info-color: #2196f3;
+    --light-gray: #efefef72;
+    --lightest-gray: #f5f5f5;
+    --dark-gray: rgb(245, 245, 245);
+    /* EO COLORS  */
+
+    /* Button */
+    --button-background-color: var(--primary-color);
+    --button-text-color: var(--text-color-light);
+    --button-padding: var(--button-size-medium);
+    --button-border-radius: 0.25rem;
+    --button-transition-speed: 0.2s;
+    --button-hover-color: var(--primary-hover-color);
+    --button-size-small: 0.3rem 0.6rem;
+    --button-size-medium: 0.5rem 1rem;
+    --button-size-large: 0.75rem 1.5rem;
+
+    /* Input */
+    --input-padding: 0.5rem;
+    --input-border-color: var(--border-color);
+    --input-border-radius: 4px;
+    --input-font-family: var(--global-font-family);
+    --input-primary-color: #6200ee;
+
+    --input-navigation-font-size: 14px;
+    /* Navigation */
+    --navbar-container-height: 100%;
+    --navbar-container-width: 100%;
+    --navbar-font-size: 14px;
+    --navbar-padding: 8px;
+    --navbar-menu-width: 50%;
+    --navbar-item-padding: 8px;
+    --navbar-item-width: 64px;
+    --navbar-item-active-color: var(--primary-hover-color);
+    --navbar-image-padding: 8px;
+    --navbar-underline-width: 50%;
+    --navbar-underline-radius: 128px;
+    --navbar-underline-active-border: 1px solid var(--primary-hover-color);
+    --navbar-image-height: 24px;
+    --navbar-image-width: 24px;
+
+
+
+    /* Breadcrumbs */
+    --breadcrumb-width: 75%;
+    --breadcrumb-background: var(--light-gray);
+    --breadcrumb-link-color: var(--primary-color);
+    --breadcrumb-link-hover-color: var(--primary-hover-color);
+    --breadcrumb-text-color: var(--text-color-dark);
+    --breadcrumb-separator-color: #777777;
+    --breadcrumb-font-family: var(--global-font-family);
+    --breadcrumb-font-weight-bold: 700;
+    --breadcrumb-font-weight-normal: 400;
+    --breadcrumb-font-size: 10px;
+    --breadcrumb-item-text-font-size: 14px;
+    --breadcrumb-padding: 12px 0;
+    --breadcrumb-item-id-size: 16px;
+    --breadcrumb-item-id-border: 1px solid var(--text-color-dark);
+    --breadcrumb-item-text-margin: 0 4px;
+    --breadcrumb-item-margin: 0 10px;
+    --breadcrumb-active-color: var(--success-color);
+
+    /* Header */
+    --header-one-font-size: 2rem;
+    --header-one-font-color: var(--primary-color);
+
+    --header-two-font-size: 1.75rem;
+    --header-two-font-color: var(--secondary-color);
+
+    --header-three-font-size: 1.5rem;
+    --header-three-font-color: var(--text-color-dark);
+
+    --header-four-font-size: 1.25rem;
+    --header-four-font-color: var(--text-color-muted);
+
+    --header-five-font-size: 1rem;
+    --header-five-font-color: var(--text-color-muted);
+
+    --header-six-font-size: 0.875rem;
+    --header-six-font-color: var(--text-color-mid);
+
+    /* Modal */
+    --modal-overlay-background: rgba(0, 0, 0, 0.5);
+    --modal-content-background: var(--background-color);
+    --modal-content-padding: 2%;
+    --modal-border-radius: var(--button-border-radius);
+    --modal-max-width: 80%;
+    --modal-min-width: 40%;
+    --modal-close-button-size: 24px;
+    --modal-close-button-hover-scale: 1.2;
+    --modal-close-button-hover-rotation: 180deg;
+    --modal-close-button-top: 15px;
+    --modal-close-button-right: 15px;
+
+    /* Accordion */
+    --accordion-border-color: var(--border-color);
+    --accordion-border-radius: 4px;
+    --accordion-margin: 10px;
+    --accordion-header-padding: 10px;
+    --accordion-header-background-color: var(--background-colory);
+    --accordion-header-text-color: var(--text-color-dark);
+    --accordion-header-hover-color: var(--background-color);
+    --accordion-transition-speed: 0.3s;
+    --accordion-content-padding: 10px;
+    --accordion-content-background-color: var(--text-color-light);
+    --accordion-width: 100%;
+    --accordion-height: auto;
+    --accordion-rotation-angle: 45deg;
+    --accordion-title-font-size: 16px;
+    --accordion-font-size: 14px;
+    --accordion-title-margin-right: 10px;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}
