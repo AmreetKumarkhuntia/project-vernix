@@ -1,8 +1,8 @@
 export type AccordionProps = {
-    closeButtonContent?: string;
-    title?: string;
-    duration?: number;
-    onToggle?: (isClose: boolean) => void;
+    closeButtonContent: string | null;
+    title: string | null;
+    duration: number | null;
+    onToggle: (isClose: boolean) => void | null;
 };
 
 export let defaultAccordionProps: AccordionProps = {

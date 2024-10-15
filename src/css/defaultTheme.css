@@ -3,42 +3,35 @@
 :root {
     /* Global Font */
     --global-font-family: "Roboto Mono", monospace;
-    /* SO COLORS  */
 
     /* Primary Colors */
     --primary-color: #6200ee;
     --primary-hover-color: #3700b3;
-
     --secondary-color: #bb86fc;
-    --secondary-hover-color: #3700b3;
-
     --text-color-light: #ffffff;
     --text-color-mid: #868686;
     --text-color-muted: #535353;
     --text-color-dark: #313131;
-
     --background-color: #fcf5fe;
     --background-dark: #121212;
-
     --border-color: #b39ddb;
     --border-color-dark: #7e57c2;
-
-    --success-color: #4caf50;
-    --warning-color: #ff9800;
-    --error-color: #f44336;
-
-    --info-color: #2196f3;
     --light-gray: #efefef72;
     --lightest-gray: #f5f5f5;
     --dark-gray: rgb(245, 245, 245);
-    /* EO COLORS  */
+
+    /* Status Colors */
+    --success-color: #9aff9e;
+    --warning-color: #ffd089;
+    --error-color: #ff7d74;
+    --info-color: #a7d7ff;
+    --custom-background-color: #f0f0f0;
 
     /* Button */
     --button-background-color: var(--primary-color);
     --button-text-color: var(--text-color-light);
     --button-padding: var(--button-size-medium);
     --button-border-radius: 0.25rem;
-    --button-transition-speed: 0.2s;
     --button-hover-color: var(--primary-hover-color);
     --button-size-small: 0.3rem 0.6rem;
     --button-size-medium: 0.5rem 1rem;
@@ -50,8 +43,8 @@
     --input-border-radius: 4px;
     --input-font-family: var(--global-font-family);
     --input-primary-color: #6200ee;
-
     --input-navigation-font-size: 14px;
+
     /* Navigation */
     --navbar-container-height: 100%;
     --navbar-container-width: 100%;
@@ -67,8 +60,6 @@
     --navbar-underline-active-border: 1px solid var(--primary-hover-color);
     --navbar-image-height: 24px;
     --navbar-image-width: 24px;
-
-
 
     /* Breadcrumbs */
     --breadcrumb-width: 75%;
@@ -92,19 +83,14 @@
     /* Header */
     --header-one-font-size: 2rem;
     --header-one-font-color: var(--primary-color);
-
     --header-two-font-size: 1.75rem;
     --header-two-font-color: var(--secondary-color);
-
     --header-three-font-size: 1.5rem;
     --header-three-font-color: var(--text-color-dark);
-
     --header-four-font-size: 1.25rem;
     --header-four-font-color: var(--text-color-muted);
-
     --header-five-font-size: 1rem;
     --header-five-font-color: var(--text-color-muted);
-
     --header-six-font-size: 0.875rem;
     --header-six-font-color: var(--text-color-mid);
 
@@ -120,13 +106,14 @@
     --modal-close-button-hover-rotation: 180deg;
     --modal-close-button-top: 15px;
     --modal-close-button-right: 15px;
+    --modal-close-button-hover-color: var(--error-color);
 
     /* Accordion */
     --accordion-border-color: var(--border-color);
     --accordion-border-radius: 4px;
     --accordion-margin: 10px;
     --accordion-header-padding: 10px;
-    --accordion-header-background-color: var(--background-colory);
+    --accordion-header-background-color: var(--background-color);
     --accordion-header-text-color: var(--text-color-dark);
     --accordion-header-hover-color: var(--background-color);
     --accordion-transition-speed: 0.3s;
@@ -138,6 +125,46 @@
     --accordion-title-font-size: 16px;
     --accordion-font-size: 14px;
     --accordion-title-margin-right: 10px;
+
+    /* Flyer */
+    --flyer-background-color: #fff;
+    --flyer-text-color: #333;
+    --flyer-border-radius: 8px;
+    --flyer-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --flyer-padding-vertical: 16px;
+    --flyer-padding-horizontal: 24px;
+    --flyer-align-items: flex-start;
+    --flyer-text-align: left;
+    --flyer-min-width: 300px;
+    --flyer-max-width: 400px;
+    --flyer-margin: 20px;
+    --flyer-text-size: 14px;
+    --flyer-z-index: 1000;
+    --flyer-top: 20px;
+    --flyer-bottom: 20px;
+    --flyer-left: 20px;
+    --flyer-right: 20px;
+    --flyer-close-top: 10px;
+    --flyer-close-right: 10px;
+    --flyer-close-size: 20px;
+    --flyer-close-color: #333;
+    --flyer-close-hover-color: var(--error-color);
+    --flyer-close-rotation: 360deg;
+    --flyer-close-hover-scale: 1.2;
+    --flyer-image-max-height: 200px;
+    --flyer-image-fit: cover;
+    --flyer-image-border-radius: 4px;
+    --flyer-image-margin-bottom: 10px;
+    --flyer-title-weight: bold;
+    --flyer-title-margin: 8px 0;
+    --flyer-description-margin: 4px 0;
+
+    /* Flyer Alert Colors */
+    --flyer-alert-background-color: var(--error-color);
+    --flyer-summary-background-color: var(--info-color);
+    --flyer-warning-background-color: var(--warning-color);
+    --flyer-success-background-color: var(--success-color);
+    --flyer-custom-background-color: var(--custom-background-color);
 }
 
 body {

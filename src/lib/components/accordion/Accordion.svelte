@@ -31,8 +31,14 @@
     {#if isClose === false}
         <div
             class="accordion-content"
-            in:extendInDirection={{ direction: "top", duration: duration }}
-            out:extendInDirection={{ direction: "bottom", duration: duration }}
+            in:extendInDirection={{
+                direction: "top",
+                duration: duration ?? 300,
+            }}
+            out:extendInDirection={{
+                direction: "bottom",
+                duration: duration ?? 300,
+            }}
         >
             <slot />
         </div>
