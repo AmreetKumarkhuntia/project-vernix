@@ -18,21 +18,19 @@ export type FylerPosition = "top-right" | "bottom-right" | "top-left" | "bottom-
 export type FlyerProps = {
     position: FylerPosition,
     flyerType: FlyerType | null,
-    title: string,
+    title: string | null,
     duration: number,
     flyerLeftImage: string | null,
-    description: string | null;
     inTransition: TransitionWrapper | null,
     outTransition: TransitionWrapper | null
 }
 
 export const defaultFlyerProps: FlyerProps = {
-    position: "top-right",
-    flyerType: "success",
-    title: "Summary",
+    position: "bottom-right",
+    flyerType: "summary",
+    title: null,
     duration: 3000,
     flyerLeftImage: null,
-    description: null,
     inTransition: null,
     outTransition: null,
 }

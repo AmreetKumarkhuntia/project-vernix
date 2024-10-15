@@ -94,6 +94,9 @@
         <Header hLevel={4}>My Modal Title</Header>
         <p>This is the content of the modal.</p>
     </Modal>
+    <Flyer isVisible={showFlyer} onClose={handleFlyerClose}>
+        Success flyer shown to user.
+    </Flyer>
 
     <div class="view-padding">
         <p>{$inputValue}</p>
@@ -139,16 +142,12 @@
     </div>
 
     <div class="view-padding">
-        <Button onClick={openModal} size={"large"}>Open Modal</Button>
-    </div>
-
-    <div class="view-padding">
         <Accordion>
             <p>Accordion content goes here.</p>
         </Accordion>
     </div>
     <div class="view-padding">
-        <Flyer isVisible={showFlyer} onClose={handleFlyerClose} />
+        <Button onClick={openModal} size={"large"}>Open Modal</Button>
     </div>
     <div class="view-padding">
         <Button onClick={openFlyer} size={"large"}>Show Flyer</Button>

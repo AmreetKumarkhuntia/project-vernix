@@ -2,7 +2,6 @@
     import { performTransition } from "$components/transitions";
     import { onDestroy } from "svelte";
     import {
-        defaultDescription,
         defaultFlyerProps,
         defaultInTransition,
         defaultOutTransition,
@@ -16,8 +15,7 @@
     const flyerType = flyerProps.flyerType;
     const clearDuration = flyerProps.duration ?? 3000;
     const position = flyerProps.position;
-    const title = flyerProps.title;
-    const description = flyerProps.description ?? defaultDescription;
+    const title = flyerProps.title ?? flyerType;
     const inTransition = flyerProps.inTransition ?? defaultInTransition;
     const outTransition = flyerProps.outTransition ?? defaultOutTransition;
     const imageUrl = flyerProps.flyerLeftImage;
@@ -55,10 +53,10 @@
 
         <div class="flyer-content">
             <div class="flyer-title">{title}</div>
-            <div class="flyer-description">
-                {description}
-            </div>
-            <slot name="cta"></slot>
+        </div>
+
+        <div class="flyer-description">
+            <slot />
         </div>
     </div>
 {/if}
@@ -151,6 +149,7 @@
     }
 
     .flyer-title {
+        text-transform: capitalize;
         font-weight: var(--flyer-title-weight);
         margin: var(--flyer-title-margin);
     }
