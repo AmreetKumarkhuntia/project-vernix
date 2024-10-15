@@ -25,7 +25,7 @@
     let timer: NodeJS.Timeout | null = null;
 
     $: if (isVisible) {
-        // timer = setTimeout(closeFlyer, clearDuration);
+        timer = setTimeout(closeFlyer, clearDuration);
     }
 
     function closeFlyer() {
