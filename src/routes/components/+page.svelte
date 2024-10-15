@@ -16,6 +16,7 @@
     import Modal from "$components/modal/Modal.svelte";
     import Accordion from "$components/accordion/Accordion.svelte";
     import Flyer from "$components/flyer/Flyer.svelte";
+    import WrapperText from "$components/wrapperText/WrapperText.svelte";
 
     let inputValue = writable("");
     let showFlyer = false;
@@ -106,6 +107,8 @@
     </div>
     <div class="view-padding">
         <Button onClick={handleButtonClick} size={"large"}>Greet Me</Button>
+        <Button onClick={openModal} size={"large"}>Open Modal</Button>
+        <Button onClick={openFlyer} size={"large"}>Show Flyer</Button>
     </div>
     <div class="view-padding">
         <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
@@ -146,11 +149,11 @@
             <p>Accordion content goes here.</p>
         </Accordion>
     </div>
+
     <div class="view-padding">
-        <Button onClick={openModal} size={"large"}>Open Modal</Button>
-    </div>
-    <div class="view-padding">
-        <Button onClick={openFlyer} size={"large"}>Show Flyer</Button>
+        <Header hLevel={1}>
+            <WrapperText />
+        </Header>
     </div>
 </div>
 
@@ -162,10 +165,10 @@
         padding: 1%;
         padding-left: 0px;
         padding-right: 0px;
-        width: 100;
+        width: 100%;
 
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
 </style>

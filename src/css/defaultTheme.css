@@ -160,12 +160,22 @@
     --flyer-title-margin: 8px 0;
     --flyer-description-margin: 4px 0;
 
-    /* Flyer Alert Colors */
     --flyer-alert-background-color: var(--error-color);
     --flyer-summary-background-color: var(--info-color);
     --flyer-warning-background-color: var(--warning-color);
     --flyer-success-background-color: var(--success-color);
     --flyer-custom-background-color: var(--custom-background-color);
+
+    /* Wrapper Text */
+    --wrapper-text-container-display: inline-block;
+    --wrapper-text-char-margin: 0;
+    --wrapper-text-char-display: inline-block;
+    --wrapper-text-char-letter-spacing: 0;
+    --wrapper-text-animation-duration: 0.5s;
+    --wrapper-text-animation-ease: ease;
+    --wrapper-text-hover-color: var(--secondary-color);
+    --wrapper-text-animation-delay: 0.1s;
+    --wrapper-text-char-glitch-duration: 1s;
 }
 
 body {
