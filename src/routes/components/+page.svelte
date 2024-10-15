@@ -15,11 +15,26 @@
     import Header from "$components/Header.svelte";
     import Modal from "$components/modal/Modal.svelte";
     import Accordion from "$components/accordion/Accordion.svelte";
+    import Flyer from "$components/flyer/Flyer.svelte";
 
     let inputValue = writable("");
+    let showFlyer = false;
     let showModal = false;
+
     const openModal = () => {
         showModal = true;
+    };
+
+    const openFlyer = () => {
+        showFlyer = true;
+    };
+
+    const handleModalClose = () => {
+        showModal = false;
+    };
+
+    const handleFlyerClose = () => {
+        showFlyer = false;
     };
 
     const handleInput = (e: Event) => {
@@ -28,10 +43,6 @@
 
     const handleButtonClick = () => {
         inputValue.update((value) => `Hello, ${value}!`);
-    };
-
-    const handleModalClose = () => {
-        showModal = false;
     };
 
     const demoNavigationProps: NavigationOptions[] = [
@@ -135,6 +146,12 @@
         <Accordion>
             <p>Accordion content goes here.</p>
         </Accordion>
+    </div>
+    <div class="view-padding">
+        <Flyer isVisible={showFlyer} onClose={handleFlyerClose} />
+    </div>
+    <div class="view-padding">
+        <Button onClick={openFlyer} size={"large"}>Show Flyer</Button>
     </div>
 </div>
 

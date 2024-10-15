@@ -69,10 +69,13 @@
         border: none;
         cursor: pointer;
         font-size: var(--modal-close-button-size);
-        transition: transform 0.3s ease;
+        transition:
+            color 0.2s ease,
+            transform 0.3s ease;
     }
 
     .modal-close-button:hover {
+        color: var(--modal-close-button-hover-color);
         transform: rotate(var(--modal-close-button-hover-rotation))
             scale(var(--modal-close-button-hover-scale));
     }
