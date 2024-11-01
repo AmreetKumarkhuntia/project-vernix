@@ -1,24 +1,25 @@
 <script lang="ts">
-  import "$css/defaultTheme.css";
-  import Button from "$components/Button.svelte";
-  import InputField from "$components/InputField.svelte";
-  import Navbar from "$components/navbar/Navbar.svelte";
+  import '$css/defaultTheme.css';
+  import Button from '$components/Button.svelte';
+  import InputField from '$components/InputField.svelte';
+  import Navbar from '$components/navbar/Navbar.svelte';
   import type {
     NavbarProps,
     NavigationOptions,
-  } from "$components/navbar/props";
+  } from '$components/navbar/props';
 
-  import { writable } from "svelte/store";
-  import { headerIcon, profileIcon } from "$lib/constants/staticIcons";
-  import type { BreadcrumbItem } from "$components/breadcrumbs/props";
-  import BreadCrumbs from "$components/breadcrumbs/BreadCrumbs.svelte";
-  import Header from "$components/Header.svelte";
-  import Modal from "$components/modal/Modal.svelte";
-  import Accordion from "$components/accordion/Accordion.svelte";
-  import Flyer from "$components/flyer/Flyer.svelte";
-  import WrapperText from "$components/wrapperText/WrapperText.svelte";
+  import { writable } from 'svelte/store';
+  import { headerIcon, profileIcon } from '$lib/constants/staticIcons';
+  import type { BreadcrumbItem } from '$components/breadcrumbs/props';
+  import BreadCrumbs from '$components/breadcrumbs/BreadCrumbs.svelte';
+  import Header from '$components/Header.svelte';
+  import Modal from '$components/modal/Modal.svelte';
+  import Accordion from '$components/accordion/Accordion.svelte';
+  import Flyer from '$components/flyer/Flyer.svelte';
+  import WrapperText from '$components/wrapperText/WrapperText.svelte';
+  import LazyLoader from '$components/lazyLoader/LazyLoader.svelte';
 
-  let inputValue = writable("");
+  let inputValue = writable('');
   let showFlyer = false;
   let showModal = false;
 
@@ -48,29 +49,29 @@
 
   const demoNavigationProps: NavigationOptions[] = [
     {
-      id: "home",
-      title: "HOME",
-      navigationURL: "/",
+      id: 'home',
+      title: 'HOME',
+      navigationURL: '/',
     },
     {
-      id: "about",
-      title: "ABOUT",
-      navigationURL: "/about",
+      id: 'about',
+      title: 'ABOUT',
+      navigationURL: '/about',
     },
     {
-      id: "github",
-      title: "GITHUB",
-      navigationURL: "/github",
+      id: 'github',
+      title: 'GITHUB',
+      navigationURL: '/github',
     },
     {
-      id: "linkedin",
-      title: "LinkedIn",
-      navigationURL: "/github",
+      id: 'linkedin',
+      title: 'LinkedIn',
+      navigationURL: '/github',
     },
     {
-      id: "dev-to",
-      title: "Dev.to",
-      navigationURL: "/github",
+      id: 'dev-to',
+      title: 'Dev.to',
+      navigationURL: '/github',
     },
   ];
 
@@ -83,10 +84,10 @@
   };
 
   const demoBreadcrumbItems: BreadcrumbItem[] = [
-    { index: "1", text: "Home", href: "/" },
-    { index: "2", text: "Products", href: "/products" },
-    { index: "3", text: "Electronics", href: "/products/electronics" },
-    { index: "4", text: "Electronics", href: "/products/electronics" },
+    { index: '1', text: 'Home', href: '/' },
+    { index: '2', text: 'Products', href: '/products' },
+    { index: '3', text: 'Electronics', href: '/products/electronics' },
+    { index: '4', text: 'Electronics', href: '/products/electronics' },
   ];
 </script>
 
@@ -107,9 +108,9 @@
     <InputField placeholder="Your Name" onInput={handleInput} />
   </div>
   <div class="view-padding">
-    <Button onClick={handleButtonClick} size={"large"}>Greet Me</Button>
-    <Button onClick={openModal} size={"large"}>Open Modal</Button>
-    <Button onClick={openFlyer} size={"large"}>Show Flyer</Button>
+    <Button onClick={handleButtonClick} size={'large'}>Greet Me</Button>
+    <Button onClick={openModal} size={'large'}>Open Modal</Button>
+    <Button onClick={openFlyer} size={'large'}>Show Flyer</Button>
   </div>
   <div class="view-padding">
     <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
@@ -143,6 +144,12 @@
 
   <div class="view-padding">
     <Header hLevel={6}>This is a H6 heading</Header>
+  </div>
+
+  <div class="view-padding">
+    <LazyLoader>
+      <Header hLevel={1}>This is a Lazy Loader</Header>
+    </LazyLoader>
   </div>
 
   <div class="view-padding">

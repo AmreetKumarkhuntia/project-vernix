@@ -57,7 +57,6 @@ export type TransitionEnum =
   | 'draw'
   | 'crossfade'
   | 'fly-and-fade'
-  | 'fly-direction'
   | 'extend-in-direction';
 
 export type TransitionWrapper = {
