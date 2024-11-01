@@ -52,33 +52,6 @@ export function flyAndFade(
   };
 }
 
-export function flyDirection(
-  node: Element,
-  {
-    delay = 0,
-    duration = 400,
-    easing = cubicOut,
-    direction = 'right',
-    distance = 100,
-  }: FlyDirectionParams
-): TransitionConfig {
-  const o = +getComputedStyle(node).opacity;
-
-  const translateX =
-    direction === 'left' ? -distance : direction === 'right' ? distance : 0;
-  const translateY =
-    direction === 'top' ? -distance : direction === 'bottom' ? distance : 0;
-
-  return {
-    delay,
-    duration,
-    easing,
-    css: (t: number) => `
-            transform: translate(${(1 - t) * translateX}px, ${(1 - t) * translateY}px);
-            opacity: ${t * o};
-        `,
-  };
-}
 export function extendInDirection(
   node: Element,
   {
@@ -137,8 +110,6 @@ export function performTransition(
       return scale(node, transition as ScaleParams);
     case 'fly-and-fade':
       return flyAndFade(node, transition as FlyAndFadeParams);
-    case 'fly-direction':
-      return flyDirection(node, transition as FlyDirectionParams);
     case 'extend-in-direction':
       return extendInDirection(node, transition as ExtendInDirectionParams);
     default:
