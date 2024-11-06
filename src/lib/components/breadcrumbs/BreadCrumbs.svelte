@@ -3,7 +3,7 @@
   import type { BreadcrumbItem } from './props';
 
   export let items: BreadcrumbItem[] = [];
-  export let separator: string = '----------------';
+  export let separator: string = '---------';
   export let onClick: (breadCrumb: BreadcrumbItem) => void = () => {};
 
   let activeIndex: number | null = null;
@@ -149,21 +149,6 @@
 
   .breadcrumbs-separator.active {
     color: var(--breadcrumb-active-color);
-  }
-
-  .breadcrumbs-separator::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 100%;
-    top: 50%;
-    height: 4px;
-    background-color: var(--breadcrumb-active-color);
-    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
-
-  .breadcrumbs-separator.active::after {
-    right: 0;
   }
 
   .breadcrumbs-item.backlight {

@@ -1,4 +1,4 @@
-import { cubicOut } from 'svelte/easing';
+import { linear } from 'svelte/easing';
 import type {
   EasingFunction,
   TransitionConfig,
@@ -31,13 +31,7 @@ import type {
 /* Transition Definitions */
 export function flyAndFade(
   node: Element,
-  {
-    delay = 0,
-    duration = 400,
-    easing = cubicOut,
-    x = 0,
-    y = 0,
-  }: FlyAndFadeParams
+  { delay = 0, duration = 400, easing = linear, x = 0, y = 0 }: FlyAndFadeParams
 ): TransitionConfig {
   const o = +getComputedStyle(node).opacity;
 
@@ -57,7 +51,7 @@ export function extendInDirection(
   {
     delay = 0,
     duration = 400,
-    easing = cubicOut,
+    easing = linear,
     direction = 'right',
   }: ExtendInDirectionParams
 ): TransitionConfig {
