@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '$css/defaultTheme.css';
+  import '$css/default-theme.css';
   import Button from '$components/Button.svelte';
   import InputField from '$components/InputField.svelte';
   import Navbar from '$components/navbar/Navbar.svelte';
@@ -18,6 +18,10 @@
   import Flyer from '$components/flyer/Flyer.svelte';
   import WrapperText from '$components/wrapperText/WrapperText.svelte';
   import LazyLoader from '$components/lazyLoader/LazyLoader.svelte';
+  import Avatar from '$components/avatar/Avatar.svelte';
+  import Card from '$components/card/Card.svelte';
+  import ProgressBar from '$components/progressBar/ProgressBar.svelte';
+  import FileUploader from '$components/fileUploader/FileUploader.svelte';
 
   let inputValue = writable('');
   let showFlyer = false;
@@ -87,7 +91,11 @@
     { index: '1', text: 'Home', href: '/' },
     { index: '2', text: 'Products', href: '/products' },
     { index: '3', text: 'Electronics', href: '/products/electronics' },
-    { index: '4', text: 'Electronics', href: '/products/electronics' },
+    {
+      index: '4',
+      text: 'Components',
+      href: '/products/electronics/Components',
+    },
   ];
 </script>
 
@@ -163,6 +171,48 @@
       <WrapperText />
     </Header>
   </div>
+
+  <div class="view-padding">
+    <Avatar alt="User" />
+  </div>
+
+  <div>
+    <ProgressBar />
+  </div>
+
+  <div class="view-padding">
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+
+    <Card>
+      <div class="card-content">This is the custom content for my card.</div>
+    </Card>
+  </div>
+
+  <div class="view-padding">
+    <FileUploader />
+  </div>
 </div>
 
 <style>
@@ -170,13 +220,22 @@
     padding: 5%;
   }
   .view-padding {
-    padding: 1%;
+    padding: 2%;
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
 
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 </style>
