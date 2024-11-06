@@ -1,5 +1,7 @@
 <script lang="ts">
   import '$css/default-theme.css';
+  import 'prismjs/themes/prism-tomorrow.css';
+
   import Button from '$components/Button.svelte';
   import InputField from '$components/InputField.svelte';
   import Navbar from '$components/navbar/Navbar.svelte';
@@ -22,6 +24,7 @@
   import Card from '$components/card/Card.svelte';
   import ProgressBar from '$components/progressBar/ProgressBar.svelte';
   import FileUploader from '$components/fileUploader/FileUploader.svelte';
+  import Code from '$components/code/Code.svelte';
 
   let inputValue = writable('');
   let showFlyer = false;
@@ -97,6 +100,38 @@
       href: '/products/electronics/Components',
     },
   ];
+  let exampleCode = `
+  const greeting = 'Hello, world!';
+
+  function greet(name) {
+    return greeting + ' Welcome, ' + name + '!';
+  }
+
+  const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+  };
+
+  const users = [
+    { name: 'Alice', age: 28 },
+    { name: 'Bob', age: 25 },
+    { name: 'Charlie', age: 35 },
+  ];
+
+  function displayUserInfo(user) {
+    return user.firstName + ' ' + user.lastName + ' is ' + user.age + ' years old.';
+  }
+
+  function filterUsersByAge(minAge) {
+    return users.filter(function(user) {
+      return user.age >= minAge;
+    });
+  }
+
+  console.log(greet(user.firstName));
+  console.log(displayUserInfo(user));
+  console.log(filterUsersByAge(30));`;
 </script>
 
 <div class="view-components">
@@ -212,6 +247,10 @@
 
   <div class="view-padding">
     <FileUploader />
+  </div>
+
+  <div class="view-padding">
+    <Code code={exampleCode} />
   </div>
 </div>
 
