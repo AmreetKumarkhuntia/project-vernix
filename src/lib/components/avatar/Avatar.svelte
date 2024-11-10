@@ -3,6 +3,7 @@
   export let alt: string = 'User Avatar';
   export let size: string = '50px';
   export let onClick: (e: MouseEvent, elementType: string) => void = () => {};
+  export let smallSize = '16px';
   export let letterColors: Record<string, string> = {
     A: '#BF3F2D',
     B: '#0091B0',
@@ -48,11 +49,12 @@
 {#if src}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <img
     class="avatar"
     {src}
     {alt}
-    style="--avatar-size: {size};"
+    style="--avatar-size: {size}; --avatar-size-media: {smallSize};"
     on:click={(e) => handleClick(e, 'image')}
   />
 {:else}
@@ -60,7 +62,7 @@
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="avatar"
-    style="--avatar-size: {size}; --avatar-bg-color: {backgroundColor};"
+    style="--avatar-size: {size}; --avatar-bg-color: {backgroundColor}; --avatar-size-media: {smallSize};"
     on:click={(e) => handleClick(e, 'letter')}
   >
     {initial}
@@ -81,14 +83,9 @@
     border-radius: var(--avatar-radius);
     width: var(--avatar-size);
     height: var(--avatar-size);
-    transition:
-      background-color var(--avatar-transition-duration)
-        var(--avatar-transition-timing),
-      border-color var(--avatar-transition-duration)
-        var(--avatar-transition-timing),
-      box-shadow var(--avatar-transition-duration)
-        var(--avatar-transition-timing),
-      color var(--avatar-transition-duration) var(--avatar-transition-timing);
+    padding: var(--avatar-padding);
+    transition: all var(--avatar-transition-duration)
+      var(--avatar-transition-timing);
   }
 
   .avatar:hover {
@@ -98,7 +95,14 @@
   img.avatar {
     object-fit: cover;
     border: 2px solid var(--avatar-border-color);
-    transition: border-color var(--avatar-transition-duration)
+    transition: all var(--avatar-transition-duration)
       var(--avatar-transition-timing);
+  }
+
+  @media only screen and (max-width: 900px) {
+    .avatar {
+      width: var(--avatar-size-media);
+      height: var(--avatar-size-media);
+    }
   }
 </style>

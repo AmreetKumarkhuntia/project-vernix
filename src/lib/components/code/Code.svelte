@@ -5,8 +5,8 @@
   export let lang: string = 'javascript';
   export let codeProps: CodeProps = defaultCodeProps;
 
-  const copiedIcon = defaultCodeProps.copiedIcon;
-  const notCopiedIcon = defaultCodeProps.notCopiedIcon;
+  const copiedIcon = codeProps.copiedIcon;
+  const notCopiedIcon = codeProps.notCopiedIcon;
   let formattedCode: string = '';
   let copied: boolean = false;
 

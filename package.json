@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -22,6 +22,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@types/prismjs": "^1.26.5",
     "prismjs": "^1.29.0"
   }
 }
