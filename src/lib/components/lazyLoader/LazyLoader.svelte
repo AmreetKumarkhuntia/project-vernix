@@ -4,6 +4,7 @@
   import { performTransition } from '$components/transitions';
 
   export let lazyLoaderProps: LazyLoaderProps = defaultLazyLoaderProps;
+  export let className: string = '';
   let container: Element;
   let showContent: boolean = false;
   let observer: IntersectionObserver;
@@ -23,9 +24,10 @@
   });
 </script>
 
-<div class="lazy-loader" bind:this={container}>
+<div class="lazy-loader {className}" bind:this={container}>
   {#if showContent === true}
     <div
+      class="lazy-loader-content {className}"
       in:performTransition={lazyLoaderProps.inTransition}
       out:performTransition={lazyLoaderProps.outTransition}
     >

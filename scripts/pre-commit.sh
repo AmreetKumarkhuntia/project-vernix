@@ -1,3 +1,4 @@
 #!/bin/sh
+npm run format
 npm run check
 npm run build

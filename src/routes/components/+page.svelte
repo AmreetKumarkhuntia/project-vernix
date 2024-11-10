@@ -25,6 +25,11 @@
   import ProgressBar from '$components/progressBar/ProgressBar.svelte';
   import FileUploader from '$components/fileUploader/FileUploader.svelte';
   import Code from '$components/code/Code.svelte';
+  import type {
+    TimeLineDetails,
+    TimeLineEventType,
+  } from '$components/timeLine/props';
+  import TimeLine from '$components/timeLine/TimeLine.svelte';
 
   let inputValue = writable('');
   let showFlyer = false;
@@ -89,6 +94,45 @@
     showRightImage: true,
     rightImageURL: profileIcon,
   };
+
+  const events: TimeLineDetails[] = [
+    {
+      dateStart: '01-01-2020',
+      dateEnd: '31-02-2024',
+      position: 'Student',
+      description:
+        'Completed a Bachelor’s in Computer Science, focusing on software development and data structures.',
+      name: 'University of XYZ',
+      event: 'education' as TimeLineEventType,
+      location: 'New York, USA',
+      alignment: 'left',
+      link: null,
+    },
+    {
+      dateStart: '01-02-2024',
+      dateEnd: '01-02-2027',
+      position: 'Software Engineer',
+      description:
+        'Developed scalable web applications and collaborated with cross-functional teams.',
+      name: 'Company X',
+      event: 'work' as TimeLineEventType,
+      location: 'San Francisco, USA',
+      alignment: 'left',
+      link: 'https://www.companyx.com',
+    },
+    {
+      dateStart: '02-02-2027',
+      dateEnd: 'present',
+      position: 'Senior Software Engineer',
+      description:
+        'Leading a team in software design, mentoring developers, and driving innovation.',
+      name: 'Company Y',
+      event: 'work' as TimeLineEventType,
+      location: 'London, UK',
+      alignment: 'right',
+      link: 'https://www.companyy.com',
+    },
+  ];
 
   const demoBreadcrumbItems: BreadcrumbItem[] = [
     { index: '1', text: 'Home', href: '/' },
@@ -190,7 +234,7 @@
   </div>
 
   <div class="view-padding">
-    <LazyLoader>
+    <LazyLoader className="lazy-loader-test">
       <Header hLevel={1}>This is a Lazy Loader</Header>
     </LazyLoader>
   </div>
@@ -251,6 +295,13 @@
 
   <div class="view-padding">
     <Code code={exampleCode} />
+  </div>
+
+  <div class="view-padding">
+    <Header hLevel={2}>
+      <WrapperText text="TIMELINE" />
+    </Header>
+    <TimeLine {events} />
   </div>
 </div>
 

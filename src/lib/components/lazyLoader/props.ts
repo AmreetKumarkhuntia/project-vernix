@@ -1,5 +1,4 @@
 import type { TransitionWrapper } from '$components/transitions';
-import { linear } from 'svelte/easing';
 
 export type LazyLoaderProps = {
   inTransition: TransitionWrapper;
