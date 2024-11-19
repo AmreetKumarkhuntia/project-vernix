@@ -2,27 +2,22 @@
 <script lang="ts">
   export let onClick: () => void;
   export let size: 'small' | 'medium' | 'large' | 'fill' = 'medium';
+  export let type: 'filled' | 'outlined' = 'filled';
   export let componentClass: string = '';
 </script>
 
-<button on:click={onClick} class={`btn ${size} ${componentClass}`}>
-  <slot></slot>
+<button on:click={onClick} class={`btn ${size} ${type} ${componentClass}`}>
+  <slot />
 </button>
 
 <style>
   .btn {
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
     border: none;
-    padding: var(--button-padding);
     border-radius: var(--button-border-radius);
     cursor: pointer;
-    transition: background-color var(--button-transition-speed);
     height: auto;
-  }
-
-  .btn:hover {
-    background-color: var(--button-hover-color);
+    padding: var(--button-padding);
+    transition: all var(--button-transition-speed);
   }
 
   .btn.small {
@@ -40,5 +35,25 @@
 
   .btn.large {
     padding: var(--button-size-large);
+  }
+
+  .btn.filled {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+  }
+
+  .btn.filled:hover {
+    background-color: var(--button-hover-color);
+  }
+
+  .btn.outlined {
+    background-color: transparent;
+    color: var(--button-background-color);
+    border: 1px solid var(--button-background-color);
+  }
+
+  .btn.outlined:hover {
+    color: var(--button-hover-color);
+    border: 1px solid var(--button-hover-color);
   }
 </style>
