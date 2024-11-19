@@ -1,39 +1,44 @@
 <!-- src/components/Button.svelte -->
 <script lang="ts">
-    export let onClick: () => void;
-    export let size: "small" | "medium" | "large" = "medium"; // Default size
+  export let onClick: () => void;
+  export let size: 'small' | 'medium' | 'large' | 'fill' = 'medium';
+  export let componentClass: string = '';
 </script>
 
-<button on:click={onClick} class={`btn ${size}`}>
-    <slot></slot>
+<button on:click={onClick} class={`btn ${size} ${componentClass}`}>
+  <slot></slot>
 </button>
 
 <style>
-    .btn {
-        background-color: var(--button-background-color);
-        color: var(--button-text-color);
-        border: none;
-        padding: var(--button-padding);
-        border-radius: var(--button-border-radius);
-        cursor: pointer;
-        transition: background-color var(--button-transition-speed);
-        height: auto; /* Height will be determined by padding */
-    }
+  .btn {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    transition: background-color var(--button-transition-speed);
+    height: auto;
+  }
 
-    .btn:hover {
-        background-color: var(--button-hover-color);
-    }
+  .btn:hover {
+    background-color: var(--button-hover-color);
+  }
 
-    /* Size variations */
-    .btn.small {
-        padding: var(--button-size-small);
-    }
+  .btn.small {
+    padding: var(--button-size-small);
+  }
 
-    .btn.medium {
-        padding: var(--button-size-medium);
-    }
+  .btn.medium {
+    padding: var(--button-size-medium);
+  }
 
-    .btn.large {
-        padding: var(--button-size-large);
-    }
+  .btn.fill {
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn.large {
+    padding: var(--button-size-large);
+  }
 </style>

@@ -30,6 +30,8 @@
     TimeLineEventType,
   } from '$components/timeLine/props';
   import TimeLine from '$components/timeLine/TimeLine.svelte';
+  import type { DropdownItem } from '$components/dropDown/props';
+  import DropDown from '$components/dropDown/DropDown.svelte';
 
   let inputValue = writable('');
   let showFlyer = false;
@@ -144,6 +146,25 @@
       href: '/products/electronics/Components',
     },
   ];
+
+  const dropDownItems: DropdownItem[] = [
+    {
+      label: 'Option 1',
+      id: '1',
+      action: () => console.log('Option 1 selected'),
+    },
+    {
+      label: 'Option 2',
+      id: '2',
+      action: () => console.log('Option 2 selected'),
+    },
+    {
+      label: 'Option 3',
+      id: '3',
+      action: () => console.log('Option 3 selected'),
+    },
+  ];
+
   let exampleCode = `
   const greeting = 'Hello, world!';
 
@@ -295,6 +316,10 @@
 
   <div class="view-padding">
     <Code code={exampleCode} />
+  </div>
+
+  <div class="view-padding">
+    <DropDown buttonLabel={'DROPDOWN MENU'} items={dropDownItems}></DropDown>
   </div>
 
   <div class="view-padding">

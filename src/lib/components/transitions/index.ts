@@ -81,6 +81,7 @@ export function extendInDirection(
                 max-height: ${maxHeight};
                 max-width: ${maxWidth};
                 opacity: ${t};
+                overflow: hidden;
                 transition: max-height ${duration}ms ${easing}, max-width ${duration}ms ${easing}, opacity ${duration}ms ${easing};
             `;
     },
