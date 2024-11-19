@@ -24,7 +24,7 @@
     isOpen = false;
   }}
 >
-  <Button size={'fill'} onClick={toggleDropdown}>
+  <Button size={'fill'} type={'outlined'} onClick={toggleDropdown}>
     <div class="dropdown-button">
       <span class="dropdown-label">
         {buttonLabel}
@@ -61,22 +61,6 @@
 </div>
 
 <style>
-  :root {
-    --dropdown-height: 48px;
-    --dropdown-width: 292px;
-    --dropdown-label-width: 70%;
-    --dropdown-arrow-transition-duration: 600ms;
-    --dropdown-arrow-rotate-closed: 90deg;
-    --dropdown-arrow-rotate-open: 270deg;
-    --dropdown-bg-color: white;
-    --dropdown-border-color: #ddd;
-    --dropdown-border-radius: 4px;
-    --dropdown-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    --dropdown-item-color: #333;
-    --dropdown-item-hover-bg-color: #f1f1f1;
-    --dropdown-item-padding: 8px 12px;
-  }
-
   .dropdown {
     position: relative;
     height: var(--dropdown-height);
