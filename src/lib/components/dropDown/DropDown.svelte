@@ -8,6 +8,9 @@
   export let buttonLabel: string = 'Menu';
   export let transitionDuration: number = 200;
   export let multi = false;
+  export const onChange: (items: DropdownItem[]) => void = (items) => {
+    console.log('DROPDOWN :', JSON.stringify({ items }));
+  };
 
   let isOpen: boolean = false;
   let activeNumber: number = 0;
@@ -32,6 +35,7 @@
       }
     }
     activeNumber = curr;
+    onChange(items);
   };
 
   onMount(() => {

@@ -244,7 +244,7 @@
   --file-uploader-remove-scale: 1.1;
 
   /* Code Block */
-  --code-width: 720px;
+  --code-width: 60vw;
   --code-height: 720px;
   --code-bg: #1e1e1e;
   --code-color: #dcdcdc;
