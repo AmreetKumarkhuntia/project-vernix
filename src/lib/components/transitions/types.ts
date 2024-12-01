@@ -32,6 +32,10 @@ export interface ExtendInDirectionParams {
   direction?: 'left' | 'right' | 'top' | 'bottom';
 }
 
+export interface NoTransitionParams {
+  delay?: number;
+}
+
 export type DrawElement = SVGElement & {
   getTotalLength: () => number;
 };
@@ -46,7 +50,8 @@ export type TransitionParamsEnum =
   | FlyAndFadeParams
   | CrossfadeParams
   | FlyDirectionParams
-  | ExtendInDirectionParams;
+  | ExtendInDirectionParams
+  | NoTransitionParams;
 
 export type TransitionEnum =
   | 'blur'
@@ -57,7 +62,8 @@ export type TransitionEnum =
   | 'draw'
   | 'crossfade'
   | 'fly-and-fade'
-  | 'extend-in-direction';
+  | 'extend-in-direction'
+  | 'no-transition';
 
 export type TransitionWrapper = {
   transition: TransitionParamsEnum;

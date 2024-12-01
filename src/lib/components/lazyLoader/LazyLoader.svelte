@@ -5,6 +5,9 @@
 
   export let lazyLoaderProps: LazyLoaderProps = defaultLazyLoaderProps;
   export let className: string = '';
+  export let maxCount: number | null = null;
+
+  let currCount = 0;
   let container: Element;
   let showContent: boolean = false;
   let observer: IntersectionObserver;
@@ -12,7 +15,19 @@
   onMount(() => {
     observer = new IntersectionObserver(
       ([entry]) => {
-        showContent = entry.isIntersecting;
+        if (maxCount) {
+          if (currCount < maxCount) {
+            showContent = entry.isIntersecting;
+            if (showContent) {
+              currCount++;
+            }
+          } else {
+            showContent = true;
+            observer?.disconnect();
+          }
+        } else {
+          showContent = entry.isIntersecting;
+        }
       },
       { threshold: 0.1 }
     );

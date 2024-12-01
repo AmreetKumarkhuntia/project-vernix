@@ -147,21 +147,24 @@
     },
   ];
 
-  const dropDownItems: DropdownItem[] = [
+  let dropDownItems: DropdownItem[] = [
     {
       label: 'Option 1',
       id: '1',
       action: () => console.log('Option 1 selected'),
+      active: false,
     },
     {
       label: 'Option 2',
       id: '2',
       action: () => console.log('Option 2 selected'),
+      active: false,
     },
     {
       label: 'Option 3',
       id: '3',
       action: () => console.log('Option 3 selected'),
+      active: true,
     },
   ];
 
@@ -311,15 +314,7 @@
   </div>
 
   <div class="view-padding">
-    <FileUploader />
-  </div>
-
-  <div class="view-padding">
     <Code code={exampleCode} />
-  </div>
-
-  <div class="view-padding">
-    <DropDown buttonLabel={'DROPDOWN MENU'} items={dropDownItems}></DropDown>
   </div>
 
   <div class="view-padding">
@@ -327,6 +322,18 @@
       <WrapperText text="TIMELINE" />
     </Header>
     <TimeLine {events} />
+  </div>
+
+  <div class="view-padding">
+    <DropDown
+      buttonLabel={'DROPDOWN MENU'}
+      items={dropDownItems}
+      multi={true}
+    />
+  </div>
+
+  <div class="view-padding">
+    <FileUploader />
   </div>
 </div>
 
