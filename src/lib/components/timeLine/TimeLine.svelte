@@ -109,7 +109,11 @@
       class="timeline-bar-content"
       style="grid-row: row0-start / row{eventsLength}-start;"
     >
-      <LazyLoader lazyLoaderProps={barTransiton} className="timeline-bar-lazy">
+      <LazyLoader
+        lazyLoaderProps={barTransiton}
+        className="timeline-bar-lazy"
+        maxCount={1}
+      >
         <div class="timeline-bar"></div>
       </LazyLoader>
     </div>
@@ -119,7 +123,10 @@
           class="timeline-left"
           style="grid-row: row{index}-start / row{index + 1}-start;"
         >
-          <LazyLoader lazyLoaderProps={getLeftTransition(delay * (index + 1))}>
+          <LazyLoader
+            lazyLoaderProps={getLeftTransition(delay * (index + 1))}
+            maxCount={1}
+          >
             <div class="timeline-content timeline-content-left">
               <Avatar
                 src={icons.get(event.event)}
@@ -153,7 +160,10 @@
           class="timeline-right"
           style="grid-row: row{index}-start / row{index + 1}-start;"
         >
-          <LazyLoader lazyLoaderProps={getRightTransition(delay * (index + 1))}>
+          <LazyLoader
+            lazyLoaderProps={getRightTransition(delay * (index + 1))}
+            maxCount={1}
+          >
             <div class="timeline-content">
               <Avatar
                 src={icons.get(event.event)}
@@ -189,6 +199,7 @@
           <div class="timeline-date">
             <LazyLoader
               lazyLoaderProps={getRightTransition(delay * (index + 1))}
+              maxCount={1}
             >
               {event.dateStart}
               -
@@ -204,6 +215,7 @@
           <div class="timeline-date">
             <LazyLoader
               lazyLoaderProps={getLeftTransition(delay * (index + 1))}
+              maxCount={1}
             >
               {event.dateStart}
               -
@@ -307,6 +319,8 @@
     padding: var(--timeline-description-padding);
     text-align: justify;
     font-weight: var(--timeline-description-font-weight);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .timeline-description-event {
@@ -314,6 +328,8 @@
     font-size: var(--timeline-description-event-font-size);
     padding: var(--timeline-description-event-padding);
     font-weight: var(--timeline-description-event-font-weight);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .timeline-description-location {
@@ -321,6 +337,8 @@
     font-size: var(--timeline-description-location-font-size);
     padding: var(--timeline-description-location-padding);
     font-weight: var(--timeline-description-location-font-weight);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .timeline-description-position {
@@ -328,6 +346,8 @@
     font-size: var(--timeline-description-position-font-size);
     padding: var(--timeline-description-position-padding);
     font-weight: var(--timeline-description-position-font-weight);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   a.timeline-description-link {
@@ -336,6 +356,8 @@
     font-size: var(--timeline-description-link-font-size);
     padding: var(--timeline-description-link-padding);
     font-weight: var(--timeline-description-link-font-weight);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .timeline-left {
@@ -395,6 +417,32 @@
 
     .timeline-right {
       grid-column: col3-start / col4-start;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .timeline {
+      grid-template-columns:
+        [col1-start]
+        var(
+          --timeline-card-bar-width,
+          calc(
+            var(--timeline-width) - var(--timeline-date-media-width) -
+              (
+                var(--timeline-card-container-width) * 2 -
+                  var(--timeline-date-media-width)
+              )
+          )
+        )
+        [col2-start]
+        0px
+        [col3-start]
+        calc(var(--timeline-card-container-width) * 2)
+        [col4-start];
+    }
+
+    .timeline-date {
+      display: none;
     }
   }
 </style>

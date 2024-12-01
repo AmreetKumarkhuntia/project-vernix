@@ -23,6 +23,7 @@ import type {
   ExtendInDirectionParams,
   FlyAndFadeParams,
   FlyDirectionParams,
+  NoTransitionParams,
   TransitionWrapper,
 } from './types';
 
@@ -88,6 +89,17 @@ export function extendInDirection(
   };
 }
 
+export function noTransition(
+  node: Element,
+  { delay = 0 }: NoTransitionParams
+): TransitionConfig {
+  return {
+    delay,
+    duration: 0,
+    css: () => '',
+  };
+}
+
 export function performTransition(
   node: Element,
   { transition, transitionType }: TransitionWrapper
@@ -107,6 +119,8 @@ export function performTransition(
       return flyAndFade(node, transition as FlyAndFadeParams);
     case 'extend-in-direction':
       return extendInDirection(node, transition as ExtendInDirectionParams);
+    case 'no-transition':
+      return noTransition(node, transition as NoTransitionParams);
     default:
       throw new Error(`Unknown transition type: ${transitionType}`);
   }
