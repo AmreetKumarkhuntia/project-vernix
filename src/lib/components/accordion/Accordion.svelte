@@ -79,6 +79,7 @@
   .accordion-close-button {
     scale: 1.5;
     display: inline-block;
+    transform: rotate(45deg);
     transition:
       transform var(--accordion-transition-speed),
       scale var(--accordion-transition-speed);

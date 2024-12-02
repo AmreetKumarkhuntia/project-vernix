@@ -16,9 +16,10 @@
     observer = new IntersectionObserver(
       ([entry]) => {
         if (maxCount) {
+          const prevShowContent = showContent;
           if (currCount < maxCount) {
             showContent = entry.isIntersecting;
-            if (showContent) {
+            if (showContent === true && prevShowContent === false) {
               currCount++;
             }
           } else {

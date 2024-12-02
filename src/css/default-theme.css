@@ -129,7 +129,7 @@
   --accordion-content-background-color: var(--background-color);
   --accordion-width: 100%;
   --accordion-height: auto;
-  --accordion-rotation-angle: 225deg;
+  --accordion-rotation-angle: 360deg;
   --accordion-title-font-size: 16px;
   --accordion-font-size: 14px;
   --accordion-title-margin-right: 10px;
