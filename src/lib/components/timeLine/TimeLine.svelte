@@ -11,6 +11,7 @@
 
   export let timeLineProps: TimeLineProps | null = null;
   export let events: TimeLineDetails[] = [];
+  export let maxLoadTries: number = 1;
 
   const icons = timeLineProps?.icons ?? defaultTimeLineIcons;
   const eventsLength = events.length;
@@ -112,7 +113,7 @@
       <LazyLoader
         lazyLoaderProps={barTransiton}
         className="timeline-bar-lazy"
-        maxCount={1}
+        maxCount={maxLoadTries}
       >
         <div class="timeline-bar"></div>
       </LazyLoader>
@@ -125,7 +126,7 @@
         >
           <LazyLoader
             lazyLoaderProps={getLeftTransition(delay * (index + 1))}
-            maxCount={1}
+            maxCount={maxLoadTries}
           >
             <div class="timeline-content timeline-content-left">
               <Avatar
@@ -162,7 +163,7 @@
         >
           <LazyLoader
             lazyLoaderProps={getRightTransition(delay * (index + 1))}
-            maxCount={1}
+            maxCount={maxLoadTries}
           >
             <div class="timeline-content">
               <Avatar
@@ -199,7 +200,7 @@
           <div class="timeline-date">
             <LazyLoader
               lazyLoaderProps={getRightTransition(delay * (index + 1))}
-              maxCount={1}
+              maxCount={maxLoadTries}
             >
               {event.dateStart}
               -
@@ -215,7 +216,7 @@
           <div class="timeline-date">
             <LazyLoader
               lazyLoaderProps={getLeftTransition(delay * (index + 1))}
-              maxCount={1}
+              maxCount={maxLoadTries}
             >
               {event.dateStart}
               -
