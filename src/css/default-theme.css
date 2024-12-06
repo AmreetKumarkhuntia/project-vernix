@@ -47,7 +47,7 @@
   --input-border-color: var(--border-color-dark);
   --input-border-radius: 4px;
   --input-font-family: var(--global-font-family);
-  --input-primary-color: var(--primary-color);
+  --input-focus-color: var(--primary-color);
   --input-navigation-font-size: 14px;
   --input-border: 1px solid;
 

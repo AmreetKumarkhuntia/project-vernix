@@ -67,7 +67,7 @@
   }
 
   .input:focus {
-    border-color: var(--input-primary-color);
+    border-color: var(--input-focus-color);
   }
 
   .input-floating-label {
@@ -88,6 +88,6 @@
   .input:not(:placeholder-shown) + .input-floating-label {
     top: -8px;
     font-size: 12px;
-    color: var(--input-primary-color);
+    color: var(--input-focus-color);
   }
 </style>
