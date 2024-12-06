@@ -1,5 +1,6 @@
 <script lang="ts">
-  import '$css/default-theme.css';
+  // import '$css/default-theme.css';
+  import '$css/improved-theme.css';
   import 'prismjs/themes/prism-tomorrow.css';
 
   import Button from '$components/Button.svelte';
@@ -164,6 +165,18 @@
       label: 'Option 3',
       id: '3',
       action: () => console.log('Option 3 selected'),
+      active: true,
+    },
+    {
+      label: 'Option 4',
+      id: '4',
+      action: () => console.log('Option 4 selected'),
+      active: true,
+    },
+    {
+      label: 'Option 5',
+      id: '5',
+      action: () => console.log('Option 5 selected'),
       active: true,
     },
   ];

@@ -44,7 +44,5 @@
 
   ::slotted(*) {
     margin: var(--card-slot-content-margin);
-    font-size: var(--card-slot-content-font-size);
-    color: var(--card-slot-content-color);
   }
 </style>
