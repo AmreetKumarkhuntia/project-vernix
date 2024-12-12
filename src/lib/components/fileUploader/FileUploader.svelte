@@ -1,18 +1,15 @@
 <script lang="ts">
   // TODO: fix default imports for image and css to be better with animations
   import { writable } from 'svelte/store';
-  import Button from '$components/Button.svelte';
-  import InputField from '$components/InputField.svelte';
+  import Button from '../Button.svelte';
+  import InputField from '../InputField.svelte';
   import {
     defaultFileUploaderProps,
     defaultInListItemTransition,
     defaultOutListItemTransition,
     type FileUploaderProps,
   } from './props';
-  import {
-    performTransition,
-    type TransitionWrapper,
-  } from '$components/transitions';
+  import { performTransition, type TransitionWrapper } from '../transitions';
 
   export let fileUploaderProps: FileUploaderProps = defaultFileUploaderProps;
   export let uploadFile: (file: FileList[]) => void = (file: FileList[]) => {

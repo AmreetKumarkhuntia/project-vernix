@@ -17,7 +17,7 @@
     defaultOutTransition,
     type CodeProps,
   } from './props';
-  import { performTransition } from '$components/transitions';
+  import { performTransition } from '../transitions';
   onMount(() => {
     formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
   });

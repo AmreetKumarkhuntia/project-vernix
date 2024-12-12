@@ -1,4 +1,4 @@
-import { headerIcon, profileIcon } from '$lib/constants/staticIcons';
+import { headerIcon, profileIcon } from '../../constants/staticIcons';
 
 export type NavigationOptions = {
   id: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { performTransition } from '$components/transitions';
+  import { performTransition } from '../transitions';
   import { defaultModalProps, type ModalProps } from './props';
 
   export let isOpen: boolean = false;

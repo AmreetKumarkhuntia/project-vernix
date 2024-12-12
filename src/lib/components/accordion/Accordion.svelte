@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { extendInDirection, fly } from '$components/transitions';
+  import { extendInDirection } from '../transitions';
   import { defaultAccordionProps, type AccordionProps } from './props';
 
   export let isClose: boolean = true;

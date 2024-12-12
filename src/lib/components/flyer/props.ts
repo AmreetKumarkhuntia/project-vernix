@@ -1,4 +1,4 @@
-import type { TransitionWrapper } from '$components/transitions';
+import type { TransitionWrapper } from '../transitions';
 
 export const defaultInTransition: TransitionWrapper = {
   transition: { x: 40, duration: 400 },
