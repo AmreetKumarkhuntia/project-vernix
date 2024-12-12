@@ -1,13 +1,13 @@
 <script lang="ts">
-  import LazyLoader from '$components/lazyLoader/LazyLoader.svelte';
-  import type { LazyLoaderProps } from '$components/lazyLoader/props';
+  import LazyLoader from '../lazyLoader/LazyLoader.svelte';
+  import type { LazyLoaderProps } from '../lazyLoader/props';
   import { sineIn } from 'svelte/easing';
   import {
     defaultTimeLineIcons,
     type TimeLineDetails,
     type TimeLineProps,
   } from './props';
-  import Avatar from '$components/avatar/Avatar.svelte';
+  import Avatar from '../avatar/Avatar.svelte';
 
   export let timeLineProps: TimeLineProps | null = null;
   export let events: TimeLineDetails[] = [];

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Button from '$components/Button.svelte';
+  import Button from '../Button.svelte';
   import { onMount } from 'svelte';
   import type { DropdownItem } from './props';
-  import { extendInDirection } from '$components/transitions';
+  import { extendInDirection } from '../transitions';
 
   export let items: DropdownItem[] = [];
   export let buttonLabel: string = 'Menu';

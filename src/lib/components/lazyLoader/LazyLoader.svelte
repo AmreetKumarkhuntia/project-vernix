@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { defaultLazyLoaderProps, type LazyLoaderProps } from './props';
-  import { performTransition } from '$components/transitions';
+  import { performTransition } from '../transitions';
 
   export let lazyLoaderProps: LazyLoaderProps = defaultLazyLoaderProps;
   export let className: string = '';

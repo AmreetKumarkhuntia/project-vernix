@@ -1,4 +1,4 @@
-import type { TransitionWrapper } from '$components/transitions';
+import type { TransitionWrapper } from '../transitions';
 
 export type CodeProps = {
   copiedIcon: string;
