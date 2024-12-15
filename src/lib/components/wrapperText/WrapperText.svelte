@@ -143,7 +143,7 @@
     animation: wrapper-text-roll-up var(--wrapper-text-animation-duration)
       var(--wrapper-text-animation-ease) forwards;
     animation-delay: calc(
-      var(--wrapper-text-initial-animation-delay, 0) +
+      var(--wrapper-text-initial-animation-delay, 0.1s) +
         var(--wrapper-text-char-index) * var(--wrapper-text-animation-delay)
     );
   }

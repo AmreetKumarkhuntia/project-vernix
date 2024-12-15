@@ -1,6 +1,7 @@
 <script lang="ts">
   export let src: string = '';
   export let alt: string = 'User Avatar';
+  export let dataType: 'image' | 'svg' | 'user' = 'image';
   export let size: string = '50px';
   export let onClick: (e: MouseEvent, elementType: string) => void = () => {};
   export let smallSize = '16px';
@@ -46,7 +47,7 @@
   }
 </script>
 
-{#if src}
+{#if src && dataType === 'image'}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -57,6 +58,16 @@
     style="--avatar-size: {size}; --avatar-size-media: {smallSize};"
     on:click={(e) => handleClick(e, 'image')}
   />
+{:else if dataType === 'svg'}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div
+    class="avatar"
+    style="--avatar-size: {size}; --avatar-bg-color: {backgroundColor}; --avatar-size-media: {smallSize};"
+    on:click={(e) => handleClick(e, 'letter')}
+  >
+    <slot />
+  </div>
 {:else}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
