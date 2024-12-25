@@ -13,8 +13,8 @@
 
   import { writable } from 'svelte/store';
   import { headerIcon, profileIcon } from '$lib/constants/staticIcons';
-  import type { BreadcrumbItem } from '$components/breadcrumbs/props';
-  import BreadCrumbs from '$components/breadcrumbs/BreadCrumbs.svelte';
+  import type { BreadcrumbItem } from '$components/breadCrumbs/props';
+  import BreadCrumbs from '$components/breadCrumbs/BreadCrumbs.svelte';
   import Header from '$components/Header.svelte';
   import Modal from '$components/modal/Modal.svelte';
   import Accordion from '$components/accordion/Accordion.svelte';

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Navbar from './Navbar.svelte';
   import type { NavbarAlignment, NavigationOptions } from './props';
 
   export let navbarAlignment: NavbarAlignment = 'horizontal';

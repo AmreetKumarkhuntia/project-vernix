@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Prism from 'prismjs';
+  import * as Prism from 'prismjs';
 
   export let code: string = '';
   export let lang: string = 'javascript';

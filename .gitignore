@@ -5,7 +5,8 @@ node_modules
 .vercel
 /.svelte-kit
 /build
-
+/npm-publish
+/dist
 # OS
 .DS_Store
 Thumbs.db
