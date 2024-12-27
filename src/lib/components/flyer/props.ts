@@ -13,14 +13,14 @@ export const defaultOutTransition: TransitionWrapper = {
 export const defaultDescription: string = 'No description to show';
 
 export type FlyerType = 'alert' | 'summary' | 'warning' | 'success' | 'custom';
-export type FylerPosition =
+export type FlyerPosition =
   | 'top-right'
   | 'bottom-right'
   | 'top-left'
   | 'bottom-left';
 
 export type FlyerProps = {
-  position: FylerPosition;
+  position: FlyerPosition;
   flyerType: FlyerType | null;
   title: string | null;
   duration: number;
