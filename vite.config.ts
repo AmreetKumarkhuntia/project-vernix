@@ -11,6 +11,7 @@ export default {
     adapter: adapter(),
     resolve: {
       alias: {
+        $lib: path.resolve('./src/lib'),
         $configuration: path.resolve('./src/lib/configuration'),
         $utils: path.resolve('./src/lib/utils'),
         $server: path.resolve('./src/lib/server'),
