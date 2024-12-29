@@ -21,6 +21,7 @@ export * from './components/transitions';
 
 //TYPES EXPORT
 export type { AccordionProps } from './components/accordion/props';
+export type { AvatarDataType } from './components/avatar/props';
 export type { BreadcrumbItem } from './components/breadCrumbs/props';
 export type { CodeProps } from './components/code/props';
 export type { DropdownItem } from './components/dropDown/props';

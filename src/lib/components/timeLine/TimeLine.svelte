@@ -133,6 +133,7 @@
                 src={icons.get(event.event)}
                 size={'40px'}
                 smallSize={'32px'}
+                dataType={event.iconDataType ?? 'image'}
               />
               <div
                 class="timeline-description-card timeline-description-card-left"
@@ -170,6 +171,7 @@
                 src={icons.get(event.event)}
                 size={'40px'}
                 smallSize={'32px'}
+                dataType={event.iconDataType ?? 'image'}
               />
               <div class="timeline-description-card">
                 <div class="timeline-description-event">{event.event}</div>
