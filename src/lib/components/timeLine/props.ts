@@ -1,3 +1,5 @@
+import type { AvatarDataType } from '../avatar/props';
+
 export type TimeLineEventType = 'work' | 'education';
 export type TimeLineDetailsAlignment = 'left' | 'right';
 
@@ -11,6 +13,7 @@ export type TimeLineDetails = {
   event: TimeLineEventType | string;
   location: string;
   link: string | null;
+  iconDataType?: AvatarDataType | null;
 };
 
 export type TimeLineProps = {

@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { AvatarDataType } from './props';
+
   export let src: string = '';
   export let alt: string = 'User Avatar';
-  export let dataType: 'image' | 'svg' | 'user' = 'image';
+  export let dataType: AvatarDataType = 'image';
   export let size: string = '50px';
   export let onClick: (e: MouseEvent, elementType: string) => void = () => {};
   export let smallSize = '16px';
