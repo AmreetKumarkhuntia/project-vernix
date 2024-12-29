@@ -1,3 +1,5 @@
+// TODO: export icons also in vergins/icons
+
 export { default as Accordion } from './components/accordion/Accordion.svelte';
 export { default as Avatar } from './components/avatar/Avatar.svelte';
 export { default as Breadcrumbs } from './components/breadCrumbs/BreadCrumbs.svelte';
@@ -16,6 +18,7 @@ export { default as WrapperText } from './components/wrapperText/WrapperText.sve
 export { default as Button } from './components/Button.svelte';
 export { default as Header } from './components/Header.svelte';
 export { default as InputField } from './components/InputField.svelte';
+export { default as Carousal } from './components/carousel/Carousel.svelte';
 
 export * from './components/transitions';
 

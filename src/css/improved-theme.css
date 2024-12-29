@@ -164,6 +164,23 @@
   --card-height: 200px;
   --card-margin: 72px;
 
+  /* Carousel */
+  --carousel-width: 720px;
+  --carousel-height: 400px;
+
+  --carousel-button-bg: transparent;
+  --carousel-button-hover-bg: transparent;
+  --carousel-button-border-radius: 50%;
+  --carousel-button-padding: 5px;
+  --carousel-button-border: none;
+  --carousel-button-transition: 0.3s ease;
+  --carousel-button-width: 30px;
+  --carousel-button-height: 30px;
+
+  --carousel-slide-width: 720px;
+  --carousel-slide-height: 100%;
+  --carousel-slide-transition: 0.5s ease-in-out;
+
   /* Code Block */
   --code-width: 60vw;
   --code-height: 720px;
@@ -392,4 +409,14 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.carousel-slide {
+  width: var(--carousel-slide-width);
+  height: var(--carousel-slide-height);
+}
+
+svg {
+  fill: black;
+  stroke: black;
 }

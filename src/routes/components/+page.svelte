@@ -3,9 +3,26 @@
   import '$css/improved-theme.css';
   import 'prismjs/themes/prism-tomorrow.css';
 
-  import Button from '$components/Button.svelte';
-  import InputField from '$components/InputField.svelte';
-  import Navbar from '$components/navbar/Navbar.svelte';
+  import {
+    Button,
+    InputField,
+    Navbar,
+    Breadcrumbs,
+    Header,
+    Modal,
+    Accordion,
+    Flyer,
+    WrapperText,
+    LazyLoader,
+    Avatar,
+    Card,
+    ProgressBar,
+    FileUploader,
+    Code,
+    TimeLine,
+    DropDown,
+    Carousal,
+  } from '$lib/index';
   import type {
     NavbarProps,
     NavigationOptions,
@@ -14,25 +31,11 @@
   import { writable } from 'svelte/store';
   import { headerIcon, profileIcon } from '$lib/constants/staticIcons';
   import type { BreadcrumbItem } from '$components/breadCrumbs/props';
-  import BreadCrumbs from '$components/breadCrumbs/BreadCrumbs.svelte';
-  import Header from '$components/Header.svelte';
-  import Modal from '$components/modal/Modal.svelte';
-  import Accordion from '$components/accordion/Accordion.svelte';
-  import Flyer from '$components/flyer/Flyer.svelte';
-  import WrapperText from '$components/wrapperText/WrapperText.svelte';
-  import LazyLoader from '$components/lazyLoader/LazyLoader.svelte';
-  import Avatar from '$components/avatar/Avatar.svelte';
-  import Card from '$components/card/Card.svelte';
-  import ProgressBar from '$components/progressBar/ProgressBar.svelte';
-  import FileUploader from '$components/fileUploader/FileUploader.svelte';
-  import Code from '$components/code/Code.svelte';
   import type {
     TimeLineDetails,
     TimeLineEventType,
   } from '$components/timeLine/props';
-  import TimeLine from '$components/timeLine/TimeLine.svelte';
   import type { DropdownItem } from '$components/dropDown/props';
-  import DropDown from '$components/dropDown/DropDown.svelte';
 
   let inputValue = writable('');
   let showFlyer = false;
@@ -243,7 +246,7 @@
     <Navbar navbarProps={demoNavbarProps} navbarAlignment="vertical" />
   </div>
   <div class="view-padding">
-    <BreadCrumbs items={demoBreadcrumbItems} />
+    <Breadcrumbs items={demoBreadcrumbItems} />
   </div>
 
   <div class="view-padding">
@@ -360,6 +363,37 @@
 
   <div class="view-padding">
     <FileUploader />
+  </div>
+
+  <div class="view-padding">
+    <Carousal length={3}>
+      <div class="carousel-slide">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <div class="carousel-slide">
+        <p>
+          Nulla facilisi. Aenean nec eros ut orci lobortis tempor. Aliquam erat
+          volutpat. Nulla at auctor purus, a suscipit risus. Etiam euismod velit
+          a sem condimentum, sit amet tincidunt enim luctus. Integer scelerisque
+          orci non leo tempus, id lobortis nunc sollicitudin.
+        </p>
+      </div>
+
+      <div class="carousel-slide">
+        <p>
+          Vestibulum congue nisi sit amet viverra. Curabitur convallis, nulla ac
+          vehicula feugiat, odio justo gravida nulla, nec tempor erat odio id
+          neque. Nulla vitae lectus eget elit ullamcorper maximus id ac risus.
+          Morbi et mauris non sapien tincidunt vulputate a in erat.
+        </p>
+      </div>
+    </Carousal>
   </div>
 </div>
 
