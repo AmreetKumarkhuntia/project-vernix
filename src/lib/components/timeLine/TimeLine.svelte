@@ -129,12 +129,18 @@
             maxCount={maxLoadTries}
           >
             <div class="timeline-content timeline-content-left">
-              <Avatar
-                src={icons.get(event.event)}
-                size={'40px'}
-                smallSize={'32px'}
-                dataType={event.iconDataType ?? 'image'}
-              />
+              {#if event.iconDataType === 'svg'}
+                <Avatar size={'40px'} smallSize={'32px'} dataType={'svg'}>
+                  {@html icons.get(event.event)}
+                </Avatar>
+              {:else}
+                <Avatar
+                  src={icons.get(event.event)}
+                  size={'40px'}
+                  smallSize={'32px'}
+                  dataType={event.iconDataType ?? 'image'}
+                />
+              {/if}
               <div
                 class="timeline-description-card timeline-description-card-left"
               >
@@ -167,12 +173,19 @@
             maxCount={maxLoadTries}
           >
             <div class="timeline-content">
-              <Avatar
-                src={icons.get(event.event)}
-                size={'40px'}
-                smallSize={'32px'}
-                dataType={event.iconDataType ?? 'image'}
-              />
+              <!-- TODO: move sizes etc to props -->
+              {#if event.iconDataType === 'svg'}
+                <Avatar size={'40px'} smallSize={'32px'} dataType={'svg'}>
+                  {@html icons.get(event.event)}
+                </Avatar>
+              {:else}
+                <Avatar
+                  src={icons.get(event.event)}
+                  size={'40px'}
+                  smallSize={'32px'}
+                  dataType={event.iconDataType ?? 'image'}
+                />
+              {/if}
               <div class="timeline-description-card">
                 <div class="timeline-description-event">{event.event}</div>
                 <div class="timeline-description-position">
