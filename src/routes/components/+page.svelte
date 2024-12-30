@@ -347,9 +347,6 @@
   </div>
 
   <div class="view-padding">
-    <Header hLevel={2}>
-      <WrapperText text="TIMELINE" />
-    </Header>
     <TimeLine {events} />
   </div>
 

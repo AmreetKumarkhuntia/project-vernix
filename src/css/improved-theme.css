@@ -167,9 +167,9 @@
   /* Carousel */
   --carousel-width: 720px;
   --carousel-height: 400px;
+  --carousel-border-radius: 16px;
 
   --carousel-button-bg: transparent;
-  --carousel-button-hover-bg: transparent;
   --carousel-button-border-radius: 50%;
   --carousel-button-padding: 5px;
   --carousel-button-border: none;
@@ -177,9 +177,19 @@
   --carousel-button-width: 30px;
   --carousel-button-height: 30px;
 
+  --carousel-button-hover-bg: transparent;
+  --carousel-button-hover-transform: scale(1.25);
+
+  --carousel-container-transition: 0.5s ease-in-out;
+  --carousel-container-transform: skew(1deg, 1deg);
+  --carousel-container-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  --carousel-container-shadow-hover-color: 0, 0, 0;
+
+  --carousel-slides-bg-color: var(--color-baby-blue);
+  --carousel-slide-padding: 16px;
   --carousel-slide-width: 720px;
   --carousel-slide-height: 100%;
-  --carousel-slide-transition: 0.5s ease-in-out;
+  --carousel-slide-transition: 0.1s ease-in-out;
 
   /* Code Block */
   --code-width: 60vw;
@@ -414,6 +424,7 @@ body {
 .carousel-slide {
   width: var(--carousel-slide-width);
   height: var(--carousel-slide-height);
+  padding: var(--carousel-slide-padding);
 }
 
 svg {
