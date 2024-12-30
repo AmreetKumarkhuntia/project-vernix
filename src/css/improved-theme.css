@@ -13,6 +13,7 @@
   --color-blue: #2e8bc0;
   --color-light-slate-blue: #7aa0c4;
   --color-baby-blue: #b1d4e0;
+  --color-baby-blue-light: #b1d4e0c4;
   --color-powder-blue: #b0e0e6;
   --color-ice-blue: #d8f3f849;
   --color-ice-blue-dark: #cdf7ffa2;
@@ -167,9 +168,9 @@
   /* Carousel */
   --carousel-width: 720px;
   --carousel-height: 400px;
+  --carousel-border-radius: 16px;
 
   --carousel-button-bg: transparent;
-  --carousel-button-hover-bg: transparent;
   --carousel-button-border-radius: 50%;
   --carousel-button-padding: 5px;
   --carousel-button-border: none;
@@ -177,6 +178,17 @@
   --carousel-button-width: 30px;
   --carousel-button-height: 30px;
 
+  --carousel-button-hover-bg: transparent;
+  --carousel-button-hover-transform: scale(1.25);
+
+  --carousel-container-border: 1px solid var(--color-baby-blue-light);
+  --carousel-container-transition: 0.2s ease-in-out;
+  --carousel-container-transform: skew(1deg, 1deg);
+  --carousel-container-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  --carousel-container-shadow-hover-color: 0, 0, 0;
+
+  --carousel-slides-bg-color: var(--color-baby-blue);
+  --carousel-slide-padding: 16px;
   --carousel-slide-width: 720px;
   --carousel-slide-height: 100%;
   --carousel-slide-transition: 0.5s ease-in-out;
@@ -414,6 +426,7 @@ body {
 .carousel-slide {
   width: var(--carousel-slide-width);
   height: var(--carousel-slide-height);
+  padding: var(--carousel-slide-padding);
 }
 
 svg {

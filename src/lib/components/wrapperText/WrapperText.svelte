@@ -7,25 +7,33 @@
 
   let container: Element;
   let observer: IntersectionObserver;
+  let observerInitiated: boolean = false;
   let isShowable: boolean = false;
   const wrapFrom = wrapperTextProps.wrapFrom;
   const isWrapOnLoadEnabled = wrapperTextProps.enableWrapOnLoad;
   const isHoverGlitchedEnabled = wrapperTextProps.enableHoverGlitch;
+
+  /**
+   * TODO: handle the logic for observation when wrapped
+   * in another if logic or else logic
+   */
 
   onMount(() => {
     if (wrapFrom === 'none') {
       isShowable = true;
       return;
     }
-
-    if (isWrapOnLoadEnabled) {
+    isShowable = true;
+    if (isWrapOnLoadEnabled && !observerInitiated) {
       observer = new IntersectionObserver(
         ([entry]) => {
-          isShowable = entry.isIntersecting;
+          const isIntersecting = entry?.isIntersecting ?? false;
+          isShowable = isIntersecting;
         },
-        { threshold: 0.1 }
+        { threshold: [0, 0.1, 1] }
       );
       observer.observe(container);
+      observerInitiated = true;
     }
   });
 
@@ -67,6 +75,8 @@
     display: var(--wrapper-text-container-display);
     overflow: hidden;
     white-space: nowrap;
+    width: 100%;
+    height: 100%;
   }
 
   .wrapper-text-char {

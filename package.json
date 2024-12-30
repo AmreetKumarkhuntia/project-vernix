@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -19,7 +19,7 @@
     "css"
   ],
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --port 5174",
     "package": "svelte-kit sync && svelte-package && publint",
     "build": "vite build && npm run package",
     "format": "npx prettier --write .",
