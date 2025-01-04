@@ -3,7 +3,11 @@
   import Previous from '../icons/Previous.svelte';
 
   export let length: number = 0;
-  export let hoverAngle: number = 2;
+  export let hoverAngle: number = 20;
+  export let hoverShadowDisplacement: number = 20;
+  export let shadowBlur: number = 30;
+  export let shadowIntensity: number = 0.3;
+
   let hoverDiv: HTMLElement;
 
   let currentIndex: number = 0;
@@ -21,19 +25,19 @@
     const mouseY = e.offsetY;
     const width = hoverDiv.offsetWidth;
     const height = hoverDiv.offsetHeight;
+    const xMul = mouseY / height;
+    const yMul = mouseX / width;
 
-    let rotateX = (mouseY / height) * 2 * hoverAngle - hoverAngle;
-    let rotateY = (mouseX / width) * 2 * hoverAngle - hoverAngle;
+    let rotateX = (0.5 - xMul) * hoverAngle;
+    let rotateY = (yMul - 0.5) * hoverAngle;
+    let shadowX = (0.5 - xMul) * hoverShadowDisplacement;
+    let shadowY = (0.5 - yMul) * hoverShadowDisplacement;
 
     rotateX = Math.max(Math.min(rotateX, hoverAngle), -1 * hoverAngle);
     rotateY = Math.max(Math.min(rotateY, hoverAngle), -1 * hoverAngle);
 
-    const shadowBlur = 20 + (mouseX / width) * 30;
-    const shadowIntensity = 0.3 + (mouseX / width) * 0.3;
-
-    // TODO: correct this transform
-    hoverDiv.style.transform = `skewX(${rotateX}deg) skewY(${rotateY}deg)`;
-    hoverDiv.style.boxShadow = `0 10px ${shadowBlur}px rgba(var(--carousel-container-shadow-hover-color) , ${shadowIntensity})`;
+    hoverDiv.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3D(1,1,1)`;
+    hoverDiv.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(var(--carousel-container-shadow-hover-color) , ${shadowIntensity})`;
   }
 
   function onMouseLeave() {
@@ -47,17 +51,14 @@
     <Previous />
   </button>
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div
-    class="carousel-container"
-    on:mousemove={onMouseMove}
-    on:mouseleave={onMouseLeave}
-    bind:this={hoverDiv}
-  >
-    <div
-      class="carousel-slides"
-      style="transform: translateX(calc( (-1) * var(--carousel-slide-width) * {currentIndex})); width: calc({length} * var(--carousel-slide-width));"
-    >
-      <slot />
+  <div on:mousemove={onMouseMove} on:mouseleave={onMouseLeave}>
+    <div class="carousel-container" bind:this={hoverDiv}>
+      <div
+        class="carousel-slides"
+        style="transform: translateX(calc( (-1) * var(--carousel-slide-width) * {currentIndex})); width: calc({length} * var(--carousel-slide-width));"
+      >
+        <slot />
+      </div>
     </div>
   </div>
 
