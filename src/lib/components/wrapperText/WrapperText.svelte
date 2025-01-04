@@ -75,7 +75,7 @@
     display: var(--wrapper-text-container-display);
     overflow: hidden;
     white-space: nowrap;
-    width: 100%;
+    width: var(--wrapper-text-container-width);
     height: 100%;
   }
 
