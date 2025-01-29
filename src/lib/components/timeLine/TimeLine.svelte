@@ -104,7 +104,7 @@
   };
 </script>
 
-{#if eventsLength > 0}
+n{#if eventsLength > 0}
   <div class="timeline" style="grid-template-rows: {calculateAlignment()}">
     <div
       class="timeline-bar-content"
@@ -152,7 +152,7 @@
                   {event.location}
                 </div>
                 <div class="timeline-description">
-                  {event.description}
+                  {@html event.description}
                 </div>
                 {#if event.link !== null}
                   <a class="timeline-description-link" href={event.link}
