@@ -12,6 +12,7 @@
   export let timeLineProps: TimeLineProps | null = null;
   export let events: TimeLineDetails[] = [];
   export let maxLoadTries: number = 1;
+  export let shouldUsePositionForIcons: boolean = false;
 
   const icons = timeLineProps?.icons ?? defaultTimeLineIcons;
   const eventsLength = events.length;
@@ -131,11 +132,17 @@ n{#if eventsLength > 0}
             <div class="timeline-content timeline-content-left">
               {#if event.iconDataType === 'svg'}
                 <Avatar size={'40px'} smallSize={'32px'} dataType={'svg'}>
-                  {@html icons.get(event.event)}
+                  {#if shouldUsePositionForIcons}
+                    {@html icons.get(event.position)}
+                  {:else}
+                    {@html icons.get(event.event)}
+                  {/if}
                 </Avatar>
               {:else}
                 <Avatar
-                  src={icons.get(event.event)}
+                  src={shouldUsePositionForIcons === false
+                    ? icons.get(event.event)
+                    : icons.get(event.position)}
                   size={'40px'}
                   smallSize={'32px'}
                   dataType={event.iconDataType ?? 'image'}
@@ -176,11 +183,17 @@ n{#if eventsLength > 0}
               <!-- TODO: move sizes etc to props -->
               {#if event.iconDataType === 'svg'}
                 <Avatar size={'40px'} smallSize={'32px'} dataType={'svg'}>
-                  {@html icons.get(event.event)}
+                  {#if shouldUsePositionForIcons}
+                    {@html icons.get(event.position)}
+                  {:else}
+                    {@html icons.get(event.event)}
+                  {/if}
                 </Avatar>
               {:else}
                 <Avatar
-                  src={icons.get(event.event)}
+                  src={shouldUsePositionForIcons === false
+                    ? icons.get(event.event)
+                    : icons.get(event.position)}
                   size={'40px'}
                   smallSize={'32px'}
                   dataType={event.iconDataType ?? 'image'}
@@ -195,7 +208,7 @@ n{#if eventsLength > 0}
                   {event.location}
                 </div>
                 <div class="timeline-description">
-                  {event.description}
+                  {@html event.description}
                 </div>
                 {#if event.link !== null}
                   <a class="timeline-description-link" href={event.link}
