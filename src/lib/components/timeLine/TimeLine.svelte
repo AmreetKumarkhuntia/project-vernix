@@ -105,7 +105,7 @@
   };
 </script>
 
-n{#if eventsLength > 0}
+{#if eventsLength > 0}
   <div class="timeline" style="grid-template-rows: {calculateAlignment()}">
     <div
       class="timeline-bar-content"
