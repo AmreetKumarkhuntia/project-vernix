@@ -58,6 +58,7 @@
     width: 100%;
     padding: var(--input-padding);
     height: var(--input-height);
+    color: var(--input-font-color);
     border: var(--input-border) var(--input-border-color);
     border-radius: var(--input-border-radius);
     font-family: var(--input-font-family);
