@@ -57,6 +57,7 @@
   .input {
     width: 100%;
     padding: var(--input-padding);
+    height: var(--input-height);
     border: var(--input-border) var(--input-border-color);
     border-radius: var(--input-border-radius);
     font-family: var(--input-font-family);
