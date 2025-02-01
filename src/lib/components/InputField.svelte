@@ -34,6 +34,14 @@
       class="input"
       placeholder=" "
     />
+  {:else if type === 'textarea'}
+    <textarea
+      bind:value
+      on:input={onInput}
+      on:change={onChange}
+      class="input"
+      placeholder=" "
+    />
   {:else}
     <input
       type="text"
@@ -74,8 +82,8 @@
 
   .input-floating-label {
     position: absolute;
-    left: 12px;
-    top: 50%;
+    left: var(--input-label-left, 12px);
+    top: var(--input-label-top, 50%);
     transform: translateY(-50%);
     font-size: var(--input-navigation-font-size);
     color: var(--input-border-color);

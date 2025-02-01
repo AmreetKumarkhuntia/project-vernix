@@ -54,7 +54,7 @@
   };
 
   const handleFlyerClose = () => {
-    showFlyer = false;
+    // showFlyer = false;
   };
 
   const handleInput = (e: Event) => {
@@ -224,7 +224,7 @@
     <Header hLevel={4}>My Modal Title</Header>
     <p>This is the content of the modal.</p>
   </Modal>
-  <Flyer isVisible={showFlyer} onClose={handleFlyerClose}>
+  <Flyer bind:isVisible={showFlyer} onClose={handleFlyerClose}>
     Success flyer shown to user.
   </Flyer>
 
@@ -402,6 +402,8 @@
     padding: 2%;
     padding-left: 0px;
     padding-right: 0px;
+
+    --input-height: 220px;
     width: 100%;
 
     display: flex;
