@@ -73,8 +73,6 @@
 <style>
   .wrapper-text-container {
     display: var(--wrapper-text-container-display);
-    overflow: hidden;
-    white-space: nowrap;
     width: var(--wrapper-text-container-width);
     height: 100%;
   }

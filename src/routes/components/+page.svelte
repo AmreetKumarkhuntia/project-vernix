@@ -22,6 +22,7 @@
     TimeLine,
     DropDown,
     Carousal,
+    type FlyerProps,
   } from '$lib/index';
   import type {
     NavbarProps,
@@ -38,8 +39,17 @@
   import type { DropdownItem } from '$components/dropDown/props';
 
   let inputValue = writable('');
-  let showFlyer = false;
-  let showModal = false;
+  let showFlyer: boolean = false;
+  let showModal: boolean = false;
+  let flyerProps: FlyerProps = {
+    position: 'bottom-right',
+    flyerType: 'summary',
+    title: null,
+    duration: 3000,
+    flyerLeftImage: null,
+    inTransition: null,
+    outTransition: null,
+  };
 
   const openModal = () => {
     showModal = true;
@@ -49,12 +59,21 @@
     showFlyer = true;
   };
 
-  const handleModalClose = () => {
-    showModal = false;
+  const openFlyer2 = () => {
+    flyerProps = {
+      position: 'top-right',
+      flyerType: 'warning',
+      title: null,
+      duration: 3000,
+      flyerLeftImage: null,
+      inTransition: null,
+      outTransition: null,
+    };
+    showFlyer = true;
   };
 
-  const handleFlyerClose = () => {
-    // showFlyer = false;
+  const handleModalClose = () => {
+    showModal = false;
   };
 
   const handleInput = (e: Event) => {
@@ -224,9 +243,9 @@
     <Header hLevel={4}>My Modal Title</Header>
     <p>This is the content of the modal.</p>
   </Modal>
-  <Flyer bind:isVisible={showFlyer} onClose={handleFlyerClose}>
-    Success flyer shown to user.
-  </Flyer>
+  <Flyer bind:isVisible={showFlyer} {flyerProps}
+    >Success flyer shown to user.</Flyer
+  >
 
   <div class="view-padding">
     <p>{$inputValue}</p>
@@ -238,6 +257,7 @@
     <Button onClick={handleButtonClick} size={'large'}>Greet Me</Button>
     <Button onClick={openModal} size={'large'}>Open Modal</Button>
     <Button onClick={openFlyer} size={'large'}>Show Flyer</Button>
+    <Button onClick={openFlyer2} size={'large'}>Show Flyer 2</Button>
   </div>
   <div class="view-padding">
     <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
@@ -308,7 +328,7 @@
     </Avatar>
   </div>
 
-  <div>
+  <div class="view-padding">
     <ProgressBar />
   </div>
 
@@ -396,15 +416,21 @@
 
 <style>
   .view-components {
+    width: 90%;
     padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
+
   .view-padding {
     padding: 2%;
     padding-left: 0px;
     padding-right: 0px;
 
     --input-height: 220px;
-    width: 100%;
+    width: 80%;
 
     display: flex;
     justify-content: space-evenly;
