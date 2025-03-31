@@ -12,47 +12,50 @@
   export let flyerProps: FlyerProps = defaultFlyerProps;
   export let onClose: () => void = () => {};
 
-  const flyerType = flyerProps.flyerType;
-  const clearDuration = flyerProps.duration ?? 3000;
-  const position = flyerProps.position;
-  const title = flyerProps.title ?? flyerType;
-  const inTransition = flyerProps.inTransition ?? defaultInTransition;
-  const outTransition = flyerProps.outTransition ?? defaultOutTransition;
-  const imageUrl = flyerProps.flyerLeftImage;
-
   let timer: NodeJS.Timeout | null = null;
 
   $: if (isVisible) {
-    timer = setTimeout(closeFlyer, clearDuration);
+    timer = setTimeout(() => {
+      closeFlyer();
+      timer = null;
+    }, flyerProps.duration ?? 3000);
   }
 
   function closeFlyer() {
     isVisible = false;
     onClose();
+    if (timer) {
+      clearTimeout(timer);
+    }
   }
 
   onDestroy(() => {
+    isVisible = false;
     if (timer) {
       clearTimeout(timer);
     }
   });
 </script>
 
+<!-- svelte-ignore a11y-img-redundant-alt -->
 {#if isVisible}
   <div
-    class="flyer {position} {flyerType}"
-    in:performTransition={inTransition}
-    out:performTransition={outTransition}
+    class="flyer {flyerProps.position} {flyerProps.flyerType}"
+    in:performTransition={flyerProps.inTransition ?? defaultInTransition}
+    out:performTransition={flyerProps.outTransition ?? defaultOutTransition}
   >
     <button class="flyer-close" on:click={closeFlyer}>×</button>
 
-    {#if imageUrl}
-      <!-- svelte-ignore a11y-img-redundant-alt -->
-      <img src={imageUrl} alt="Flyer Image" class="flyer-image" />
+    {#if flyerProps.flyerLeftImage}
+      <img
+        src={flyerProps.flyerLeftImage}
+        alt="Flyer Image"
+        class="flyer-image"
+      />
     {/if}
 
     <div class="flyer-content">
-      <div class="flyer-title">{title}</div>
+      <div class="flyer-title">{flyerProps.title ?? flyerProps.flyerType}</div>
     </div>
 
     <div class="flyer-description">
