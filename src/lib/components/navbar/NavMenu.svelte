@@ -13,21 +13,26 @@
   }
 </script>
 
-<div class={`navbar-menu ${navbarAlignment}`}>
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<nav class={`navbar-menu ${navbarAlignment}`} aria-label="Secondary navigation">
   {#each navigationOptions as navigationOption}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
       class={`navbar-item ${activeTabId === navigationOption.id ? 'active' : ''}`}
       on:click={() => handleNavigationEvent(navigationOption)}
+      on:keydown={(e) =>
+        e.key === 'Enter' || e.key === ' '
+          ? handleNavigationEvent(navigationOption)
+          : null}
+      aria-current={activeTabId === navigationOption.id ? 'page' : undefined}
     >
       <div>{navigationOption.title}</div>
       <div
         class={`navbar-underline ${activeTabId === navigationOption.id ? 'active' : ''}`}
+        aria-hidden="true"
       ></div>
     </div>
   {/each}
-</div>
+</nav>
 
 <style>
   .navbar-menu {

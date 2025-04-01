@@ -43,9 +43,16 @@ flowchart TD
    - Two theme options (default/improved)
 
 3. **Composition Pattern**
+
    - Complex components built from simples ones
    - Example: Navbar uses NavMenu
    - Example: Card uses Button
+
+4. **Semantic Navigation Pattern**
+   - Navbar and NavMenu use semantic `nav` elements
+   - Navigation items use `button` elements
+   - ARIA labels for screen reader support
+   - Keyboard navigation support
 
 ## Data Flow
 
@@ -53,4 +60,4 @@ flowchart TD
 - No global state management
 - Event dispatch for interactions
 
-Last Updated: 2025-03-31
+Last Updated: 4/1/2025
