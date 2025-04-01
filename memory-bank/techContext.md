@@ -6,6 +6,7 @@
 - **TypeScript**: 5.0.0 (Static typing)
 - **Vite**: 5.0.3 (Build tool)
 - **SvelteKit**: 2.0.0 (Application framework)
+- **Transitions**: 1.0.0 (Animation system)
 
 ## Build System
 

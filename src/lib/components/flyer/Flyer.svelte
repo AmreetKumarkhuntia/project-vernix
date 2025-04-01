@@ -1,24 +1,56 @@
 <script lang="ts">
-  import { performTransition } from '../transitions';
-  import { onDestroy } from 'svelte';
-  import {
-    defaultFlyerProps,
-    defaultInTransition,
-    defaultOutTransition,
-    type FlyerProps,
-  } from './props';
+  import { onDestroy, onMount } from 'svelte';
+  import { defaultFlyerProps, type FlyerProps } from './props';
 
-  export let isVisible: boolean = false;
+  export let isVisible = false;
   export let flyerProps: FlyerProps = defaultFlyerProps;
   export let onClose: () => void = () => {};
 
+  let status: 'hidden' | 'entering' | 'active' | 'exiting' = 'hidden';
   let timer: NodeJS.Timeout | null = null;
+  let flyerId = Symbol();
 
-  $: if (isVisible) {
-    timer = setTimeout(() => {
-      closeFlyer();
-      timer = null;
-    }, flyerProps.duration ?? 3000);
+  const activeFlyers: { id: symbol; position: string }[] = [];
+
+  $: if (isVisible && status === 'hidden') {
+    status = 'entering';
+    setTimeout(() => {
+      status = 'active';
+      timer = setTimeout(closeFlyer, flyerProps.duration ?? 3000);
+    }, 20);
+  }
+
+  $: if (!isVisible && (status === 'active' || status === 'entering')) {
+    status = 'exiting';
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(
+      () => (status = 'hidden'),
+      flyerProps.closeAfterDuration ?? 400
+    );
+  }
+
+  onMount(() => {
+    if (isVisible) {
+      activeFlyers.push({ id: flyerId, position: flyerProps.position });
+      updateStackPositions();
+    }
+  });
+
+  function updateStackPositions() {
+    activeFlyers.forEach((flyer, index) => {
+      const offset = index * 10;
+      if (flyer.position.includes('bottom')) {
+        document.documentElement.style.setProperty(
+          `--flyer-bottom-${flyer.id.toString()}`,
+          `calc(var(--flyer-bottom) + ${offset}px)`
+        );
+      } else {
+        document.documentElement.style.setProperty(
+          `--flyer-top-${flyer.id.toString()}`,
+          `calc(var(--flyer-top) + ${offset}px)`
+        );
+      }
+    });
   }
 
   function closeFlyer() {
@@ -26,6 +58,7 @@
     onClose();
     if (timer) {
       clearTimeout(timer);
+      timer = null;
     }
   }
 
@@ -33,17 +66,26 @@
     isVisible = false;
     if (timer) {
       clearTimeout(timer);
+      timer = null;
+    }
+    const index = activeFlyers.findIndex((f) => f.id === flyerId);
+    if (index >= 0) {
+      activeFlyers.splice(index, 1);
+      updateStackPositions();
     }
   });
 </script>
 
 <!-- svelte-ignore a11y-img-redundant-alt -->
-{#if isVisible}
-  <div
-    class="flyer {flyerProps.position} {flyerProps.flyerType}"
-    in:performTransition={flyerProps.inTransition ?? defaultInTransition}
-    out:performTransition={flyerProps.outTransition ?? defaultOutTransition}
-  >
+<div
+  class="flyer {status} {flyerProps.position} {flyerProps.flyerType}"
+  class:hidden={status === 'hidden'}
+  style="
+    --flyer-bottom: var(--flyer-bottom-${flyerId.toString()}, var(--flyer-bottom));
+    --flyer-top: var(--flyer-top-${flyerId.toString()}, var(--flyer-top));
+  "
+>
+  {#if status !== 'hidden'}
     <button class="flyer-close" on:click={closeFlyer}>×</button>
 
     {#if flyerProps.flyerLeftImage}
@@ -61,8 +103,8 @@
     <div class="flyer-description">
       <slot />
     </div>
-  </div>
-{/if}
+  {/if}
+</div>
 
 <style>
   .flyer {
@@ -81,6 +123,28 @@
     font-size: var(--flyer-text-size);
     position: fixed;
     z-index: var(--flyer-z-index, 1000);
+    transition:
+      opacity 0.4s ease-out,
+      transform 0.4s ease-out;
+  }
+
+  .flyer.hidden {
+    display: none;
+  }
+
+  .flyer.entering {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .flyer.active {
+    opacity: 1;
+    transform: none;
+  }
+
+  .flyer.exiting {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 
   .flyer.top-right {

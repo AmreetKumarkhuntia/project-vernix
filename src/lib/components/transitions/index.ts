@@ -32,7 +32,14 @@ import type {
 /* Transition Definitions */
 export function flyAndFade(
   node: Element,
-  { delay = 0, duration = 400, easing = linear, x = 0, y = 0 }: FlyAndFadeParams
+  {
+    delay = 0,
+    duration = 400,
+    easing = linear,
+    x = 0,
+    y = 0,
+    direction = 'in', // Add direction parameter
+  }: FlyAndFadeParams & { direction?: 'in' | 'out' }
 ): TransitionConfig {
   const o = +getComputedStyle(node).opacity;
 
@@ -41,9 +48,12 @@ export function flyAndFade(
     duration,
     easing,
     css: (t: number) => `
-            transform: translate(${(1 - t) * x}px, ${(1 - t) * y}px);
-            opacity: ${t * o};
-        `,
+      transform: translate(
+        ${direction === 'in' ? (1 - t) * x : t * x}px,
+        ${direction === 'in' ? (1 - t) * y : t * y}px
+      );
+      opacity: ${direction === 'in' ? t * o : (1 - t) * o};
+    `,
   };
 }
 

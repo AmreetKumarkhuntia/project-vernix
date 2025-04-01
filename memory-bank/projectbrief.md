@@ -16,6 +16,7 @@
 
 2. **Specialized Components**
    - FileUploader
+   - Flyer
    - LazyLoader
    - Timeline
 
