@@ -74,6 +74,8 @@
   .wrapper-text-container {
     display: var(--wrapper-text-container-display);
     width: var(--wrapper-text-container-width);
+    overflow: hidden;
+    white-space: nowrap;
     height: 100%;
   }
 

@@ -24,6 +24,7 @@
     Carousal,
     type FlyerProps,
   } from '$lib/index';
+  import type { FlyerType } from '$lib/components/flyer/props';
   import type {
     NavbarProps,
     NavigationOptions,
@@ -39,37 +40,24 @@
   import type { DropdownItem } from '$components/dropDown/props';
 
   let inputValue = writable('');
-  let showFlyer: boolean = false;
+  let flyerCount = 0;
   let showModal: boolean = false;
-  let flyerProps: FlyerProps = {
-    position: 'bottom-right',
-    flyerType: 'summary',
-    title: null,
-    duration: 3000,
-    flyerLeftImage: null,
-    inTransition: null,
-    outTransition: null,
-  };
 
   const openModal = () => {
     showModal = true;
   };
 
-  const openFlyer = () => {
-    showFlyer = true;
-  };
+  const getFlyerProps = (i: number): FlyerProps => ({
+    position: 'bottom-right',
+    flyerType: ['success', 'warning', 'alert', 'summary'][i % 4] as FlyerType,
+    title: `Flyer ${i + 1}`,
+    duration: 3000,
+    closeAfterDuration: 500,
+    flyerLeftImage: null,
+  });
 
-  const openFlyer2 = () => {
-    flyerProps = {
-      position: 'top-right',
-      flyerType: 'warning',
-      title: null,
-      duration: 3000,
-      flyerLeftImage: null,
-      inTransition: null,
-      outTransition: null,
-    };
-    showFlyer = true;
+  const openFlyer = () => {
+    flyerCount++;
   };
 
   const handleModalClose = () => {
@@ -243,9 +231,11 @@
     <Header hLevel={4}>My Modal Title</Header>
     <p>This is the content of the modal.</p>
   </Modal>
-  <Flyer bind:isVisible={showFlyer} {flyerProps}
-    >Success flyer shown to user.</Flyer
-  >
+  {#each Array(flyerCount) as _, i}
+    <Flyer isVisible={true} flyerProps={getFlyerProps(i)}>
+      This is flyer #{i + 1}
+    </Flyer>
+  {/each}
 
   <div class="view-padding">
     <p>{$inputValue}</p>
@@ -256,8 +246,7 @@
   <div class="view-padding">
     <Button onClick={handleButtonClick} size={'large'}>Greet Me</Button>
     <Button onClick={openModal} size={'large'}>Open Modal</Button>
-    <Button onClick={openFlyer} size={'large'}>Show Flyer</Button>
-    <Button onClick={openFlyer2} size={'large'}>Show Flyer 2</Button>
+    <Button onClick={openFlyer} size={'large'}>Add Flyer</Button>
   </div>
   <div class="view-padding">
     <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />

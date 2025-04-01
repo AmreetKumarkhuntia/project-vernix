@@ -15,6 +15,7 @@ export interface FlyAndFadeParams {
   y?: number;
   easing?: EasingFunction;
   duration: number;
+  direction?: 'in' | 'out';
 }
 
 export interface FlyDirectionParams {
@@ -68,4 +69,6 @@ export type TransitionEnum =
 export type TransitionWrapper = {
   transition: TransitionParamsEnum;
   transitionType: TransitionEnum;
+} & {
+  direction?: 'in' | 'out';
 };

@@ -1,15 +1,3 @@
-import type { TransitionWrapper } from '../transitions';
-
-export const defaultInTransition: TransitionWrapper = {
-  transition: { x: 40, duration: 400 },
-  transitionType: 'fly-and-fade',
-};
-
-export const defaultOutTransition: TransitionWrapper = {
-  transition: { x: 40, duration: 400 },
-  transitionType: 'fly-and-fade',
-};
-
 export const defaultDescription: string = 'No description to show';
 
 export type FlyerType = 'alert' | 'summary' | 'warning' | 'success' | 'custom';
@@ -23,10 +11,9 @@ export type FlyerProps = {
   position: FlyerPosition;
   flyerType: FlyerType | null;
   title: string | null;
-  duration: number;
+  duration: number | null;
+  closeAfterDuration: number | null;
   flyerLeftImage: string | null;
-  inTransition: TransitionWrapper | null;
-  outTransition: TransitionWrapper | null;
 };
 
 export const defaultFlyerProps: FlyerProps = {
@@ -34,7 +21,6 @@ export const defaultFlyerProps: FlyerProps = {
   flyerType: 'summary',
   title: null,
   duration: 3000,
+  closeAfterDuration: 400,
   flyerLeftImage: null,
-  inTransition: null,
-  outTransition: null,
 };
