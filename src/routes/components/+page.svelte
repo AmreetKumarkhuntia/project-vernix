@@ -32,7 +32,7 @@
 
   import { writable } from 'svelte/store';
   import { headerIcon, profileIcon } from '$lib/constants/staticIcons';
-  import type { BreadcrumbItem } from '$components/breadCrumbs/props';
+  import type { BreadcrumbItem } from '$lib/components/breadcrumbs/props';
   import type {
     TimeLineDetails,
     TimeLineEventType,

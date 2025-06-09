@@ -1,40 +1,96 @@
-# Project-Vernix
+# Vergins: A Svelte UI Library
 
-// Description needs to be updated. Its not updated still :/
+Vergins is a reusable, accessible, and themeable UI component library for Svelte applications. It provides a set of foundational and specialized components to help you build beautiful and consistent user interfaces with ease.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Features
 
-## Creating a project
+- **Reusable Components:** A collection of ready-to-use components to speed up your development process.
+- **Accessible by Default:** Components are designed with accessibility in mind, including keyboard navigation and ARIA support.
+- **Themable:** Easily customize the look and feel of the components using CSS variables.
+- **Consistent Design:** All components follow a consistent design pattern to ensure a cohesive user experience.
+- **TypeScript Support:** All components are written in TypeScript for a better development experience.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Available Components
+
+### Foundation Components
+
+- Buttons
+- Inputs
+- Cards
+- Navigation (Navbar, Breadcrumbs)
+- Layout (Accordion, Modal)
+
+### Specialized Components
+
+- FileUploader
+- Flyer
+- LazyLoader
+- Timeline
+- Carousel
+
+## Installation
+
+To use vergins in your Svelte project, install it as a dependency:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install vergins
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Here's a basic example of how to import and use a component from the library:
+
+```svelte
+<script>
+  import { Button } from 'vergins';
+</script>
+
+<Button on:click={() => alert('Button clicked!')}>
+  Click me
+</Button>
+```
+
+## Theming
+
+vergins comes with two pre-built themes:
+
+- `default-theme.css`
+- `improved-theme.css`
+
+To use a theme, import it in your main `+layout.svelte` or `+page.svelte` file:
+
+```svelte
+<script>
+  import 'vergins/css/improved-theme.css';
+</script>
+```
+
+You can also customize the theme by overriding the CSS variables defined in the theme files.
+
+## Development
+
+To contribute to vergins, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/your-username/vergins.git
+cd vergins
+npm install
+```
+
+Then, start the development server:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a production version of the library:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+vergins is licensed under the [MIT License](LICENSE).

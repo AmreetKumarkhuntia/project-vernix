@@ -60,4 +60,4 @@ flowchart TD
 - SvelteKit: Routing and SSR
 - TypeScript: Type checking
 
-Last Updated: 4/1/2025
+Last Updated: 6/9/2025

@@ -1,12 +1,15 @@
 <script lang="ts">
   import Next from '../icons/Next.svelte';
   import Previous from '../icons/Previous.svelte';
+  import type { CarouselNavigationButtonConfig } from './props';
 
   export let length: number = 0;
   export let hoverAngle: number = 20;
   export let hoverShadowDisplacement: number = 20;
   export let shadowBlur: number = 30;
   export let shadowIntensity: number = 0.3;
+  export let buttonConfig: CarouselNavigationButtonConfig = {};
+  export let disableAnimation: boolean = false;
 
   let hoverDiv: HTMLElement;
 
@@ -20,7 +23,19 @@
     currentIndex = (currentIndex - 1 + length) % length;
   };
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (buttonConfig?.keyboardControl !== undefined && buttonConfig?.keyboardControl === false) return;
+
+    if (event.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (event.key === 'ArrowRight') {
+      nextSlide();
+    }
+  };
+
   function onMouseMove(e: MouseEvent) {
+    if (disableAnimation) return;
+
     const mouseX = e.offsetX;
     const mouseY = e.offsetY;
     const width = hoverDiv.offsetWidth;
@@ -41,30 +56,57 @@
   }
 
   function onMouseLeave() {
+    if (disableAnimation) return;
     hoverDiv.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
     hoverDiv.style.boxShadow = `var(--carousel-container-shadow)`;
   }
 </script>
 
-<div class="carousel">
-  <button class="carousel-button" on:click={prevSlide}>
-    <Previous />
-  </button>
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div on:mousemove={onMouseMove} on:mouseleave={onMouseLeave}>
-    <div class="carousel-container" bind:this={hoverDiv}>
-      <div
-        class="carousel-slides"
-        style="transform: translateX(calc( (-1) * var(--carousel-slide-width) * {currentIndex})); width: calc({length} * var(--carousel-slide-width));"
-      >
-        <slot />
-      </div>
-    </div>
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+  class="carousel"
+  class:carousel-below-buttons={buttonConfig?.buttonPosition === 'below'}
+  on:keydown={handleKeyDown}
+  tabindex="0"
+>
+  {#if buttonConfig?.showButtons === true && buttonConfig?.buttonPosition === 'sideways'}
+    <button class="carousel-button" on:click={prevSlide}>
+      <Previous />
+    </button>
+  {/if}
+
+  <div
+    class="carousel-container"
+    bind:this={hoverDiv}
+    on:mousemove={onMouseMove}
+    on:mouseleave={onMouseLeave}
+  >
+  <div
+    class="carousel-slides"
+    class:carousel-no-transition={disableAnimation}
+    style="transform: translateX(calc( (-1) * var(--carousel-slide-width) * {currentIndex})); width: calc({length} * var(--carousel-slide-width));"
+  >
+    <slot />
+  </div>
   </div>
 
-  <button class="carousel-button" on:click={nextSlide}>
-    <Next />
-  </button>
+  {#if buttonConfig?.showButtons === true && buttonConfig?.buttonPosition === 'sideways'}
+    <button class="carousel-button" on:click={nextSlide}>
+      <Next />
+    </button>
+  {/if}
+
+  {#if buttonConfig?.showButtons === true && buttonConfig?.buttonPosition === 'below'}
+    <div class="carousel-buttons-below">
+      <button class="carousel-button" on:click={prevSlide}>
+        <Previous />
+      </button>
+      <button class="carousel-button" on:click={nextSlide}>
+        <Next />
+      </button>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -74,6 +116,22 @@
     justify-content: center;
     align-items: center;
     position: relative;
+  }
+
+  .carousel:focus-visible {
+    outline: var(--carousel-focus-outline, none);
+    border: var(--carousel-focus-border, none);
+  }
+
+  .carousel-below-buttons {
+    flex-direction: column;
+  }
+
+  .carousel-buttons-below {
+    display: flex;
+    justify-content: center;
+    gap: var(--carousel-buttons-below-gap);
+    margin-top: var(--carousel-buttons-below-margin-top);
   }
 
   .carousel-container {
@@ -93,6 +151,10 @@
     display: flex;
     transition: transform var(--carousel-slide-transition);
     background-color: var(--carousel-slides-bg-color);
+  }
+
+  .carousel-no-transition {
+    transition: none !important;
   }
 
   .carousel-button {

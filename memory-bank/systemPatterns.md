@@ -28,6 +28,7 @@ flowchart TD
     Display --> Avatar
     Display --> Timeline
     Display --> ProgressBar
+    Display --> Carousel
 
     Animation --> Transitions
 ```
@@ -68,10 +69,17 @@ flowchart TD
    - Accessibility considerations for motion
 
 6. **Flyer Component Pattern**
+
    - Props-driven configuration
    - Supports multiple content types
    - Responsive layout behavior
    - Accessible focus management
+
+7. **Carousel Component Pattern**
+   - Props-driven configuration for navigation and animation.
+   - `buttonConfig` object controls button visibility, position, and keyboard control.
+   - `disableAnimation` boolean prop to enable/disable all animations.
+   - Supports keyboard navigation with arrow keys.
 
 ## Data Flow
 
@@ -79,4 +87,4 @@ flowchart TD
 - No global state management
 - Event dispatch for interactions
 
-Last Updated: 4/1/2025
+Last Updated: 6/9/2025

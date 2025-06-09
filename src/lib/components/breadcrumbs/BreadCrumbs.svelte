@@ -1,7 +1,7 @@
 <!-- Breadcrumb.svelte -->
 <script lang="ts">
   import type { BreadcrumbItem } from './props';
-
+  
   export let items: BreadcrumbItem[] = [];
   export let separator: string = '---------';
   export let onClick: (breadCrumb: BreadcrumbItem) => void = () => {};

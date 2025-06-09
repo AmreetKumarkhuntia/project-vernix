@@ -1,6 +1,6 @@
 export { default as Accordion } from './lib/components/accordion/Accordion.svelte';
 export { default as Avatar } from './lib/components/avatar/Avatar.svelte';
-export { default as Breadcrumbs } from './lib/components/breadCrumbs/BreadCrumbs.svelte';
+export { default as Breadcrumbs } from './lib/components/breadcrumbs/BreadCrumbs.svelte';
 export { default as Card } from './lib/components/card/Card.svelte';
 export { default as Code } from './lib/components/code/Code.svelte';
 export { default as DropDown } from './lib/components/dropDown/DropDown.svelte';
