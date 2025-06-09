@@ -22,6 +22,7 @@
     TimeLine,
     DropDown,
     Carousal,
+    RadioGroup,
     type FlyerProps,
   } from '$lib/index';
   import type { FlyerType } from '$lib/components/flyer/props';
@@ -190,6 +191,14 @@
       active: true,
     },
   ];
+
+  let radioOptions = [
+    { label: 'Option 1', value: '1' },
+    { label: 'Option 2', value: '2' },
+    { label: 'Option 3', value: '3' },
+  ];
+
+  let selectedRadio = '1';
 
   let exampleCode = `
   const greeting = 'Hello, world!';
@@ -369,6 +378,15 @@
 
   <div class="view-padding">
     <FileUploader />
+  </div>
+
+  <div class="view-padding">
+    <RadioGroup
+      legend="Select an option"
+      name="radio-group"
+      options={radioOptions}
+      bind:selectedValue={selectedRadio}
+    />
   </div>
 
   <div class="view-padding">

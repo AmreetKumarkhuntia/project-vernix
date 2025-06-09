@@ -12,6 +12,7 @@ export { default as Navbar } from './lib/components/navbar/Navbar.svelte';
 export { default as ProgressBar } from './lib/components/progressBar/ProgressBar.svelte';
 export { default as TimeLine } from './lib/components/timeLine/TimeLine.svelte';
 export { default as WrapperText } from './lib/components/wrapperText/WrapperText.svelte';
+export { default as RadioGroup } from './lib/components/radio/RadioGroup.svelte';
 export { default as Button } from './lib/components/Button.svelte';
 export { default as Header } from './lib/components/Header.svelte';
 export { default as InputField } from './lib/components/InputField.svelte';
