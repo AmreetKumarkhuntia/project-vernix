@@ -17,9 +17,11 @@
 2. **Specialized Components**
    - FileUploader
    - Flyer
-   - LazyLoader
-   - Timeline
-   - Carousel
+
+- LazyLoader
+- Timeline
+- Carousel
+- RadioGroup
 
 ## Development Goals
 

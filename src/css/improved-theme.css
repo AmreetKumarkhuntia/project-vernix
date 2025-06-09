@@ -406,6 +406,19 @@
   --wrapper-text-hover-color: var(--color-dark-mauve);
   --wrapper-text-animation-delay: var(--transition-delay-short);
   --wrapper-text-char-glitch-duration: var(--transitions-slow);
+
+  /* Radio Group */
+  --radio-border-color: var(--color-grey);
+  --radio-padding: 1rem;
+  --radio-border-radius: 4px;
+  --radio-font-color: var(--color-very-dark-blue);
+  --radio-button-size: 20px;
+  --radio-button-border-color: var(--color-dark-blue);
+  --radio-circle-color: var(--color-dark-mauve);
+  --radio-button-active-color: var(--success-color);
+  --radio-animation-duration: var(--transition-fast);
+  --radio-label-margin-bottom: 0.5rem;
+  --radio-button-margin-right: 0.5rem;
 }
 
 body {

@@ -24,6 +24,7 @@ flowchart TD
     Form --> Button
     Form --> InputField
     Form --> FileUploader
+    Form --> RadioGroup
 
     Display --> Avatar
     Display --> Timeline
@@ -76,10 +77,18 @@ flowchart TD
    - Accessible focus management
 
 7. **Carousel Component Pattern**
+
    - Props-driven configuration for navigation and animation.
    - `buttonConfig` object controls button visibility, position, and keyboard control.
    - `disableAnimation` boolean prop to enable/disable all animations.
    - Supports keyboard navigation with arrow keys.
+
+8. **RadioGroup Component Pattern**
+   - Props-driven configuration for options, selected value, and name.
+   - `disableAnimation` boolean prop to enable/disable all animations.
+   - Fully themed via centralized CSS variables in `improved-theme.css`.
+   - Subtle animations on selection.
+   - Hover and focus states for improved user experience.
 
 ## Data Flow
 
