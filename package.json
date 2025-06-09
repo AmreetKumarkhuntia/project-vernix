@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "3.6.12",
+  "version": "3.6.13",
   "type": "module",
   "license": "Apache-2.0",
   "exports": {
@@ -19,14 +19,16 @@
     "css"
   ],
   "scripts": {
-    "dev": "vite dev --port 5174",
-    "package": "svelte-kit sync && svelte-package && publint",
+    "dev": "vite dev --port 5689",
+    "package": "svelte-kit sync && svelte-package",
+    "package:lint": "publint",
     "build": "vite build && npm run package",
     "format": "npx prettier --write .",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "build:publish": "chmod +x ./scripts/npm-publish.sh && bash ./scripts/npm-publish.sh"
+    "build:package": "chmod +x ./scripts/npm-publish.sh && bash ./scripts/npm-publish.sh",
+    "build:publish": "npm run build:package -- --publish"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",

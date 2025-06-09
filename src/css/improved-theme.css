@@ -181,6 +181,9 @@
   --carousel-button-hover-bg: transparent;
   --carousel-button-hover-transform: scale(1.25);
 
+  --carousel-buttons-below-gap: 10px;
+  --carousel-buttons-below-margin-top: 10px;
+
   --carousel-container-border: 1px solid var(--color-baby-blue-light);
   --carousel-container-transition: 0.2s ease-in-out;
   --carousel-container-transform: skew(1deg, 1deg);

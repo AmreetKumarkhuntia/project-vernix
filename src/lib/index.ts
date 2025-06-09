@@ -2,7 +2,7 @@
 
 export { default as Accordion } from './components/accordion/Accordion.svelte';
 export { default as Avatar } from './components/avatar/Avatar.svelte';
-export { default as Breadcrumbs } from './components/breadCrumbs/BreadCrumbs.svelte';
+export { default as Breadcrumbs } from './components/breadcrumbs/BreadCrumbs.svelte';
 export { default as Card } from './components/card/Card.svelte';
 export { default as Code } from './components/code/Code.svelte';
 export { default as DropDown } from './components/dropDown/DropDown.svelte';
@@ -25,7 +25,8 @@ export * from './components/transitions';
 //TYPES EXPORT
 export type { AccordionProps } from './components/accordion/props';
 export type { AvatarDataType } from './components/avatar/props';
-export type { BreadcrumbItem } from './components/breadCrumbs/props';
+export type { BreadcrumbItem } from './components/breadcrumbs/props';
+export type { CarouselNavigationButtonConfig } from './components/carousel/props';
 export type { CodeProps } from './components/code/props';
 export type { DropdownItem } from './components/dropDown/props';
 export type { FileUploaderProps } from './components/fileUploader/props';

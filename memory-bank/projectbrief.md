@@ -19,6 +19,7 @@
    - Flyer
    - LazyLoader
    - Timeline
+   - Carousel
 
 ## Development Goals
 
@@ -38,4 +39,4 @@
 - Current: 1.0.0 (Initial release)
 - Next: 1.1.0 (Theming improvements)
 
-Last Updated: 2025-03-31
+Last Updated: 6/9/2025

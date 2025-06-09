@@ -35,4 +35,4 @@
 - Mobile-first approach
 - Performance conscious
 
-Last Updated: 2025-03-31
+Last Updated: 6/9/2025
