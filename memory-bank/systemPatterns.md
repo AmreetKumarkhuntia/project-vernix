@@ -84,11 +84,19 @@ flowchart TD
    - Supports keyboard navigation with arrow keys.
 
 8. **RadioGroup Component Pattern**
+
    - Props-driven configuration for options, selected value, and name.
    - `disableAnimation` boolean prop to enable/disable all animations.
    - Fully themed via centralized CSS variables in `improved-theme.css`.
    - Subtle animations on selection.
    - Hover and focus states for improved user experience.
+
+9. **Recursive SideNav Pattern**
+   - `SideNav.svelte` acts as the main container.
+   - `SideNavItem.svelte` is a recursive component that can render itself for nested items.
+   - Data is passed via an `items` prop, which is an array of `NavItem` objects.
+   - Supports infinite nesting of navigation items.
+   - Uses Svelte's `slide` transition for smooth animations.
 
 ## Data Flow
 

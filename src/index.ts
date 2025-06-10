@@ -16,5 +16,7 @@ export { default as RadioGroup } from './lib/components/radio/RadioGroup.svelte'
 export { default as Button } from './lib/components/Button.svelte';
 export { default as Header } from './lib/components/Header.svelte';
 export { default as InputField } from './lib/components/InputField.svelte';
+export { default as Carousal } from './lib/components/carousel/Carousel.svelte';
+export { default as SideNav } from './lib/components/sideNav/SideNav.svelte';
 
 export * from './lib/components/transitions';

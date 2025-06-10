@@ -419,6 +419,24 @@
   --radio-animation-duration: var(--transition-fast);
   --radio-label-margin-bottom: 0.5rem;
   --radio-button-margin-right: 0.5rem;
+
+  /* SideNav */
+  --sidenav-width: 300px;
+  --sidenav-height: 100%;
+  --sidenav-padding: 20px;
+  --sidenav-background-color: var(--color-baby-blue-light);
+  --sidenav-border-right: 1px solid var(--color-grey);
+  --sidenav-box-shadow: 0 4px 10px var(--color-black-0-1);
+  --sidenav-transition: all 1s ease;
+
+  --sidenav-item-padding: 10px 15px;
+  --sidenav-item-color: var(--color-very-dark-blue);
+  --sidenav-item-hover-bg-color: var(--color-ice-blue);
+  --sidenav-item-text-margin-left: 10px;
+  --sidenav-item-transition-duration: var(--transition-fast);
+  --sidenav-chevron-transition-duration: var(--transition-fast);
+  --sidenav-chevron-rotation: 180deg;
+  --sidenav-sublist-padding-left: 20px;
 }
 
 body {
@@ -429,6 +447,8 @@ body {
     var(--color-light-grey),
     var(--color-ice-blue)
   );
+  padding: var(--body-padding, 0px);
+  margin: var(--body-margin, 0px);
 }
 
 .timeline-bar-lazy {

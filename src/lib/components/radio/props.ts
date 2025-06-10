@@ -10,4 +10,5 @@ export interface RadioGroupProps {
   legend: string;
   disabled?: boolean;
   disableAnimation?: boolean;
+  onClick?: (value: RadioOption) => void;
 }

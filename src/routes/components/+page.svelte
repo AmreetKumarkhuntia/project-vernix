@@ -23,6 +23,7 @@
     DropDown,
     Carousal,
     RadioGroup,
+    SideNav,
     type FlyerProps,
   } from '$lib/index';
   import type { FlyerType } from '$lib/components/flyer/props';
@@ -39,6 +40,47 @@
     TimeLineEventType,
   } from '$components/timeLine/props';
   import type { DropdownItem } from '$components/dropDown/props';
+  import type { SideNavItem } from '$lib/components/sideNav/props';
+
+  let sideNavItems: SideNavItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+    },
+    {
+      label: 'Products',
+      href: '/products',
+      expanded: true,
+      children: [
+        {
+          label: 'Electronics',
+          href: '/products/electronics',
+          children: [
+            {
+              label: 'Phones',
+              href: '/products/electronics/phones',
+            },
+            {
+              label: 'Laptops',
+              href: '/products/electronics/laptops',
+            },
+          ],
+        },
+        {
+          label: 'Books',
+          href: '/products/books',
+        },
+      ],
+    },
+    {
+      label: 'About',
+      href: '/about',
+    },
+    {
+      label: 'Contact',
+      href: '/contact',
+    },
+  ];
 
   let inputValue = writable('');
   let flyerCount = 0;
@@ -234,8 +276,13 @@
   console.log(filterUsersByAge(30));`;
 </script>
 
-<div class="view-components">
-  <h1>Svelte + TypeScript + CSS Variables Example</h1>
+<div class="page-container">
+  <div class="side-nav-container">
+    <SideNav items={sideNavItems} />
+  </div>
+  <div class="main-content">
+    <div class="view-components">
+      <h1>Svelte + TypeScript + CSS Variables Example</h1>
   <Modal isOpen={showModal} onClose={handleModalClose}>
     <Header hLevel={4}>My Modal Title</Header>
     <p>This is the content of the modal.</p>
@@ -419,9 +466,31 @@
       </div>
     </Carousal>
   </div>
+  <div class="view-padding">
+  </div>
+      <SideNav items={sideNavItems} />
+    </div>
+  </div>
 </div>
 
 <style>
+  .side-nav-container{
+    display: block;
+    height: auto;
+  }
+
+  .page-container {
+    display: flex;
+    padding: 0;
+
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    flex-grow: 1;
+  }
+
   .view-components {
     width: 90%;
     padding: 5%;

@@ -16,6 +16,7 @@ export { default as ProgressBar } from './components/progressBar/ProgressBar.sve
 export { default as TimeLine } from './components/timeLine/TimeLine.svelte';
 export { default as WrapperText } from './components/wrapperText/WrapperText.svelte';
 export { default as RadioGroup } from './components/radio/RadioGroup.svelte';
+export { default as SideNav } from './components/sideNav/SideNav.svelte';
 export { default as Button } from './components/Button.svelte';
 export { default as Header } from './components/Header.svelte';
 export { default as InputField } from './components/InputField.svelte';
@@ -40,6 +41,7 @@ export type { LazyLoaderProps } from './components/lazyLoader/props';
 export type { ModalProps } from './components/modal/props';
 export type { NavigationOptions, NavbarProps } from './components/navbar/props';
 export type { RadioOption, RadioGroupProps } from './components/radio/props';
+export type { SideNavItem } from './components/sideNav/props';
 export type {
   TimeLineEventType,
   TimeLineDetailsAlignment,
