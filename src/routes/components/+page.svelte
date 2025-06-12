@@ -41,6 +41,7 @@
   } from '$components/timeLine/props';
   import type { DropdownItem } from '$components/dropDown/props';
   import type { SideNavItem } from '$lib/components/sideNav/props';
+  import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
 
   let sideNavItems: SideNavItem[] = [
     {
@@ -283,198 +284,220 @@
   <div class="main-content">
     <div class="view-components">
       <h1>Svelte + TypeScript + CSS Variables Example</h1>
-  <Modal isOpen={showModal} onClose={handleModalClose}>
-    <Header hLevel={4}>My Modal Title</Header>
-    <p>This is the content of the modal.</p>
-  </Modal>
-  {#each Array(flyerCount) as _, i}
-    <Flyer isVisible={true} flyerProps={getFlyerProps(i)}>
-      This is flyer #{i + 1}
-    </Flyer>
-  {/each}
+      <Modal isOpen={showModal} onClose={handleModalClose}>
+        <Header hLevel={4}>My Modal Title</Header>
+        <p>This is the content of the modal.</p>
+      </Modal>
+      {#each Array(flyerCount) as _, i}
+        <Flyer isVisible={true} flyerProps={getFlyerProps(i)}>
+          This is flyer #{i + 1}
+        </Flyer>
+      {/each}
 
-  <div class="view-padding">
-    <p>{$inputValue}</p>
-  </div>
-  <div class="view-padding">
-    <InputField placeholder="Your Name" onInput={handleInput} />
-  </div>
-  <div class="view-padding">
-    <Button onClick={handleButtonClick} size={'large'}>Greet Me</Button>
-    <Button onClick={openModal} size={'large'}>Open Modal</Button>
-    <Button onClick={openFlyer} size={'large'}>Add Flyer</Button>
-  </div>
-  <div class="view-padding">
-    <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
-  </div>
-  <div class="view-padding">
-    <Navbar navbarProps={demoNavbarProps} navbarAlignment="vertical" />
-  </div>
-  <div class="view-padding">
-    <Breadcrumbs items={demoBreadcrumbItems} />
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={1}>This is a H1 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={2}>This is a H2 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={3}>This is a H3 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={4}>This is a H4 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={5}>This is a H5 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={6}>This is a H6 heading</Header>
-  </div>
-
-  <div class="view-padding">
-    <LazyLoader className="lazy-loader-test">
-      <Header hLevel={1}>This is a Lazy Loader</Header>
-    </LazyLoader>
-  </div>
-
-  <div class="view-padding">
-    <Accordion>
-      <p>Accordion content goes here.</p>
-    </Accordion>
-  </div>
-
-  <div class="view-padding">
-    <Header hLevel={1}>
-      <WrapperText />
-    </Header>
-  </div>
-
-  <div class="view-padding">
-    <Avatar dataType={'svg'}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        width="100"
-        height="100"
-        viewBox="0 0 30 30"
-      >
-        <path
-          d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
-        ></path>
-      </svg>
-    </Avatar>
-  </div>
-
-  <div class="view-padding">
-    <ProgressBar />
-  </div>
-
-  <div class="view-padding">
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-
-    <Card>
-      <div class="card-content">This is the custom content for my card.</div>
-    </Card>
-  </div>
-
-  <div class="view-padding">
-    <Code code={exampleCode} />
-  </div>
-
-  <div class="view-padding">
-    <TimeLine {events} />
-  </div>
-
-  <div class="view-padding">
-    <DropDown
-      buttonLabel={'DROPDOWN MENU'}
-      items={dropDownItems}
-      multi={true}
-    />
-  </div>
-
-  <div class="view-padding">
-    <FileUploader />
-  </div>
-
-  <div class="view-padding">
-    <RadioGroup
-      legend="Select an option"
-      name="radio-group"
-      options={radioOptions}
-      bind:selectedValue={selectedRadio}
-    />
-  </div>
-
-  <div class="view-padding">
-    <Carousal length={3}>
-      <div class="carousel-slide">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+      <div class="view-padding">
+        <p>{$inputValue}</p>
+      </div>
+      <div class="view-padding">
+        <InputField placeholder="Your Name" onInput={handleInput} />
+      </div>
+      <div class="view-padding">
+        <Button onClick={handleButtonClick} size={'large'}>Greet Me</Button>
+        <Button onClick={openModal} size={'large'}>Open Modal</Button>
+        <Button onClick={openFlyer} size={'large'}>Add Flyer</Button>
+      </div>
+      <div class="view-padding">
+        <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
+      </div>
+      <div class="view-padding">
+        <Navbar navbarProps={demoNavbarProps} navbarAlignment="vertical" />
+      </div>
+      <div class="view-padding">
+        <Breadcrumbs items={demoBreadcrumbItems} />
       </div>
 
-      <div class="carousel-slide">
-        <p>
-          Nulla facilisi. Aenean nec eros ut orci lobortis tempor. Aliquam erat
-          volutpat. Nulla at auctor purus, a suscipit risus. Etiam euismod velit
-          a sem condimentum, sit amet tincidunt enim luctus. Integer scelerisque
-          orci non leo tempus, id lobortis nunc sollicitudin.
-        </p>
+      <div class="view-padding">
+        <Header hLevel={1}>This is a H1 heading</Header>
       </div>
 
-      <div class="carousel-slide">
-        <p>
-          Vestibulum congue nisi sit amet viverra. Curabitur convallis, nulla ac
-          vehicula feugiat, odio justo gravida nulla, nec tempor erat odio id
-          neque. Nulla vitae lectus eget elit ullamcorper maximus id ac risus.
-          Morbi et mauris non sapien tincidunt vulputate a in erat.
-        </p>
+      <div class="view-padding">
+        <Header hLevel={2}>This is a H2 heading</Header>
       </div>
-    </Carousal>
-  </div>
-  <div class="view-padding">
-  </div>
-      <SideNav items={sideNavItems} />
+
+      <div class="view-padding">
+        <Header hLevel={3}>This is a H3 heading</Header>
+      </div>
+
+      <div class="view-padding">
+        <Header hLevel={4}>This is a H4 heading</Header>
+      </div>
+
+      <div class="view-padding">
+        <Header hLevel={5}>This is a H5 heading</Header>
+      </div>
+
+      <div class="view-padding">
+        <Header hLevel={6}>This is a H6 heading</Header>
+      </div>
+
+      <div class="view-padding">
+        <LazyLoader className="lazy-loader-test">
+          <Header hLevel={1}>This is a Lazy Loader</Header>
+        </LazyLoader>
+      </div>
+
+      <div class="view-padding">
+        <Accordion>
+          <p>Accordion content goes here.</p>
+        </Accordion>
+      </div>
+
+      <div class="view-padding">
+        <Header hLevel={1}>
+          <WrapperText />
+        </Header>
+      </div>
+
+      <div class="view-padding">
+        <Avatar dataType={'svg'}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="100"
+            height="100"
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"
+            ></path>
+          </svg>
+        </Avatar>
+      </div>
+
+      <div class="view-padding">
+        <ProgressBar />
+      </div>
+
+      <div class="view-padding">
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+
+        <Card>
+          <div class="card-content">
+            This is the custom content for my card.
+          </div>
+        </Card>
+      </div>
+
+      <div class="view-padding">
+        <Code code={exampleCode} />
+      </div>
+
+      <div class="view-padding">
+        <TimeLine {events} />
+      </div>
+
+      <div class="view-padding">
+        <DropDown
+          buttonLabel={'DROPDOWN MENU'}
+          items={dropDownItems}
+          multi={true}
+        />
+      </div>
+
+      <div class="view-padding">
+        <FileUploader />
+      </div>
+
+      <div class="view-padding">
+        <RadioGroup
+          legend="Select an option"
+          name="radio-group"
+          options={radioOptions}
+          bind:selectedValue={selectedRadio}
+        />
+      </div>
+
+      <div class="view-padding">
+        <Carousal length={3}>
+          <div class="carousel-slide">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+
+          <div class="carousel-slide">
+            <p>
+              Nulla facilisi. Aenean nec eros ut orci lobortis tempor. Aliquam
+              erat volutpat. Nulla at auctor purus, a suscipit risus. Etiam
+              euismod velit a sem condimentum, sit amet tincidunt enim luctus.
+              Integer scelerisque orci non leo tempus, id lobortis nunc
+              sollicitudin.
+            </p>
+          </div>
+
+          <div class="carousel-slide">
+            <p>
+              Vestibulum congue nisi sit amet viverra. Curabitur convallis,
+              nulla ac vehicula feugiat, odio justo gravida nulla, nec tempor
+              erat odio id neque. Nulla vitae lectus eget elit ullamcorper
+              maximus id ac risus. Morbi et mauris non sapien tincidunt
+              vulputate a in erat.
+            </p>
+          </div>
+        </Carousal>
+      </div>
+      <div class="view-padding">
+        <SideNav items={sideNavItems} />
+      </div>
+      <div class="view-padding">
+        <Tooltip position="top">
+          <span slot="tooltip-content">This is the tooltip content yeah</span>
+          <div>Hey its a little tip for you! You wills see a tooltip popup </div>
+        </Tooltip>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-  .side-nav-container{
+  .side-nav-container {
     display: block;
     width: 300px;
     height: auto;
