@@ -24,7 +24,7 @@
     padding: var(--sidenav-padding);
     background-color: var(--sidenav-background-color, #fff);
     border-right: var(--sidenav-border-right, 1px solid #ddd);
-    box-shadow: var(--sidenav-box-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+    box-shadow: var(--sidenav-box-shadow);
     transition: var(--sidenav-transition);
   }
 

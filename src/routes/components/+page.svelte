@@ -476,6 +476,7 @@
 <style>
   .side-nav-container{
     display: block;
+    width: 300px;
     height: auto;
   }
 
@@ -489,6 +490,7 @@
 
   .main-content {
     flex-grow: 1;
+    width: calc(100% - 300px);
   }
 
   .view-components {
