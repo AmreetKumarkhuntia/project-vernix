@@ -13,12 +13,11 @@
     onClick(item);
   }
 </script>
-
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <nav aria-label="Breadcrumb" class="breadcrumbs">
   {#each items as item, index}
     {#if activeIndex !== null && index < activeIndex}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div
         class="breadcrumbs-item active"
         on:click={() => handleBreadcrumbsClick(index, item)}
@@ -31,8 +30,6 @@
         </span>
       </div>
     {:else if activeIndex !== null && index === activeIndex}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div
         class="breadcrumbs-item"
         on:click={() => handleBreadcrumbsClick(index, item)}
@@ -45,8 +42,6 @@
         </span>
       </div>
     {:else}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div
         class="breadcrumbs-item backlight"
         on:click={() => handleBreadcrumbsClick(index, item)}

@@ -438,6 +438,16 @@
   --sidenav-chevron-transition-duration: var(--transition-fast);
   --sidenav-chevron-rotation: 180deg;
   --sidenav-sublist-padding-left: 20px;
+
+  /* Tooltip */
+  --tooltip-background-color: #333;
+  --tooltip-text-color: #fff;
+  --tooltip-padding: 12px;
+  --tooltip-border-radius: 4px;
+  --tooltip-font-size: var(--font-xs);
+
+  --tooltip-hover-top: 50%;
+  --tooltip-hover-left: 40%;
 }
 
 body {
