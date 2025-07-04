@@ -22,7 +22,6 @@ flowchart TD
 ## Key Dependencies
 
 1. **Development**
-
    - @sveltejs/package: 2.2.2 (Component packaging)
    - svelte-check: 4.0.0 (Type checking)
    - prettier: Formatting
@@ -41,7 +40,6 @@ flowchart TD
 ## Accessibility Improvements
 
 1. **Navigation Components**
-
    - Semantic `nav` elements implemented
    - ARIA labels for screen readers
    - Keyboard navigation support
