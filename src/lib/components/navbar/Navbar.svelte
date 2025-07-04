@@ -18,7 +18,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-img-redundant-alt -->
-<nav class={`navbar-container ${navbarAlignment}`} aria-label="Main navigation">
+<div class={`navbar-container ${navbarAlignment}`} aria-label="Main navigation">
   {#if navbarProps.showLeftImage && navbarProps.leftImageURL}
     <div class="navbar-image-wrapper left" on:click={leftImageClick}>
       <img
@@ -44,7 +44,7 @@
       />
     </div>
   {/if}
-</nav>
+</div>
 
 <style>
   .navbar-container {

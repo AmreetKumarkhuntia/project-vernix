@@ -19,6 +19,7 @@ export default {
         $session: path.resolve('./src/lib/session'),
         $types: path.resolve('./src/lib/types'),
         $css: path.resolve('./src/css'),
+        $siteCss: path.resolve('./src/siteCss'),
       },
     },
   },

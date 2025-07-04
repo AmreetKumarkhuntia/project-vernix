@@ -9,7 +9,6 @@
 ## Key Components
 
 1. **Foundation Components**
-
    - Buttons, Inputs, Cards
    - Navigation (Navbar, Breadcrumbs)
    - Layout (Accordion, Modal)
