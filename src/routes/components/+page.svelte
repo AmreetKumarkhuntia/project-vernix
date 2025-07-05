@@ -1,6 +1,7 @@
 <script lang="ts">
   // import '$css/default-theme.css';
-  import '$css/improved-theme.css';
+  // import '$css/improved-theme.css';
+  import '$css/improved-theme-2.css';
   import 'prismjs/themes/prism-tomorrow.css';
 
   import {
@@ -24,6 +25,7 @@
     Carousal,
     RadioGroup,
     SideNav,
+    Date,
     type FlyerProps,
   } from '$lib/index';
   import type { FlyerType } from '$lib/components/flyer/props';
@@ -42,6 +44,9 @@
   import type { DropdownItem } from '$components/dropDown/props';
   import type { SideNavItem } from '$lib/components/sideNav/props';
   import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
+  import Ripple from '$lib/components/ripple/Ripple.svelte';
+
+  let rippleContainer: Ripple | null = null;
 
   let sideNavItems: SideNavItem[] = [
     {
@@ -489,8 +494,31 @@
       <div class="view-padding">
         <Tooltip position="top">
           <span slot="tooltip-content">This is the tooltip content yeah</span>
-          <div>Hey its a little tip for you! You wills see a tooltip popup </div>
+          <div>Hey its a little tip for you! You wills see a tooltip popup</div>
         </Tooltip>
+      </div>
+      <div class="view-padding">
+        <Tooltip position="bottom">
+          <span slot="tooltip-content">This is the tooltip content yeah</span>
+          <div>
+            Hey its a little tip for you! You wills see a tooltip popup bottom
+          </div>
+        </Tooltip>
+      </div>
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div class="view-padding">
+        <div class="test-ripple">
+          <Ripple bind:this={rippleContainer}>
+            Hey this is a test for ripple effect. Click me!
+          </Ripple>
+        </div>
+      </div>
+      <div class="view-padding">
+        <Date zIndex={10} />
+      </div>
+      <div class="view-padding">
+        <Date expanded={true} />
       </div>
     </div>
   </div>
@@ -545,5 +573,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .test-ripple {
+    --ripple-width: 80%;
+    --ripple-height: 80%;
+    --ripple-padding: 10%;
+    background-color: var(--tertiary-color);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 420px;
   }
 </style>

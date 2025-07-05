@@ -161,7 +161,7 @@
     padding: var(--dropdown-label-item-padding);
     border-radius: var(--dropdown-border-radius);
     background-color: var(--dropdown-success-color);
-    color: var(--dropdown-text-color-light);
+    color: var(--dropdown-text-color);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

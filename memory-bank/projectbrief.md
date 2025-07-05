@@ -21,6 +21,7 @@
 - Timeline
 - Carousel
 - RadioGroup
+- Date
 
 ## Development Goals
 

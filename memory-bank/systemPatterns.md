@@ -90,6 +90,11 @@ flowchart TD
    - Supports infinite nesting of navigation items.
    - Uses Svelte's `slide` transition for smooth animations.
 
+10. **Date Component Pattern**
+    - Props-driven configuration for selected date, format, disabled, and expanded state.
+    - Calendar view for date selection.
+    - Themed via centralized CSS variables.
+
 ## Data Flow
 
 - Parent to child via props
