@@ -28,6 +28,8 @@
 - Refactored `Ripple` component to use event dispatching and component binding.
 - Fixed `Ripple` component to support multiple ripples.
 - Refactored `Ripple` component to use a CSS-only approach.
+- Removed `Select` component.
+- Refactored `Date` component to use `DropDown` component.
 
 ## Completed Work
 
@@ -112,6 +114,11 @@
     - Corrected the `Ripple` component to support multiple ripples.
 24. **Refactored `Ripple` component:**
     - Refactored the `Ripple` component to use a CSS-only approach.
+25. **Removed `Select` component:**
+    - Deleted the `Select.svelte` and `props.ts` files.
+    - Removed the component from `index.ts`.
+26. **Refactored `Date` component:**
+    - Refactored the `Date` component to use the `DropDown` component.
 
 ## Remaining Tasks
 
@@ -143,6 +150,7 @@
 - [ ] Test the refactored `Ripple` component.
 - [ ] Test the corrected `Ripple` component with multiple ripples.
 - [ ] Test the refactored `Ripple` component with the new CSS-only approach.
+- [ ] Test the `Date` component with the new `DropDown` component.
 
 ## Known Issues
 

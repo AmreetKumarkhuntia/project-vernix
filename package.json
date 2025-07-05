@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "3.6.18",
+  "version": "3.6.19",
   "type": "module",
   "license": "Apache-2.0",
   "exports": {
@@ -8,6 +8,7 @@
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
     },
+    "./css/improved-theme-2": "./css/improved-theme-2.css",
     "./css/improved-theme": "./css/improved-theme.css",
     "./css/default-theme": "./css/default-theme.css"
   },
