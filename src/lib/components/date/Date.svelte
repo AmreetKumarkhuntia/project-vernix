@@ -57,8 +57,7 @@
   let currentYear = selectedDate
     ? selectedDate.getFullYear()
     : new Date().getFullYear();
-  let shouldShowHighlighters = !expanded;
-  console.log('shouldShowHighlighters', shouldShowHighlighters, expanded);
+  let shouldShowHighlighters = expanded;
 
   $: daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
@@ -133,11 +132,23 @@
     if (date === null || date === undefined) {
       return;
     }
+    console.log('handleTransitionOfActiveElement', date);
     const index = daysInMonth.findIndex((d) => isSameDay(d.date, date));
     if (index !== -1) {
       const el = dateElements[index];
+      console.log('el', el, index);
       if (el) {
         const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = el;
+        console.log(
+          'offsetTop',
+          offsetTop,
+          'offsetLeft',
+          offsetLeft,
+          'offsetWidth',
+          offsetWidth,
+          'offsetHeight',
+          offsetHeight
+        );
         position.set({
           top: offsetTop,
           left: offsetLeft,
@@ -159,7 +170,7 @@
     d1: Date | null | undefined,
     d2: Date | undefined
   ): boolean {
-    if (shouldShowHighlighters) return false;
+    if (shouldShowHighlighters === false) return false;
     let isSameDay =
       d1 &&
       d2 &&
@@ -209,7 +220,7 @@
       />
     </div>
     <div class="date-days">
-      {#if !shouldShowHighlighters}
+      {#if shouldShowHighlighters}
         <div
           class="date-day-selected-highlight"
           style="top: {$position.top}px; left: {$position.left}px; width: {$position.width}px; height: {$position.height}px;"

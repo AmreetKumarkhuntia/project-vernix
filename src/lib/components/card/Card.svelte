@@ -27,8 +27,14 @@
       box-shadow var(--card-transition-duration);
 
     /* Glass effect */
-    backdrop-filter: blur(10px); /* Adjust blur intensity as needed */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a subtle border for better visibility */
+    backdrop-filter: var(
+      --card-backdrop-filter,
+      10px
+    ); /* Adjust blur intensity as needed */
+    border: var(
+      --card-border,
+      1px solid rgba(237, 237, 237, 0.682)
+    ); /* Optional: Add a subtle border for better visibility */
   }
 
   .card:hover {
