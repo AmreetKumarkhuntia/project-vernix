@@ -15,6 +15,7 @@ export { default as NavbarMenu } from './components/navbar/NavMenu.svelte';
 export { default as ProgressBar } from './components/progressBar/ProgressBar.svelte';
 export { default as TimeLine } from './components/timeLine/TimeLine.svelte';
 export { default as WrapperText } from './components/wrapperText/WrapperText.svelte';
+export { default as Date } from './components/date/Date.svelte';
 export { default as RadioGroup } from './components/radio/RadioGroup.svelte';
 export { default as SideNav } from './components/sideNav/SideNav.svelte';
 export { default as Button } from './components/Button.svelte';
