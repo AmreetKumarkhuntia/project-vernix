@@ -45,6 +45,10 @@
   import type { SideNavItem } from '$lib/components/sideNav/props';
   import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
   import Ripple from '$lib/components/ripple/Ripple.svelte';
+  import RightArrow from '$lib/components/svgs/RightArrow.svelte';
+  import LeftArrow from '$lib/components/svgs/LeftArrow.svelte';
+  import UpArrow from '$lib/components/svgs/UpArrow.svelte';
+  import DownArrow from '$lib/components/svgs/DownArrow.svelte';
 
   let rippleContainer: Ripple | null = null;
 
@@ -230,13 +234,13 @@
       label: 'Option 4',
       id: '4',
       action: () => console.log('Option 4 selected'),
-      active: true,
+      active: false,
     },
     {
       label: 'Option 5',
       id: '5',
       action: () => console.log('Option 5 selected'),
-      active: true,
+      active: false,
     },
   ];
 
@@ -434,7 +438,13 @@
       <div class="view-padding">
         <TimeLine {events} />
       </div>
-
+      <div class="view-padding">
+        <DropDown
+          buttonLabel={'Select Dropdown'}
+          zIndex={100}
+          items={dropDownItems}
+        />
+      </div>
       <div class="view-padding">
         <DropDown
           buttonLabel={'DROPDOWN MENU'}
@@ -515,10 +525,24 @@
         </div>
       </div>
       <div class="view-padding">
-        <Date zIndex={10} />
+        <Date />
       </div>
       <div class="view-padding">
-        <Date expanded={true} />
+        <Date zIndex={101} expanded={true} />
+      </div>
+      <div class="view-padding">
+        <div class="svgs-container">
+          <RightArrow />
+        </div>
+        <div class="svgs-container">
+          <LeftArrow />
+        </div>
+        <div class="svgs-container">
+          <UpArrow />
+        </div>
+        <div class="svgs-container">
+          <DownArrow />
+        </div>
       </div>
     </div>
   </div>
@@ -583,5 +607,10 @@
     border-radius: 20px;
     overflow: hidden;
     width: 420px;
+  }
+
+  .svgs-container {
+    height: 42px;
+    width: 42px;
   }
 </style>

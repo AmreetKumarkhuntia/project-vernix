@@ -94,6 +94,11 @@
     - Refactored the `Ripple` component to use a CSS-only approach.
 28. **Fixed `Date` component:**
     - Correctly integrated the new `Ripple` component.
+29. **Removed `Select` component:**
+    - Deleted the `Select.svelte` and `props.ts` files.
+    - Removed the component from `index.ts`.
+30. **Refactored `Date` component:**
+    - Refactored the `Date` component to use the `DropDown` component.
 
 ## Next Steps
 
@@ -124,6 +129,7 @@
 25. Test the corrected `Ripple` component with multiple ripples.
 26. Test the refactored `Ripple` component with the new CSS-only approach.
 27. Test the `Date` component with the new `Ripple` component.
+28. Test the `Date` component with the new `DropDown` component.
 
 ## Key Considerations
 

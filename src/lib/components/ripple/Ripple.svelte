@@ -54,6 +54,7 @@
     height: var(--ripple-height, 100%);
     padding: var(--ripple-padding);
     margin: var(--ripple-margin, 0);
+    cursor: var(--ripple-cursor, pointer);
     overflow: hidden;
     z-index: var(--z-index, 1);
   }
