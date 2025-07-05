@@ -45,6 +45,7 @@
   import type { SideNavItem } from '$lib/components/sideNav/props';
   import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
   import Ripple from '$lib/components/ripple/Ripple.svelte';
+  import Toggle from '$lib/components/toggle/Toggle.svelte';
   import RightArrow from '$lib/components/svgs/RightArrow.svelte';
   import LeftArrow from '$lib/components/svgs/LeftArrow.svelte';
   import UpArrow from '$lib/components/svgs/UpArrow.svelte';
@@ -543,6 +544,9 @@
         <div class="svgs-container">
           <DownArrow />
         </div>
+      </div>
+      <div class="view-padding">
+        <Toggle />
       </div>
     </div>
   </div>
