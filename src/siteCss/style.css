@@ -1,4 +1,13 @@
 :root {
+  /* Gradient Colors */
+  --gradient-color-1: linear-gradient(270deg, #00dfd8, #007cf0, #ff75e3);
+  --gradient-color-2: linear-gradient(90deg, #d16ba5, #86a8e7, #5ffbf1);
+  --gradient-color-3: radial-gradient(circle, #00fff7, #6faee8);
+
+  /* Date */
+  --date-calendar-padding: 12px;
+  --date-calendar-width: auto;
+
   --navbar-layout-height: 96px;
 }
 
@@ -93,28 +102,14 @@ body {
   mix-blend-mode: overlay;
 }
 
-.header-container {
-  position: relative;
-  top: -48px;
-}
-
-.header-illustration {
-  /* height: -webkit-fill-available; */
-  height: auto;
-  width: 480px;
-  scale: 1.7;
-  filter: drop-shadow(0 20px 52px rgba(0, 0, 0, 0.5));
-  /* background-color: red; */
-  z-index: -100;
-}
-
 .home {
-  padding: var(--navbar-layout-height) 10%;
+  padding: var(--navbar-layout-height) 0 0 0;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: calc(100vh - 2 * var(--navbar-layout-height));
+  min-height: calc(100vh - var(--navbar-layout-height));
 }
 
 .navbar-layout {

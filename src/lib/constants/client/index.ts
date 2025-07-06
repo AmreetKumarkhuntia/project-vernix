@@ -1,3 +1,4 @@
+import type { BreadcrumbItem } from '$lib/components/breadcrumbs/props';
 import type {
   NavbarProps,
   NavigationOptions,
@@ -38,3 +39,15 @@ export const topNavbarProps: NavbarProps = {
   showRightImage: false,
   rightImageURL: null,
 };
+
+export const homePageBreadcrumbItems: BreadcrumbItem[] = [
+  { index: '1', text: 'Home', href: '/' },
+  { index: '2', text: 'Products', href: '/products' },
+  { index: '3', text: 'Electronics', href: '/products/electronics' },
+];
+
+export const homeRadioOptions = [
+  { label: 'Red', value: 'option1' },
+  { label: 'Green', value: 'option2' },
+  { label: 'Orange', value: 'option3' },
+];

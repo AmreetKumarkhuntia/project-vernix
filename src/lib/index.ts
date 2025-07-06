@@ -25,6 +25,7 @@ export { default as InputField } from './components/InputField.svelte';
 export { default as Carousal } from './components/carousel/Carousel.svelte';
 export { default as Toggle } from './components/toggle/Toggle.svelte';
 export { default as Tooltip } from './components/tooltip/Tooltip.svelte';
+export { default as Checkbox } from './components/checkbox/Checkbox.svelte';
 
 export * from './components/transitions';
 
@@ -70,3 +71,4 @@ export type {
 } from './components/wrapperText/props';
 export type { ToggleProps } from './components/toggle/props';
 export type { TooltipProps } from './components/tooltip/props';
+export type { CheckboxProps } from './components/checkbox/props';

@@ -26,6 +26,7 @@
     RadioGroup,
     SideNav,
     Date,
+    Checkbox,
     type FlyerProps,
   } from '$lib/index';
   import type { FlyerType } from '$lib/components/flyer/props';
@@ -252,6 +253,7 @@
   ];
 
   let selectedRadio = '1';
+  let checked = false;
 
   let exampleCode = `
   const greeting = 'Hello, world!';
@@ -547,6 +549,11 @@
       </div>
       <div class="view-padding">
         <Toggle />
+      </div>
+      <div class="view-padding">
+        <Checkbox label="Checkbox" bind:checked />
+        <Checkbox label="Disabled" disabled={true} />
+        <Checkbox label="Disabled Checked" disabled={true} checked={true} />
       </div>
     </div>
   </div>
