@@ -266,6 +266,9 @@
     backdrop-filter: var(--date-container-backdrop-filter);
     box-shadow: var(--date-container-box-shadow);
     z-index: var(--z-index, 1);
+
+    width: var(--date-container-width, 100%);
+    height: var(--date-container-height, auto);
   }
 
   .date-selected {
@@ -318,7 +321,7 @@
     grid-template-rows: var(--date-days-grid-template-rows, repeat(6, 40px));
     gap: var(--date-days-gap, 2px);
     padding: var(--date-days-padding, 8px);
-    width: 100%;
+    width: var(--date-days-width, auto);
   }
 
   .date-day-name {
@@ -332,6 +335,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: var(--date-day-font-size, 12px);
   }
 
   .date-day {
@@ -344,12 +348,12 @@
   }
 
   .date-day-selected-highlight {
-    height: 100%;
-    width: 100%;
+    height: var(--date-day-selected-highlight-size, 100%);
+    width: var(--date-day-selected-highlight-size, 100%);;
     overflow: hidden;
     position: absolute;
     background-color: var(--date-day-selected-highlight-bg-color, #007bff);
-    border-radius: var(--date-day-selected-highlight-border-radius, 100%);
+    border-radius: var(--date-day-selected-highlight-border-radius, 5px);
     z-index: calc(var(--z-index) + 1);
     transition: var(
       --date-day-selected-highlight-transition,

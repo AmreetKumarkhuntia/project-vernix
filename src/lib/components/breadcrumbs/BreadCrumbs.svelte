@@ -1,7 +1,7 @@
 <!-- Breadcrumb.svelte -->
 <script lang="ts">
   import type { BreadcrumbItem } from './props';
-  
+
   export let items: BreadcrumbItem[] = [];
   export let separator: string = '---------';
   export let onClick: (breadCrumb: BreadcrumbItem) => void = () => {};
@@ -13,6 +13,7 @@
     onClick(item);
   }
 </script>
+
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <nav aria-label="Breadcrumb" class="breadcrumbs">
@@ -81,6 +82,8 @@
     font-size: var(--breadcrumb-font-size);
     background-color: var(--breadcrumb-background);
     font-family: var(--breadcrumb-font-family);
+    backdrop-filter: var(--breadcrumb-backdrop-filter, blur(10px));
+    border: var(--breadcrumb-border);
   }
 
   .breadcrumbs-item {
