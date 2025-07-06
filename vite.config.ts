@@ -3,12 +3,17 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
 
+const isPackageBuild = process.env.BUILD_TARGET === 'package';
+
 /** @type {import('@sveltejs/kit').Config} */
 export default {
   plugins: [sveltekit()],
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter(),
+    files: {
+      routes: isPackageBuild ? 'src/lib' : 'src/routes',
+    },
     resolve: {
       alias: {
         $lib: path.resolve('./src/lib'),

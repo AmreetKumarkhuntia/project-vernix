@@ -259,13 +259,6 @@
 
 <style>
   .date-container {
-    --dropdown-width: 46%;
-    --dropdown-height: 40px;
-    --dropdown-menu-min-width: 70%;
-    --dropdown-item-padding: 8px;
-    --dropdown-item-text-size: 12px;
-    --dropdown-text-size: 14px;
-
     position: relative;
     display: inline-block;
 
@@ -353,6 +346,7 @@
   .date-day-selected-highlight {
     height: 100%;
     width: 100%;
+    overflow: hidden;
     position: absolute;
     background-color: var(--date-day-selected-highlight-bg-color, #007bff);
     border-radius: var(--date-day-selected-highlight-border-radius, 100%);

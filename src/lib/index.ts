@@ -23,6 +23,8 @@ export { default as Button } from './components/Button.svelte';
 export { default as Header } from './components/Header.svelte';
 export { default as InputField } from './components/InputField.svelte';
 export { default as Carousal } from './components/carousel/Carousel.svelte';
+export { default as Toggle } from './components/toggle/Toggle.svelte';
+export { default as Tooltip } from './components/tooltip/Tooltip.svelte';
 
 export * from './components/transitions';
 
@@ -66,3 +68,5 @@ export type {
   WrapFromDirection,
   WrapperTextProps,
 } from './components/wrapperText/props';
+export type { ToggleProps } from './components/toggle/props';
+export type { TooltipProps } from './components/tooltip/props';

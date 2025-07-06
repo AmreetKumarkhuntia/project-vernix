@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "3.6.20",
+  "version": "3.6.21",
   "type": "module",
   "license": "Apache-2.0",
   "exports": {
@@ -23,7 +23,8 @@
     "dev": "vite dev --port 5689",
     "package": "svelte-kit sync && svelte-package",
     "package:lint": "publint",
-    "build": "vite build && npm run package",
+    "build": "BUILD_TARGET=package vite build && npm run package",
+    "build:site": "BUILD_TARGET=site vite build",
     "format": "npx prettier --write .",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
