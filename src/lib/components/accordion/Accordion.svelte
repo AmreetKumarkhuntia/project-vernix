@@ -53,6 +53,10 @@
     overflow: hidden;
     font-size: var(--accordion-font-size);
     box-shadow: var(--accordion-box-shadow);
+    backdrop-filter: var(
+      --accordion-backdrop-filter,
+      blur(10px)
+    ); /* Adjust blur intensity as needed */
   }
 
   .accordion-header {

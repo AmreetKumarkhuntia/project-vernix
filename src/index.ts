@@ -18,5 +18,9 @@ export { default as Header } from './lib/components/Header.svelte';
 export { default as InputField } from './lib/components/InputField.svelte';
 export { default as Carousal } from './lib/components/carousel/Carousel.svelte';
 export { default as SideNav } from './lib/components/sideNav/SideNav.svelte';
+export { default as Toggle } from './lib/components/toggle/Toggle.svelte';
+export { default as Tooltip } from './lib/components/tooltip/Tooltip.svelte';
+export { default as Ripple } from './lib/components/ripple/Ripple.svelte';
+export { default as Date } from './lib/components/date/Date.svelte';
 
 export * from './lib/components/transitions';
