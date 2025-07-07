@@ -1,10 +1,12 @@
 <!-- Breadcrumb.svelte -->
 <script lang="ts">
   import type { BreadcrumbItem } from './props';
+  import Checkmark from '../svgs/Checkmark.svelte';
 
   export let items: BreadcrumbItem[] = [];
   export let separator: string = '---------';
   export let onClick: (breadCrumb: BreadcrumbItem) => void = () => {};
+  export let useCheckMarkOnCompletion: boolean = true;
 
   let activeIndex: number | null = null;
 
@@ -24,7 +26,11 @@
         on:click={() => handleBreadcrumbsClick(index, item)}
       >
         <span class="breadcrumbs-item-id active">
-          {index}
+          {#if useCheckMarkOnCompletion}
+            <Checkmark />
+          {:else}
+            {index}
+          {/if}
         </span>
         <span class="breadcrumbs-item-text active">
           {item.text}
