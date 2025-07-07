@@ -132,7 +132,7 @@
     if (date === null || date === undefined) {
       return;
     }
-    console.log('handleTransitionOfActiveElement', date);
+
     const index = daysInMonth.findIndex((d) => isSameDay(d.date, date));
     if (index !== -1) {
       const el = dateElements[index];

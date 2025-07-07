@@ -3,21 +3,35 @@
     homePageBreadcrumbItems,
     homeRadioOptions,
   } from '$lib/constants/client';
-  import { Breadcrumbs, Date, Toggle, RadioGroup, Checkbox } from '$lib/index';
+  import {
+    Breadcrumbs,
+    Date,
+    Toggle,
+    RadioGroup,
+    Checkbox,
+    LazyLoader,
+    Button,
+  } from '$lib/index';
 
   let toggled = true;
   let checked = true;
   let radioSelectedValue = homeRadioOptions[0].value;
+
+  const handleButtonClicked = () => {
+    console.log('Button Clicked');
+  };
 </script>
 
 <div class="home">
   <div class="header-container">
     <h1 class="header-title">
-      Fast UI with
-      <span class="gradient-text">
-        Vergins.<span class="j-mod">j</span>s
-        <span class="blob"></span>
-      </span>
+      <LazyLoader>Fast UI with</LazyLoader>
+      <LazyLoader>
+        <span class="gradient-text">
+          Vergins.<span class="j-mod">j</span>s
+        </span>
+      </LazyLoader>
+      <LazyLoader>in the Middle</LazyLoader>
     </h1>
 
     <p>A fast, accessible UI library built for svelte developers.</p>
@@ -31,9 +45,22 @@
         <Date zIndex={101} expanded={true} />
       </div>
       <div class="header-illustration-demonstrations">
+        <Button onClick={handleButtonClicked} size={'large'}>Filled</Button>
+        <Button onClick={handleButtonClicked} size={'large'} type={'outlined'}
+          >Outlined</Button
+        >
+        <Button
+          onClick={handleButtonClicked}
+          size={'large'}
+          type={'outlined'}
+          disabled={true}>Disabled</Button
+        >
+      </div>
+      <div class="header-illustration-demonstrations">
         <Toggle />
         <Toggle bind:toggled />
         <Checkbox label="Checkbox" bind:checked />
+        <Checkbox label="Checkbox" />
         <Checkbox label="Disabled" disabled={true} />
         <Checkbox label="Disabled Checked" disabled={true} checked={true} />
       </div>
@@ -124,7 +151,7 @@
 
   .gradient-text {
     position: relative;
-    font-size: 56px;
+    font-size: 60px;
     background-size: 400% 400%;
     background: var(--gradient-color-1);
     animation: gradient-shift 10s ease infinite;
@@ -132,10 +159,10 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .blob {
+  /* .blob {
     position: absolute;
-    top: -7px;
-    right: 20px;
+    top: -5px;
+    right: 23px;
     width: 36px;
     height: 36px;
     background-size: 400% 400%;
@@ -143,5 +170,5 @@
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
     z-index: 10;
-  }
+  } */
 </style>

@@ -4,10 +4,15 @@
   --gradient-color-2: linear-gradient(90deg, #d16ba5, #86a8e7, #5ffbf1);
   --gradient-color-3: radial-gradient(circle, #00fff7, #6faee8);
 
+  /* Button */
+  --button-width: 30%;
+  --button-size-large: 5%;
+
   /* Date */
-  --date-calendar-padding: 12px;
+  --date-calendar-padding: 16px;
   --date-calendar-width: auto;
 
+  /* Navbar */
   --navbar-layout-height: 96px;
 }
 

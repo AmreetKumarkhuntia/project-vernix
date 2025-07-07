@@ -39,6 +39,7 @@
     padding: var(--radio-padding);
     border-radius: var(--radio-border-radius);
     width: var(--radio-width, 100%);
+    background-color: var(--radio-bg-color, transparent);
   }
 
   .radio-label {
