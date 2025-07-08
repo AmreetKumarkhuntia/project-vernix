@@ -15,16 +15,32 @@
 
   let currentIndex: number = 0;
 
+  let container: HTMLElement;
+
+  let slideWidth: number = 0;
+
   const nextSlide = (): void => {
     currentIndex = (currentIndex + 1) % length;
+    if (container) {
+      slideWidth = (container.clientWidth / length) * currentIndex;
+      container.style.transform = `translateX(-${slideWidth}px)`;
+    }
   };
 
   const prevSlide = (): void => {
     currentIndex = (currentIndex - 1 + length) % length;
+    if (container) {
+      slideWidth = (container.clientWidth / length) * currentIndex;
+      container.style.transform = `translateX(-${slideWidth}px)`;
+    }
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (buttonConfig?.keyboardControl !== undefined && buttonConfig?.keyboardControl === false) return;
+    if (
+      buttonConfig?.keyboardControl !== undefined &&
+      buttonConfig?.keyboardControl === false
+    )
+      return;
 
     if (event.key === 'ArrowLeft') {
       prevSlide();
@@ -82,13 +98,13 @@
     on:mousemove={onMouseMove}
     on:mouseleave={onMouseLeave}
   >
-  <div
-    class="carousel-slides"
-    class:carousel-no-transition={disableAnimation}
-    style="transform: translateX(calc( (-1) * var(--carousel-slide-width) * {currentIndex})); width: calc({length} * var(--carousel-slide-width));"
-  >
-    <slot />
-  </div>
+    <div
+      bind:this={container}
+      class="carousel-slides"
+      style="width: calc({length} * var(--carousel-slide-width));"
+    >
+      <slot />
+    </div>
   </div>
 
   {#if buttonConfig?.showButtons === true && buttonConfig?.buttonPosition === 'sideways'}
@@ -116,6 +132,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    width: var(--carousel-width);
   }
 
   .carousel:focus-visible {
@@ -151,10 +168,6 @@
     display: flex;
     transition: transform var(--carousel-slide-transition);
     background-color: var(--carousel-slides-bg-color);
-  }
-
-  .carousel-no-transition {
-    transition: none !important;
   }
 
   .carousel-button {

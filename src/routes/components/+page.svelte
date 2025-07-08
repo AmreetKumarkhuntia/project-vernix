@@ -359,6 +359,7 @@
 
       <div class="view-padding">
         <Accordion>
+          <span slot="accordion-title">Accordion Title 2</span>
           <p>Accordion content goes here.</p>
         </Accordion>
       </div>

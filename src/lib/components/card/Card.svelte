@@ -11,8 +11,8 @@
 
 <style>
   .card {
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    cursor: var(--card-cursor, pointer);
+    background: var(--card-bg-color); /* Semi-transparent white */
     color: var(--card-text-color);
     border: var(--card-border-width) var(--card-border-style)
       var(--card-border-color);
@@ -29,16 +29,12 @@
     /* Glass effect */
     backdrop-filter: var(
       --card-backdrop-filter,
-      10px
+      blur(10px)
     ); /* Adjust blur intensity as needed */
-    border: var(
-      --card-border,
-      1px solid rgba(237, 237, 237, 0.682)
-    ); /* Optional: Add a subtle border for better visibility */
   }
 
   .card:hover {
-    transform: scale(var(--card-hover-scale));
+    transform: var(--card-hover-transform, scale(var(--card-hover-scale)));
     box-shadow: var(--card-hover-shadow);
   }
 
