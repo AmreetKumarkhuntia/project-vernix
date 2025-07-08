@@ -22,6 +22,8 @@
 
   --light-color-text: #f5f5f5;
 
+  --svg-color: #000;
+
   /* Status Colors */
   --status-color: #2e8bc0;
   --success-color: #009b05;
@@ -36,8 +38,8 @@
   --font-xxxl: 48px;
   --font-xxl: 36px;
   --font-xl: 28px;
-  --font-lg: 24px;
-  --font-md: 20px;
+  --font-lg: 22px;
+  --font-md: 18px;
   --font-base: 15px;
   --font-sm: 13px;
   --font-xs: 11px;
@@ -83,7 +85,7 @@
   --accordion-header-text-color: var(--text-secondary-color);
   --accordion-header-hover-color: var(--background-color);
   --accordion-transition-speed: var(--transition-fast);
-  --accordion-content-padding: 10px;
+  --accordion-content-padding: 16px;
   --accordion-content-background-color: var(--background-color);
   --accordion-width: 100%;
   --accordion-height: auto;
@@ -137,10 +139,10 @@
   --button-transition-speed: var(--transition-mid);
 
   /* Card */
-  --card-bg-color: var(--surface-color);
+  --card-bg-color: var(--background-color);
   --card-text-color: var(--text-primary-color);
   --card-border-color: var(--border-color);
-  --card-border-width: 2px;
+  --card-border-width: 1px;
   --card-border-style: solid;
   --card-padding: 16px;
   --card-border-radius: 12px;
@@ -155,11 +157,12 @@
   --card-width: 160px;
   --card-height: 200px;
   --card-margin: 72px;
+  --card-backdrop-filter: blur(10px);
 
   /* Carousel */
   --carousel-width: 720px;
   --carousel-height: 400px;
-  --carousel-border-radius: 16px;
+  --carousel-border-radius: 4px;
 
   --carousel-button-bg: transparent;
   --carousel-button-border-radius: 50%;
@@ -175,13 +178,13 @@
   --carousel-buttons-below-gap: 10px;
   --carousel-buttons-below-margin-top: 10px;
 
-  --carousel-container-border: 1px solid var(--tertiary-color);
+  --carousel-container-border: 1px solid var(--border-color);
   --carousel-container-transition: 0.2s ease-in-out;
   --carousel-container-transform: skew(1deg, 1deg);
   --carousel-container-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   --carousel-container-shadow-hover-color: 0, 0, 0;
 
-  --carousel-slides-bg-color: var(--tertiary-color);
+  --carousel-slides-bg-color: var(--background-color);
   --carousel-slide-padding: 16px;
   --carousel-slide-width: 720px;
   --carousel-slide-height: 100%;

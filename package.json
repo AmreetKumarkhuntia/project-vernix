@@ -1,6 +1,6 @@
 {
   "name": "vergins",
-  "version": "3.6.22",
+  "version": "3.6.23",
   "type": "module",
   "license": "Apache-2.0",
   "exports": {

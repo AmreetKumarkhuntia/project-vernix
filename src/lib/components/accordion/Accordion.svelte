@@ -5,7 +5,6 @@
   export let isClose: boolean = true;
   export let accordionProps: AccordionProps = defaultAccordionProps;
   const closeButtonContent = accordionProps.closeButtonContent;
-  const title = accordionProps.title;
   const duration = accordionProps.duration;
   const onToggle: (isClose: boolean) => void =
     accordionProps.onToggle !== undefined ? accordionProps.onToggle : () => {};
@@ -21,7 +20,9 @@
 <div class="accordion">
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="accordion-header" on:click={handleToggle}>
-    <span class="accordion-title">{title}</span>
+    <span class="accordion-title">
+      <slot name="accordion-title" />
+    </span>
     <span class="accordion-close-button {isClose ? '' : 'active'}">
       {@html closeButtonContent}
     </span>
@@ -46,8 +47,12 @@
 <style>
   .accordion {
     border: var(--accordion-border) var(--accordion-border-color);
+    border-bottom: var(
+      --accordion-border-bottom,
+      var(--accordion-border) var(--accordion-border-color)
+    );
     border-radius: var(--accordion-border-radius);
-    margin-bottom: var(--accordion-margin);
+    margin: var(--accordion-margin);
     width: var(--accordion-width);
     height: var(--accordion-height);
     overflow: hidden;
