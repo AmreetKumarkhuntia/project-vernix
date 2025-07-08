@@ -136,19 +136,8 @@
     const index = daysInMonth.findIndex((d) => isSameDay(d.date, date));
     if (index !== -1) {
       const el = dateElements[index];
-      console.log('el', el, index);
       if (el) {
         const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = el;
-        console.log(
-          'offsetTop',
-          offsetTop,
-          'offsetLeft',
-          offsetLeft,
-          'offsetWidth',
-          offsetWidth,
-          'offsetHeight',
-          offsetHeight
-        );
         position.set({
           top: offsetTop,
           left: offsetLeft,

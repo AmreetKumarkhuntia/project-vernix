@@ -1,11 +1,17 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import type { NavbarAlignment, NavigationOptions } from './props';
 
   export let navbarAlignment: NavbarAlignment = 'horizontal';
   export let navigationOptions: NavigationOptions[] = [];
+  export let activeNavigation: string = '';
   export let onClick: (navigationOption: NavigationOptions) => void = () => {};
 
-  let activeTabId = '';
+  let activeTabId: string;
+
+  onMount(() => {
+    activeTabId = activeNavigation;
+  });
 
   function handleNavigationEvent(navigationOption: NavigationOptions): void {
     activeTabId = navigationOption.id;

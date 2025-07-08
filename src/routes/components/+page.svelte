@@ -155,13 +155,15 @@
     },
   ];
 
+  let activeNav = 'home';
+
   const demoNavbarProps: NavbarProps = {
-    showLeftImage: true,
-    leftImageURL: headerIcon,
     navigationOptions: demoNavigationProps,
-    showRightImage: true,
-    rightImageURL: profileIcon,
   };
+
+  function handleNavClick(navigationOption: NavigationOptions) {
+    activeNav = navigationOption.id;
+  }
 
   const events: TimeLineDetails[] = [
     {
@@ -318,10 +320,49 @@
         <Button onClick={openFlyer} size={'large'}>Add Flyer</Button>
       </div>
       <div class="view-padding">
-        <Navbar navbarProps={demoNavbarProps} onClick={(e) => console.log(e)} />
+        <Navbar
+          navbarProps={demoNavbarProps}
+          activeNavigation={activeNav}
+          onClick={handleNavClick}
+        >
+          <div slot="left">
+            <img
+              src={headerIcon}
+              alt="header icon"
+              style="height: 40px; width: 40px;"
+            />
+          </div>
+          <div slot="right">
+            <img
+              src={profileIcon}
+              alt="profile icon"
+              style="height: 40px; width: 40px;"
+            />
+          </div>
+        </Navbar>
       </div>
       <div class="view-padding">
-        <Navbar navbarProps={demoNavbarProps} navbarAlignment="vertical" />
+        <Navbar
+          navbarProps={demoNavbarProps}
+          navbarAlignment="vertical"
+          activeNavigation={activeNav}
+          onClick={handleNavClick}
+        >
+          <div slot="left">
+            <img
+              src={headerIcon}
+              alt="header icon"
+              style="height: 40px; width: 40px;"
+            />
+          </div>
+          <div slot="right">
+            <img
+              src={profileIcon}
+              alt="profile icon"
+              style="height: 40px; width: 40px;"
+            />
+          </div>
+        </Navbar>
       </div>
       <div class="view-padding">
         <Breadcrumbs items={demoBreadcrumbItems} />

@@ -7,11 +7,7 @@ export type NavigationOptions = {
 };
 
 export type NavbarProps = {
-  showLeftImage: boolean;
-  leftImageURL: string | null;
   navigationOptions: NavigationOptions[];
-  showRightImage: boolean;
-  rightImageURL: string | null;
 };
 
 export type NavbarAlignment = 'horizontal' | 'vertical';
@@ -35,9 +31,5 @@ const defaultNavigationOptions: NavigationOptions[] = [
 ];
 
 export const defaultNavbarProps: NavbarProps = {
-  showLeftImage: true,
-  leftImageURL: headerIcon,
   navigationOptions: defaultNavigationOptions,
-  showRightImage: true,
-  rightImageURL: profileIcon,
 };
