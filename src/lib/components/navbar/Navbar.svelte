@@ -9,9 +9,7 @@
 
   export let navbarProps: NavbarProps = defaultNavbarProps;
   export let navbarAlignment: NavbarAlignment = 'horizontal';
-
-  export let leftImageClick: () => void = () => {};
-  export let rightImageClick: () => void = () => {};
+  export let activeNavigation: string = '';
   export let onClick: (navigationOption: NavigationOptions) => void = () => {};
 </script>
 
@@ -19,31 +17,16 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-img-redundant-alt -->
 <div class={`navbar-container ${navbarAlignment}`} aria-label="Main navigation">
-  {#if navbarProps.showLeftImage && navbarProps.leftImageURL}
-    <div class="navbar-image-wrapper left" on:click={leftImageClick}>
-      <img
-        class="navbar-image"
-        src={navbarProps.leftImageURL}
-        alt="no-image-available"
-      />
-    </div>
-  {/if}
+  <slot name="left" />
 
   <NavMenu
     navigationOptions={navbarProps.navigationOptions}
+    {activeNavigation}
     {navbarAlignment}
     {onClick}
   />
 
-  {#if navbarProps.showRightImage && navbarProps.rightImageURL}
-    <div class="navbar-image-wrapper right" on:click={rightImageClick}>
-      <img
-        class="navbar-image"
-        src={navbarProps.rightImageURL}
-        alt="no-image-available"
-      />
-    </div>
-  {/if}
+  <slot name="right" />
 </div>
 
 <style>
@@ -57,26 +40,6 @@
     padding: var(--navbar-padding);
   }
 
-  .navbar-image-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: var(--navbar-image-padding);
-  }
-
-  .navbar-image {
-    height: var(--navbar-image-height);
-    width: var(--navbar-image-width);
-    transition:
-      opacity 0.3s,
-      transform 0.2s;
-  }
-
-  .navbar-image:hover {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
 
   /* Alignment classes */
   .navbar-container.horizontal {

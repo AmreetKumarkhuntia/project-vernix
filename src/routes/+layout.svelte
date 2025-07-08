@@ -2,15 +2,47 @@
   import '$css/improved-theme-2.css';
   import '$siteCss/style.css';
 
-  import Navbar from './../lib/components/navbar/Navbar.svelte';
+  import { page } from '$app/stores';
+  import Navbar from '$lib/components/navbar/Navbar.svelte';
+  import type { NavigationOptions } from '$lib/components/navbar/props';
   import { topNavbarProps } from '$lib/constants/client/index';
+  import clientStore from '$lib/store/clientStore';
+
+  $: {
+    const currentPath = $page.url.pathname;
+    const activeNav = topNavbarProps.navigationOptions.find(
+      (option) => option.navigationURL === currentPath
+    );
+    if (activeNav) {
+      clientStore.update((store) => ({
+        ...store,
+        activeNavigation: activeNav.id,
+      }));
+    } else {
+      clientStore.update((store) => ({
+        ...store,
+        activeNavigation: '',
+      }));
+    }
+  }
+
+  function handleNavClick(navigationOption: NavigationOptions) {
+    clientStore.update((store) => ({
+      ...store,
+      activeNavigation: navigationOption.id,
+    }));
+  }
 </script>
 
 <div class="navbar-layout">
-    <Navbar navbarProps={topNavbarProps} onClick={(e) => console.log(e)} />
+  <Navbar
+    navbarProps={topNavbarProps}
+    activeNavigation={$clientStore.activeNavigation}
+    onClick={handleNavClick}
+  />
 </div>
 <div class="blob-bg"></div>
 <div class="blob-bg-2"></div>
 <div class="body-layout">
-    <slot  />
+  <slot />
 </div>

@@ -33,11 +33,7 @@ export const navigationMenu: NavigationOptions[] = [
 ];
 
 export const topNavbarProps: NavbarProps = {
-  showLeftImage: false,
-  leftImageURL: null,
   navigationOptions: navigationMenu,
-  showRightImage: false,
-  rightImageURL: null,
 };
 
 export const homePageBreadcrumbItems: BreadcrumbItem[] = [
