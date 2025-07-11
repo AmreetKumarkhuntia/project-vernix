@@ -10,6 +10,7 @@
 </script>
 
 <nav class="side-nav">
+  <slot name="side-nav-top-content" />
   <ul>
     {#each items as item}
       <SideNavItem {item} {extraOnClick} />
@@ -26,6 +27,7 @@
     border-right: var(--sidenav-border-right, 1px solid #ddd);
     box-shadow: var(--sidenav-box-shadow);
     transition: var(--sidenav-transition);
+    font-size: var(--sidenav-font-size, var(--font-sm));
   }
 
   ul {

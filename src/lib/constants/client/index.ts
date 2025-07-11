@@ -23,12 +23,12 @@ export const navigationMenu: NavigationOptions[] = [
   {
     id: 'npm',
     title: 'NPM',
-    navigationURL: '/github',
+    navigationURL: 'https://www.npmjs.com/package/vergins',
   },
   {
     id: 'github',
     title: 'GITHUB',
-    navigationURL: '/github',
+    navigationURL: 'https://github.com/AmreetKumarkhuntia/project-vernix',
   },
 ];
 
