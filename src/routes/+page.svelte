@@ -4,6 +4,8 @@
   import Comments from '$lib/components/svgs/Comments.svelte';
   import Like from '$lib/components/svgs/Like.svelte';
   import Share from '$lib/components/svgs/Share.svelte';
+  import Exclamation from '$lib/components/svgs/Exclamation.svelte';
+  import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
   import {
     homePageBreadcrumbItems,
     homeRadioOptions,
@@ -83,6 +85,25 @@
           options={homeRadioOptions}
           bind:selectedValue={radioSelectedValue}
         />
+      </div>
+      <div class="header-illustration-demonstrations left">
+        <Card>
+          <Tooltip>
+            <span slot="tooltip-content"
+              >You can access extra options by clicking the three dots on any
+              item.</span
+            >
+            <span class="card-content">
+              <span class="checkmark">
+                <!-- <Checkmark /> -->
+                <Exclamation strokeColor={'#ffffff'} />
+              </span>
+              <span style="margin-left: 12px;"
+                >Just a quick tip — hover over me!</span
+              >
+            </span>
+          </Tooltip>
+        </Card>
       </div>
     </div>
     <div class="header-illustration-half right">
