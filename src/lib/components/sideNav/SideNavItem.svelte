@@ -1,6 +1,7 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import type { SideNavItem } from './props';
+  import DownArrow from '../svgs/DownArrow.svelte';
 
   export let item: SideNavItem;
   export let currentLayerIndex: number = 0;
@@ -20,7 +21,6 @@
 <li
   on:click={() => {
     const onClick = item?.onClick;
-    console.log('onClick', currentLayerIndex, item);
     extraOnClick(currentLayerIndex, item);
     if (onClick) {
       onClick(item, currentLayerIndex);
@@ -36,15 +36,21 @@
     {#if item.icon}
       <svelte:component this={item.icon} />
     {/if}
-    <span>{item.label}</span>
+    <span class="sidenav-item-label">{item.label}</span>
     {#if item.children}
-      <span class="chevron" class:expanded>&#9660;</span>
+      <span class="sidenav-item-chevron" class:expanded>
+        <DownArrow />
+      </span>
     {/if}
   </a>
   {#if item.children && expanded}
     <ul transition:slide>
       {#each item.children as child}
-        <svelte:self item={child} extraOnClick={extraOnClick} currentLayerIndex={currentLayerIndex + 1}/>
+        <svelte:self
+          item={child}
+          {extraOnClick}
+          currentLayerIndex={currentLayerIndex + 1}
+        />
       {/each}
     </ul>
   {/if}
@@ -60,6 +66,8 @@
   .sidenav-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    cursor: var(--sidenav-item-cursor, pointer);
     padding: var(--sidenav-item-padding, 10px 15px);
     color: var(--sidenav-item-color, #333);
     text-decoration: none;
@@ -70,23 +78,27 @@
     background-color: var(--sidenav-item-hover-bg-color, #f0f0f0);
   }
 
-  .sidenav-item span {
+  .sidenav-item-label {
     margin-left: var(--sidenav-item-text-margin-left, 10px);
+    text-transform: var(--sidenav-item-text-transform, capitalize);
   }
 
-  .chevron {
-    margin-left: auto;
-    height: var(--sidenav-chevron-size, auto);
-    width: var(--sidenav-chevron-size, auto);
-    transition: transform var(--sidenav-chevron-transition-duration, 0.2s);
+  .sidenav-item-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--sidenav-item-chevron-margin-left, 10px);
+    height: var(--sidenav-item-chevron-size, 12px);
+    width: var(--sidenav-item-chevron-size, 12px);
+    transition: transform var(--sidenav-item-chevron-transition-duration, 0.2s);
   }
 
-  .chevron.expanded {
-    transform: rotate(var(--sidenav-chevron-rotation, 180deg));
+  .sidenav-item-chevron.expanded {
+    transform: rotate(var(--sidenav-item-chevron-rotation, 180deg));
   }
 
   ul {
-    padding-left: var(--sidenav-sublist-padding-left, 20px);
+    padding-left: var(--sidenav-item-sub-list-padding-left, 20px);
     margin: 0;
   }
 </style>

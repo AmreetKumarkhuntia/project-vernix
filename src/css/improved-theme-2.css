@@ -24,6 +24,8 @@
 
   --svg-color: #000;
 
+  --shine-color: rgba(255, 255, 255, 0.4);
+
   /* Status Colors */
   --status-color: #2e8bc0;
   --success-color: #009b05;

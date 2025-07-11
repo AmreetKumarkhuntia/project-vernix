@@ -1,8 +1,9 @@
 <script lang="ts">
   import '$css/improved-theme-2.css';
   import '$siteCss/style.css';
-
+  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
+
   import Navbar from '$lib/components/navbar/Navbar.svelte';
   import type { NavigationOptions } from '$lib/components/navbar/props';
   import { topNavbarProps } from '$lib/constants/client/index';
@@ -31,6 +32,12 @@
       ...store,
       activeNavigation: navigationOption.id,
     }));
+    if (navigationOption.navigationURL.includes('http')) {
+      window.open(navigationOption.navigationURL, '_blank');
+    } else {
+      goto(navigationOption.navigationURL);
+    }
+    return;
   }
 </script>
 

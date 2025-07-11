@@ -28,6 +28,7 @@
   .progress-bar::before {
     content: '';
     position: absolute;
+    z-index: var(--progress-bar-before-z-index, 1);
     top: 0;
     left: -50%;
     width: 200%;
