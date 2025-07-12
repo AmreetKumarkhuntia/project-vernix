@@ -5,11 +5,14 @@
 
   export let item: SideNavItem;
   export let currentLayerIndex: number = 0;
-  export let extraOnClick: (
+  export let onClick: (
     currentLayerIndex: number,
     item: SideNavItem
   ) => void = () => {};
+  export let activeItem: SideNavItem | undefined;
   let expanded: boolean = item.expanded || false;
+
+  $: isActive = activeItem === item;
 
   function toggle() {
     expanded = !expanded;
@@ -20,10 +23,10 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <li
   on:click={() => {
-    const onClick = item?.onClick;
-    extraOnClick(currentLayerIndex, item);
-    if (onClick) {
-      onClick(item, currentLayerIndex);
+    const onClickFromItem = item?.onClick;
+    onClick(currentLayerIndex, item);
+    if (onClickFromItem) {
+      onClickFromItem(item, currentLayerIndex);
     }
   }}
   on:click|stopPropagation
@@ -31,6 +34,8 @@
   <a
     href={item.href}
     class="sidenav-item"
+    class:expanded
+    class:active={isActive}
     on:click|preventDefault={item.children ? toggle : () => {}}
   >
     {#if item.icon}
@@ -48,7 +53,8 @@
       {#each item.children as child}
         <svelte:self
           item={child}
-          {extraOnClick}
+          {onClick}
+          {activeItem}
           currentLayerIndex={currentLayerIndex + 1}
         />
       {/each}
@@ -69,13 +75,20 @@
     justify-content: space-between;
     cursor: var(--sidenav-item-cursor, pointer);
     padding: var(--sidenav-item-padding, 10px 15px);
+    margin: var(--sidenav-item-margin, 0);
     color: var(--sidenav-item-color, #333);
     text-decoration: none;
-    transition: all var(--sidenav-item-transition-duration, 0.2s);
+    transition:  background-color var(--sidenav-item-transition-duration, 0.2s);
   }
 
   .sidenav-item:hover {
     background-color: var(--sidenav-item-hover-bg-color, #f0f0f0);
+  }
+
+  .sidenav-item.active {
+    background-color: var(--sidenav-item-active-bg-color, var(--success-color-light));
+    border-left: var(--sidenav-item-active-border, none);
+    border-radius: var(--sidenav-item-active-border-radius, 4px);
   }
 
   .sidenav-item-label {
@@ -95,6 +108,10 @@
 
   .sidenav-item-chevron.expanded {
     transform: rotate(var(--sidenav-item-chevron-rotation, 180deg));
+  }
+
+  .sidenav-item.expanded {
+    border-left: var(--sidenav-item-expanded-border, 1px solid);
   }
 
   ul {
