@@ -7,7 +7,7 @@
     currentLayerIndex: number,
     item: SideNavItemType
   ) => void = () => {};
-  let activeItem: SideNavItemType | undefined;
+  export let activeItem: SideNavItemType | undefined = undefined;
 
   const onExtraClick = (currentLayerIndex: number, item: SideNavItemType) => {
     if (!item.children) {
@@ -21,7 +21,7 @@
   <slot name="side-nav-top-content" />
   <ul>
     {#each items as item}
-      <SideNavItem {item} onClick={onExtraClick} {activeItem} />
+      <SideNavItem {item} onClick={onExtraClick} bind:activeItem />
     {/each}
   </ul>
   <slot name="side-nav-down-content" />

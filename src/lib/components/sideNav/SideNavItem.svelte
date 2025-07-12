@@ -10,9 +10,15 @@
     item: SideNavItem
   ) => void = () => {};
   export let activeItem: SideNavItem | undefined;
-  let expanded: boolean = item.expanded || false;
 
-  $: isActive = activeItem === item;
+  let expanded: boolean = item.expanded || false;
+  let isActive: boolean = false;
+
+  $: setActive(), activeItem;
+
+  function setActive() {
+    isActive = activeItem !== undefined ? activeItem.href === item.href : false;
+  }
 
   function toggle() {
     expanded = !expanded;
@@ -78,7 +84,7 @@
     margin: var(--sidenav-item-margin, 0);
     color: var(--sidenav-item-color, #333);
     text-decoration: none;
-    transition:  background-color var(--sidenav-item-transition-duration, 0.2s);
+    transition: background-color var(--sidenav-item-transition-duration, 0.2s);
   }
 
   .sidenav-item:hover {
@@ -86,7 +92,10 @@
   }
 
   .sidenav-item.active {
-    background-color: var(--sidenav-item-active-bg-color, var(--success-color-light));
+    background-color: var(
+      --sidenav-item-active-bg-color,
+      var(--success-color-light)
+    );
     border-left: var(--sidenav-item-active-border, none);
     border-radius: var(--sidenav-item-active-border-radius, 4px);
   }
