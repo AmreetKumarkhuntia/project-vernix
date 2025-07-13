@@ -11,9 +11,13 @@
 
   $: {
     const currentPath = $page.url.pathname;
-    const activeNav = topNavbarProps.navigationOptions.find(
-      (option) => option.navigationURL === currentPath
-    );
+    const activeNav = topNavbarProps.navigationOptions.find((option) => {
+      if (option.navigationURL === '/') {
+        return currentPath === option.navigationURL;
+      } else {
+        return currentPath.includes(option.navigationURL);
+      }
+    });
     if (activeNav) {
       clientStore.update((store) => ({
         ...store,
