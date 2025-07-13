@@ -1,10 +1,21 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { mdsvex } from 'mdsvex';
+import { defineConfig } from 'vite';
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
-  preprocess: vitePreprocess(),
-
+const config = defineConfig({
+  preprocess: [
+    vitePreprocess(),
+    mdsvex({
+      extensions: ['.md', '.mdx'],
+      layout: {
+        // Optional: default layout for MDX
+        components: './src/lib/layouts/ComponentLayout.svelte',
+      },
+    }),
+  ],
+  extensions: ['.svelte', '.md', '.mdx'],
   kit: {
     adapter: adapter(),
     alias: {
@@ -20,6 +31,6 @@ const config = {
       $siteCss: 'src/siteCss',
     },
   },
-};
+});
 
 export default config;
