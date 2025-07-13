@@ -1,8 +1,7 @@
 <script lang="ts">
-  export let data;
+  import Introduction from '$lib/docs/introduction.mdx';
 </script>
 
 <div class="prose">
-  {@html data.content}
+  <Introduction />
 </div>
-

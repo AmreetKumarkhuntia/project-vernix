@@ -1,7 +1,6 @@
 <script lang="ts">
   import * as Prism from 'prismjs';
 
-  export let code: string = '';
   export let lang: string = 'javascript';
   export let codeProps: CodeProps = defaultCodeProps;
 
@@ -9,17 +8,22 @@
   const notCopiedIcon = codeProps.notCopiedIcon;
   let formattedCode: string = '';
   let copied: boolean = false;
+  let code: string = '';
 
   import { onMount } from 'svelte';
   import {
     defaultCodeProps,
     defaultInTransition,
     defaultOutTransition,
-    type CodeProps,
+    type CodeProps
   } from './props';
   import { performTransition } from '../transitions';
   onMount(() => {
-    formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
+    const slot = document.querySelector('.code-slot');
+    if (slot) {
+      code = slot.textContent || '';
+      formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
+    }
   });
 
   function copyToClipboard() {
@@ -31,6 +35,9 @@
 </script>
 
 <div class="code">
+  <div style="display: none;" class="code-slot">
+    <slot />
+  </div>
   {#if formattedCode !== ''}
     <div
       class="code-container"

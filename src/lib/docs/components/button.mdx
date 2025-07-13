@@ -1,0 +1,85 @@
+<script>
+  import Button from '$lib/components/Button.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Button
+
+The `Button` component is a simple, versatile button that can be used for various actions.
+
+## Usage
+
+<Code lang="javascript">
+{`
+<script>
+  import Button from 'project-vernix/Button.svelte';
+</script>
+
+<Button on:click={() => alert('Button clicked!')}>
+  Click me
+</Button>
+`}
+</Code>
+
+## Props
+
+- `size`: `'small' | 'medium' | 'large' | 'fill'` (default: `'medium'`) - The size of the button.
+- `type`: `'filled' | 'outlined'` (default: `'filled'`) - The type of the button.
+- `disabled`: `boolean` (default: `false`) - Disables the button.
+- `componentClass`: `string` (default: `''`) - Additional classes to apply to the button.
+
+## Examples
+
+### Default Button
+
+<div class="flex gap-2">
+  <Button>Default Button</Button>
+</div>
+
+<Code lang="javascript">
+  {`
+<Button>Default Button</Button>
+`}
+</Code>
+
+### Sizes
+
+<div class="flex gap-2">
+  <Button size="small">Small</Button>
+  <Button size="medium">Medium</Button>
+  <Button size="large">Large</Button>
+</div>
+
+<Code lang="javascript">
+  {`
+<Button size="small">Small</Button>
+<Button size="medium">Medium</Button>
+<Button size="large">Large</Button>
+`}
+</Code>
+
+### Types
+
+<div class="flex gap-2">
+  <Button type="filled">Filled</Button>
+  <Button type="outlined">Outlined</Button>
+</div>
+
+<Code lang="javascript">
+  {`
+<Button type="filled">Filled</Button>
+<Button type="outlined">Outlined</Button>
+`}
+</Code>
+
+### Disabled
+
+<div class="flex gap-2">
+  <Button disabled={true}>Disabled</Button>
+</div>
+
+<Code lang="javascript">
+  {`
+<Button disabled={true}>Disabled</Button>
+`}
+</Code>

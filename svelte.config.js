@@ -9,10 +9,6 @@ const config = defineConfig({
     vitePreprocess(),
     mdsvex({
       extensions: ['.md', '.mdx'],
-      layout: {
-        // Optional: default layout for MDX
-        components: './src/lib/layouts/ComponentLayout.svelte',
-      },
     }),
   ],
   extensions: ['.svelte', '.md', '.mdx'],
