@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { SideNavItem } from '$lib/components/sideNav/props';
 
-const docsPath = path.resolve(process.cwd(), 'docs');
+const docsPath = path.resolve(process.cwd(), 'src/lib/docs');
 
 function getNavItems(dir: string, basePath: string = ''): SideNavItem[] {
   const items: SideNavItem[] = [];
@@ -11,7 +11,7 @@ function getNavItems(dir: string, basePath: string = ''): SideNavItem[] {
   for (const file of files) {
     const fullPath = path.join(dir, file);
     const stat = fs.statSync(fullPath);
-    const href = path.join('/docs', basePath, file.replace('.md', ''));
+    const href = path.join('/docs', basePath, file.replace('.mdx', ''));
 
     if (stat.isDirectory()) {
       items.push({
@@ -20,9 +20,9 @@ function getNavItems(dir: string, basePath: string = ''): SideNavItem[] {
         expanded: true,
         children: getNavItems(fullPath, path.join(basePath, file)),
       });
-    } else if (file.endsWith('.md')) {
+    } else if (file.endsWith('.mdx')) {
       items.push({
-        label: file.replace('.md', ''),
+        label: file.replace('.mdx', ''),
         href,
       });
     }

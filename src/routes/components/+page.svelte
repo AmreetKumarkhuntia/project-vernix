@@ -257,38 +257,7 @@
   let selectedRadio = '1';
   let checked = false;
 
-  let exampleCode = `
-  const greeting = 'Hello, world!';
-
-  function greet(name) {
-    return greeting + ' Welcome, ' + name + '!';
-  }
-
-  const user = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 30,
-  };
-
-  const users = [
-    { name: 'Alice', age: 28 },
-    { name: 'Bob', age: 25 },
-    { name: 'Charlie', age: 35 },
-  ];
-
-  function displayUserInfo(user) {
-    return user.firstName + ' ' + user.lastName + ' is ' + user.age + ' years old.';
-  }
-
-  function filterUsersByAge(minAge) {
-    return users.filter(function(user) {
-      return user.age >= minAge;
-    });
-  }
-
-  console.log(greet(user.firstName));
-  console.log(displayUserInfo(user));
-  console.log(filterUsersByAge(30));`;
+  let exampleCode = ``;
 </script>
 
 <div class="page-container">
@@ -477,7 +446,41 @@
       </div>
 
       <div class="view-padding">
-        <Code code={exampleCode} />
+        <Code>
+          {`
+  const greeting = 'Hello, world!';
+
+  function greet(name) {
+    return greeting + ' Welcome, ' + name + '!';
+  }
+
+  const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+  };
+
+  const users = [
+    { name: 'Alice', age: 28 },
+    { name: 'Bob', age: 25 },
+    { name: 'Charlie', age: 35 },
+  ];
+
+  function displayUserInfo(user) {
+    return user.firstName + ' ' + user.lastName + ' is ' + user.age + ' years old.';
+  }
+
+  function filterUsersByAge(minAge) {
+    return users.filter(function(user) {
+      return user.age >= minAge;
+    });
+  }
+
+  console.log(greet(user.firstName));
+  console.log(displayUserInfo(user));
+  console.log(filterUsersByAge(30));
+  `}
+        </Code>
       </div>
 
       <div class="view-padding">
