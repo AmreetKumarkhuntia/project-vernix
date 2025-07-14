@@ -1,4 +1,5 @@
 <script lang="ts">
+  import 'prismjs/themes/prism-tomorrow.css';
   import { goto } from '$app/navigation';
   import { type DropdownItem, type SideNavItem, DropDown, SideNav } from '$lib';
   import { onMount } from 'svelte';

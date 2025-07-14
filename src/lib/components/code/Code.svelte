@@ -1,58 +1,50 @@
 <script lang="ts">
   import * as Prism from 'prismjs';
+  import { onMount } from 'svelte';
+  import { defaultInTransition, defaultOutTransition } from './props';
+  import { performTransition, type TransitionWrapper } from '../transitions';
+  import Copy from '../svgs/Copy.svelte';
+  import Correct from '../svgs/Correct.svelte';
 
   export let lang: string = 'javascript';
-  export let codeProps: CodeProps = defaultCodeProps;
+  export let inTransition: TransitionWrapper = defaultInTransition;
+  export let outTransition: TransitionWrapper = defaultOutTransition;
+  export let copyIconsColor: string = '#000';
+  export let copyDuration: number = 2000;
+  export let code: string = '';
+  
 
-  const copiedIcon = codeProps.copiedIcon;
-  const notCopiedIcon = codeProps.notCopiedIcon;
   let formattedCode: string = '';
   let copied: boolean = false;
-  let code: string = '';
 
-  import { onMount } from 'svelte';
-  import {
-    defaultCodeProps,
-    defaultInTransition,
-    defaultOutTransition,
-    type CodeProps
-  } from './props';
-  import { performTransition } from '../transitions';
   onMount(() => {
-    const slot = document.querySelector('.code-slot');
-    if (slot) {
-      code = slot.textContent || '';
-      formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
-    }
+    formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
   });
 
   function copyToClipboard() {
     navigator.clipboard.writeText(code).then(() => {
       copied = true;
-      setTimeout(() => (copied = false), 2000);
+      setTimeout(() => (copied = false), copyDuration);
     });
   }
 </script>
 
 <div class="code">
-  <div style="display: none;" class="code-slot">
-    <slot />
-  </div>
   {#if formattedCode !== ''}
     <div
       class="code-container"
-      in:performTransition={defaultInTransition}
-      out:performTransition={defaultOutTransition}
+      in:performTransition={inTransition}
+      out:performTransition={outTransition}
     >
       <button class="code-copy-button" on:click={copyToClipboard}>
         {#if copied}
-          <img src={copiedIcon} alt="Tick icon" width="20" height="20" />
+          <Correct fillColor={copyIconsColor} strokeColor={copyIconsColor} />
         {:else}
-          <img src={notCopiedIcon} alt="Copy icon" width="20" height="20" />
+          <Copy fillColor={copyIconsColor} />
         {/if}
       </button>
       <pre class="code-block">
-        <code class="code-{lang}">{@html formattedCode}</code>
+        <code class="code-{lang} code-block-code">{@html formattedCode}</code>
       </pre>
     </div>
   {/if}
@@ -71,8 +63,8 @@
   .code-copy-button {
     background-color: transparent;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: var(--code-copy-button-top, 20px);
+    right: var(--code-copy-button-right, 20px);
     border: none;
     cursor: pointer;
     display: flex;
@@ -87,15 +79,16 @@
     font-family: var(--code-font-family);
     height: var(--code-height);
     width: var(--code-width);
+    padding: var(--code-padding, 20px);
     overflow: auto;
-  }
 
-  .code-copy-button img {
-    width: var(--code-button-size);
-    height: var(--code-button-size);
+    display: var(--code-pre-display, flex);
   }
 
   code {
+    display: var(--code-codeblock-display, block);
     font-size: var(--code-font-size);
+    height: var(--code-height);
+    width: var(--code-width);
   }
 </style>
