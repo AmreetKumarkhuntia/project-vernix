@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Button from '$lib/components/Button.svelte';
   import Code from '$lib/components/code/Code.svelte';
 </script>
@@ -9,8 +9,10 @@ The `Button` component is a simple, versatile button that can be used for variou
 
 ## Usage
 
-<Code lang="javascript">
-{`
+<Code 
+lang="javascript"
+code={
+  `
 <script>
   import Button from 'project-vernix/Button.svelte';
 </script>
@@ -18,7 +20,9 @@ The `Button` component is a simple, versatile button that can be used for variou
 <Button on:click={() => alert('Button clicked!')}>
   Click me
 </Button>
-`}
+`
+}
+>
 </Code>
 
 ## Props
@@ -36,10 +40,10 @@ The `Button` component is a simple, versatile button that can be used for variou
   <Button>Default Button</Button>
 </div>
 
-<Code lang="javascript">
-  {`
+<Code lang="javascript"
+code={`
 <Button>Default Button</Button>
-`}
+`}>
 </Code>
 
 ### Sizes
@@ -50,12 +54,12 @@ The `Button` component is a simple, versatile button that can be used for variou
   <Button size="large">Large</Button>
 </div>
 
-<Code lang="javascript">
-  {`
+<Code lang="javascript"
+code= {`
 <Button size="small">Small</Button>
 <Button size="medium">Medium</Button>
 <Button size="large">Large</Button>
-`}
+`}>
 </Code>
 
 ### Types
@@ -65,11 +69,11 @@ The `Button` component is a simple, versatile button that can be used for variou
   <Button type="outlined">Outlined</Button>
 </div>
 
-<Code lang="javascript">
-  {`
+<Code lang="javascript"
+code={`
 <Button type="filled">Filled</Button>
 <Button type="outlined">Outlined</Button>
-`}
+`}>
 </Code>
 
 ### Disabled
@@ -78,8 +82,8 @@ The `Button` component is a simple, versatile button that can be used for variou
   <Button disabled={true}>Disabled</Button>
 </div>
 
-<Code lang="javascript">
-  {`
+<Code lang="javascript"
+code={`
 <Button disabled={true}>Disabled</Button>
-`}
+`}>
 </Code>
