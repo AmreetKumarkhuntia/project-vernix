@@ -3,7 +3,6 @@
 
   import 'prismjs/components/prism-bash';
   import 'prismjs/components/prism-jsx';
-  import 'prismjs/components/prism-jsx';
 
   import Button from '$lib/components/Button.svelte';
   import Code from '$lib/components/code/Code.svelte';
@@ -27,7 +26,6 @@ code={`pnpm add vergins`}/>
 lang="bash"
 code={`yarn add vergins`}/>
 
----
 
 ## Basic Usage
 
@@ -43,7 +41,6 @@ code={`<script>
 </Button>`}
 />
 
----
 
 ## API Reference
 
@@ -70,7 +67,6 @@ code={`<script>
 - **Large**: Prominent buttons for call-to-actions and important interactions
 - **Fill**: Takes full width of parent container, ideal for mobile layouts
 
----
 
 ## Examples
 
@@ -138,7 +134,7 @@ code={`<Button disabled={true}>Disabled Button</Button>
 
 ### Interactive Examples
 
-#### With Click Handler
+##### With Click Handler
 
 <div class="doc-view">
   <Button onClick={() => alert('Hello from Button!')}>
@@ -158,7 +154,7 @@ code={`<script>
   Show Alert
 </Button>`}/>
 
-#### Custom Styling
+##### Custom Styling
 
 <div class="doc-view">
   <Button componentClass="custom-button">
@@ -180,35 +176,34 @@ code={`<Button componentClass="custom-button">
   }
 </style>`}/>
 
----
 
 ## Accessibility
 
 The Button component includes comprehensive accessibility features out of the box:
 
-### Keyboard Navigation
+##### Keyboard Navigation
 - **Tab**: Navigate to and from the button
 - **Enter/Space**: Activate the button when focused
 - **Escape**: Remove focus from the button (if applicable)
 
-### Screen Reader Support
+##### Screen Reader Support
 - Proper semantic HTML using `<button>` element
 - ARIA attributes for enhanced screen reader compatibility
 - Descriptive text content and labels
 - Announces button state (normal, disabled, pressed)
 
-### Focus Management
+##### Focus Management
 - Visible focus indicators with high contrast
 - Proper focus handling on activation
 - Focus restoration after modal/dialog interactions
 - Skip-to-content compatibility
 
-### Color and Contrast
+##### Color and Contrast
 - WCAG 2.1 AA compliant color contrast ratios
 - Sufficient color contrast in all states (normal, hover, focus, disabled)
 - Does not rely solely on color to convey information
 
-## Styling
+##### Styling
 
 The Button component uses CSS custom properties for comprehensive theming and customization:
 
@@ -284,11 +279,10 @@ code={`<Button type="filled" size="fill" onClick={handleSignup}>
   Get Started Free
 </Button>`}/>
 
----
 
 ## Troubleshooting
 
-##### Common Issues
+#### Common Issues
 
 **Button not responding to clicks**
 - Ensure the `onClick` handler is properly defined
@@ -316,7 +310,6 @@ code={`<Button type="filled" size="fill" onClick={handleSignup}>
 - Use `componentClass` for custom styling instead of inline styles when possible
 - Consider lazy loading for buttons that trigger heavy operations
 
----
 
 ## Related Components
 

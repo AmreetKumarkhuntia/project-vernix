@@ -6,11 +6,11 @@ export type CodeProps = {
 };
 
 export const defaultInTransition: TransitionWrapper = {
-  transition: { x: 400, duration: 400 },
+  transition: { x: 400, duration: 200 },
   transitionType: 'fly-and-fade',
 };
 
 export const defaultOutTransition: TransitionWrapper = {
-  transition: { x: 400, duration: 400 },
+  transition: { x: 400, duration: 200 },
   transitionType: 'fly-and-fade',
 };

@@ -1,7 +1,486 @@
-# Introduction
+<script lang="ts">
+    import * as Prism from 'prismjs';
 
-Welcome to the documentation for our Svelte UI Library. This library provides a set of reusable, accessible, and customizable components to help you build your Svelte applications faster.
+    import 'prismjs/components/prism-bash';
+    import 'prismjs/components/prism-jsx';
 
-## Getting Started
+    import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Vergins: A Svelte UI Library
+
+Vergins is a reusable, accessible, and themeable UI component library for Svelte applications. It provides a set of foundational and specialized components to help you build beautiful and consistent user interfaces with ease.
+
+### Features
+
+- **Reusable Components:** A collection of ready-to-use components to speed up your development process.
+- **Accessible by Default:** Components are designed with accessibility in mind, including keyboard navigation and ARIA support.
+- **Themable:** Easily customize the look and feel of the components using CSS variables.
+- **Consistent Design:** All components follow a consistent design pattern to ensure a cohesive user experience.
+- **TypeScript Support:** All components are written in TypeScript for a better development experience.
+
+### Available Components
+
+##### Foundation Components
+
+- Buttons
+- Inputs
+- Cards
+- Navigation (Navbar, Breadcrumbs)
+- Layout (Accordion, Modal)
+
+##### Specialized Components
+
+- FileUploader
+- Flyer
+- LazyLoader
+- Timeline
+- Carousel
+
+### Installation
+
+To use vergins in your Svelte project, install it as a dependency:
+
+<Code 
+lang="bash"
+code={`npm install vergins`}/>
+
+<Code 
+lang="bash"
+code={`pnpm add vergins`}/>
+
+<Code 
+lang="bash"
+code={`yarn add vergins`}/>
+
+### Usage
+
+Here's a basic example of how to import and use a component from the library:
+
+<Code 
+lang="jsx"
+code={`<script>
+  import 'vergins/css/improved-theme-2';
+  import { Button } from 'vergins';
+</script>
+
+<Button onClick={() => alert('Button clicked!')}>
+  Click me
+</Button>`}/>
+
+### Theming
+
+vergins comes with two pre-built themes:
+
+- `default-theme`
+- `improved-theme`
+- `improved-theme-2`
+
+To use a theme, import it in your main `+layout.svelte` or `+page.svelte` file:
+
+<Code 
+lang="jsx"
+code={`<script>
+  import 'vergins/css/improved-theme-2';
+</script>`}/>
+
+You can also customize the theme by overriding the CSS variables defined in the theme files.
+
+## Quick Start Examples
+
+##### Basic Button Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Button } from 'vergins';
+</script>
+
+<Button onClick={() => console.log('Clicked!')}>
+  Click Me
+</Button>`}/>
+
+##### Input Field with Validation
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { InputField } from 'vergins';
+  
+  let email = '';
+  
+  function validateEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+</script>
+
+<InputField 
+  bind:value={email}
+  placeholder="Enter your email"
+  type="email"
+  required
+  validation={validateEmail}
+/>`}/>
+
+##### Card with Content
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Card, Button } from 'vergins';
+</script>
+
+<Card>
+  <h3>Welcome to Vergins</h3>
+  <p>Build beautiful UIs with our component library.</p>
+  <Button>Get Started</Button>
+</Card>`}/>
+
+##### Navigation Bar
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Navbar } from 'vergins';
+  
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' }
+  ];
+</script>
+
+<Navbar items={navItems} brand="Your App" />`}/>
+
+## Component Categories
+
+##### Form Components
+- **Button**: Interactive buttons with multiple variants and states
+- **InputField**: Text inputs with validation and accessibility features
+- **Checkbox**: Checkboxes with custom styling and states
+- **RadioGroup**: Radio button groups with proper form handling
+
+##### Layout Components
+- **Card**: Container component for grouping related content
+- **Modal**: Overlay dialogs and popups with accessibility features
+- **Accordion**: Collapsible content sections
+- **Navbar**: Navigation bars with responsive design
+
+##### Media Components
+- **FileUploader**: Drag-and-drop file upload with progress
+- **Carousel**: Image and content carousels with navigation
+- **LazyLoader**: Performance-optimized lazy loading component
+
+##### Utility Components
+- **Breadcrumbs**: Navigation breadcrumb trails
+- **Timeline**: Event timeline displays
+- **Flyer**: Notification and announcement banners
+- **ProgressBar**: Progress indicators and loading states
+
+## API Reference
+
+##### Global Props
+
+Most Vergins components support these common props:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `componentClass` | `string` | `''` | Additional CSS classes for custom styling |
+| `disabled (to be added as per need)` | `boolean` | `false` | Disables component interactions |
+| `size (to be added)` | `'small' \| 'medium' \| 'large'` | `'medium'` | Controls component size |
+
+##### Event Handling
+
+All interactive components emit standardized events:
+
+| Event | Description | Payload |
+|-------|-------------|---------|
+| `onClick (to be added as per need)` | User interaction event | `MouseEvent` |
+| `onChang (to be added as per need)` | Value change event | `CustomEvent` |
+| `onFocus (to be added as per need)` | Focus gain event | `FocusEvent` |
+| `onBlur (to be added as per need)` | Focus loss event | `FocusEvent` |
+
+## Configuration
+
+##### CSS Custom Properties
+
+Vergins uses CSS custom properties for comprehensive theming:
+
+<Code 
+lang="css"
+code={`:root {
+  /* Colors */
+  --primary-color: #0066cc;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  
+  /* Border */
+  --border-radius: 0.375rem;
+  --border-width: 1px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}`}/>
+
+##### Advanced Configuration
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { setConfig } from 'vergins';
+  
+  // Global configuration
+  setConfig({
+    theme: 'improved-theme-2',
+    accessibility: {
+      reducedMotion: true,
+      highContrast: false
+    },
+    defaults: {
+      buttonSize: 'medium',
+      inputValidation: true
+    }
+  });
+</script>`}/>
+
+## Best Practices
+
+##### Component Organization
+
+1. **Import Strategy**: Import only the components you need to optimize bundle size
+2. **Theme Consistency**: Use a single theme throughout your application
+3. **Custom Styling**: Use `componentClass` prop for component-specific styles
+4. **Accessibility**: Always provide proper labels and ARIA attributes
+
+##### Performance Optimization
+
+<Code 
+lang="jsx"
+code={`<script>
+import { Button, InputField } from 'vergins';
+
+import * as Vergins from 'vergins';
+
+import Button from 'vergins/components/Button';
+</script>`}/>
+
+##### Responsive Design
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Button, Card } from 'vergins';
+</script>
+
+<!-- Responsive button sizing -->
+<Button size="small" class="sm:size-medium lg:size-large">
+  Responsive Button
+</Button>
+
+<!-- Responsive card layout -->
+<Card class="w-full md:w-1/2 lg:w-1/3">
+  Content adapts to screen size
+</Card>`}/>
+
+## Troubleshooting
+
+#### Common Issues
+
+**Components not displaying correctly**
+- Ensure you've imported the CSS theme file
+- Check that CSS custom properties are defined
+- Verify component imports are correct
+
+**TypeScript errors**
+- Make sure you have the latest version installed
+- Check that your TypeScript configuration includes the component types
+- Verify prop types match the component interface
+
+**Styling conflicts**
+- Use CSS specificity or `!important` for overrides
+- Check for conflicting CSS frameworks
+- Use `componentClass` for component-specific styling
+
+#### Browser Support
+
+Vergins supports all modern browsers:
+- Chrome 70+
+- Firefox 65+
+- Safari 12+
+- Edge 79+
+
+#### Performance Tips
+
+1. **Lazy Loading**: Use dynamic imports for large components
+2. **Bundle Optimization**: Configure your bundler for tree-shaking
+3. **CSS Optimization**: Use PostCSS for CSS optimization
+4. **Image Optimization**: Optimize images used in components
+
+## Migration Guide
+
+#### From v2.x to v3.x
+
+**Breaking Changes:**
+- Renamed `variant` prop to `type` in Button component
+- Changed CSS class naming convention
+- Updated theme structure
+
+**Migration Steps:**
+
+<Code 
+lang="bash"
+code={`
+npm update vergins
+`}/>
+
+## Contributing
+
+We welcome contributions! Here's how to get started:
+
+##### Development Setup
+
+<Code 
+  lang="bash"
+  code={`# Clone the repository
+git clone https://github.com/AmreetKumarkhuntia/project-vernix.git \n
+# Enter the project directory
+cd project-vernix \n
+# Install dependencies using pnpm
+pnpm install \n
+# Start the development server (with hot-reload)
+pnpm run dev \n
+# Run tests during development
+pnpm test \n
+# Build the production-ready version
+pnpm run build
+`}
+/>
+
+
+##### Contribution Guidelines
+
+1. **Code Style**: Follow the existing code style and formatting
+2. **Testing**: Add tests for new features and bug fixes
+3. **Documentation**: Update documentation for any API changes
+4. **Accessibility**: Ensure all components meet WCAG 2.1 AA standards
+
+##### Component Development
+
+<Code 
+lang="jsx"
+code={`
+<script lang="ts">
+  export let size: 'small' | 'medium' | 'large' = 'medium';
+  export let disabled: boolean = false;
+  export let componentClass: string = '';
+  
+  // Component logic here
+</script>
+
+<div class="component-name {componentClass}" class:disabled>
+  <slot />
+</div>
+
+<style>
+  .component-name {
+    /* Use CSS custom properties */
+    background: var(--component-background);
+    padding: var(--spacing-md);
+  }
+</style>`}/>
+
+## Community & Support
+
+##### Getting Help
+
+- **Documentation**: Browse component docs in the sidebar
+- **GitHub Issues**: Report bugs and request features
+- **Discussions**: Join community discussions
+- **Stack Overflow**: Tag questions with `vergins-ui`
+
+##### Resources
+
+- **GitHub Repository**: [project-vernix](https://github.com/AmreetKumarkhuntia/project-vernix)
+- **NPM Package**: [vergins](https://www.npmjs.com/package/vergins)
+- **License**: [MIT License](https://github.com/AmreetKumarkhuntia/project-vernix?tab=MIT-1-ov-file)
+- **Changelog**: Track updates and breaking changes
+
+##### Related Projects
+
+- **SvelteKit**: Full-stack Svelte framework
+- **Vite**: Fast build tool used by Vergins
+- **TypeScript**: Type safety for better development
+- **PostCSS**: CSS processing and optimization
+
+## Roadmap
+
+##### Upcoming Features
+
+- **Dark Mode**: Built-in dark theme support
+- **Animation Library**: Smooth transitions and animations
+- **Form Validation**: Advanced form handling and validation
+- **Data Tables**: Feature-rich table components
+- **Charts**: Data visualization components
+
+##### Version History
+
+- **v3.6.x**: Current stable version with enhanced theming
+- **v3.5.x**: Added TypeScript support and accessibility improvements
+- **v3.0.x**: Major rewrite with modern Svelte features
+- **v2.x**: Legacy version (maintenance mode)
+
+## Performance Metrics
+
+##### Bundle Size
+
+- **Core Library**: ~45KB minified + gzipped
+- **Individual Components**: 2-8KB per component
+- **Themes**: 3-5KB per theme file
+- **Tree-shakable**: Import only what you need
+
+## Development
+
+To contribute to vergins, clone the repository and install the dependencies:
+
+<Code 
+lang="bash"
+code={`git clone https://github.com/AmreetKumarkhuntia/project-vernix.git
+cd project-vernix
+pnpm add`}/>
+
+Then, start the development server:
+
+<Code 
+lang="bash"
+code={`pnpm run dev`}/>
+
+### Building
+
+To create a production version of the library:
+
+<Code 
+lang="bash"
+code={`pnpm run build`}/>
+
+### Getting Started
 
 To get started, you can browse the components in the side navigation. Each component has its own page with detailed documentation and usage examples.
+
+### License
+
+vergins is licensed under the [MIT License](https://github.com/AmreetKumarkhuntia/project-vernix?tab=MIT-1-ov-file).
