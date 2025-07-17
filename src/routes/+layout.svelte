@@ -1,4 +1,7 @@
 <script lang="ts">
+  // import 'prismjs/themes/prism-solarizedlight.css';
+  import 'prismjs/themes/prism-coy.css';
+  // import 'prism-themes/themes/prism-ghcolors.css';
   import '$css/improved-theme-2.css';
   import '$siteCss/style.css';
   import { goto } from '$app/navigation';

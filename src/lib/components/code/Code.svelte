@@ -1,5 +1,6 @@
 <script lang="ts">
   import * as Prism from 'prismjs';
+
   import { onMount } from 'svelte';
   import { defaultInTransition, defaultOutTransition } from './props';
   import { performTransition, type TransitionWrapper } from '../transitions';
@@ -7,18 +8,26 @@
   import Correct from '../svgs/Correct.svelte';
 
   export let lang: string = 'javascript';
+  export let grammars: Prism.Languages | undefined = undefined;
   export let inTransition: TransitionWrapper = defaultInTransition;
   export let outTransition: TransitionWrapper = defaultOutTransition;
   export let copyIconsColor: string = '#000';
   export let copyDuration: number = 2000;
   export let code: string = '';
-  
 
   let formattedCode: string = '';
   let copied: boolean = false;
 
   onMount(() => {
-    formattedCode = Prism.highlight(code, Prism.languages[lang], lang);
+    let finalLanguage: Prism.Grammar | undefined = undefined;
+    if (grammars !== undefined) {
+      finalLanguage = grammars[lang];
+    } else {
+      finalLanguage = Prism.languages[lang];
+    }
+    if (finalLanguage !== undefined) {
+      formattedCode = Prism.highlight(code, finalLanguage, lang);
+    }
   });
 
   function copyToClipboard() {
@@ -75,6 +84,7 @@
   pre.code-block {
     background-color: var(--code-bg);
     color: var(--code-color);
+    border: var(--code-border, 1px solid #ccc);
     border-radius: var(--code-border-radius);
     font-family: var(--code-font-family);
     height: var(--code-height);

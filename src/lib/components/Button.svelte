@@ -28,11 +28,13 @@
   }
 
   .btn.small {
-    padding: var(--button-size-small);
+    height: var(--button-height-small);
+    width: var(--button-width-small);
   }
 
   .btn.medium {
-    padding: var(--button-size-medium);
+    height: var(--button-height-medium);
+    width: var(--button-width-medium);
   }
 
   .btn.fill {
@@ -41,7 +43,8 @@
   }
 
   .btn.large {
-    padding: var(--button-size-large);
+    height: var(--button-height-large);
+    width: var(--button-width-large);
   }
 
   .btn.filled {

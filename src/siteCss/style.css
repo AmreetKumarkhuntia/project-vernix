@@ -51,6 +51,43 @@ body {
   background: transparent;
 }
 
+hr {
+  border: none;
+  border-bottom: 1px dashed black;
+}
+
+li {
+  font-size: var(--font-base);
+}
+
+p {
+  font-size: var(--font-base);
+}
+
+td,
+th {
+  border: 1px dashed var(--border-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+td {
+  font-size: var(--font-sm);
+}
+
+th {
+  font-size: var(--font-base);
+}
+
+table {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  padding: 2px;
+  border-radius: 4px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
 .blob-bg {
   position: fixed;
   top: 16%;
@@ -159,6 +196,14 @@ body {
 
 .docs-layout {
   --sidenav-padding: calc(var(--navbar-layout-height) + 60px) 30px 30px 30px;
+}
+
+.doc-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .navbar-layout {

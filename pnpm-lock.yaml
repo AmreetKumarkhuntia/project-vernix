@@ -16,8 +16,11 @@ importers:
       marked:
         specifier: ^16.0.0
         version: 16.0.0
+      prism-themes:
+        specifier: ^1.9.0
+        version: 1.9.0
       prismjs:
-        specifier: ^1.29.0
+        specifier: ^1.30.0
         version: 1.30.0
       tslib:
         specifier: ^2.8.1
@@ -1066,6 +1069,12 @@ packages:
         integrity: sha512-yABh19CYbM24V7aS7TuPYRNMqthxwbvx6FF/Rw920YbyBWO3tnyPIqRMgHuSVsLmuHkkBS1Akyof463FVdkeDQ==,
       }
 
+  prism-themes@1.9.0:
+    resolution:
+      {
+        integrity: sha512-tX2AYsehKDw1EORwBps+WhBFKc2kxfoFpQAjxBndbZKr4fRmMkv47XN0BghC/K1qwodB1otbe4oF23vUTFDokw==,
+      }
+
   prismjs@1.30.0:
     resolution:
       {
@@ -1908,6 +1917,8 @@ snapshots:
       source-map-js: 1.2.1
 
   prism-svelte@0.4.7: {}
+
+  prism-themes@1.9.0: {}
 
   prismjs@1.30.0: {}
 
