@@ -74,7 +74,7 @@ You can also customize the theme by overriding the CSS variables defined in the 
 To contribute to vergins, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-username/vergins.git
+git clone https://github.com/AmreetKumarkhuntia/project-vernix.git
 cd vergins
 npm install
 ```
