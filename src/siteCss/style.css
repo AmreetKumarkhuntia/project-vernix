@@ -51,6 +51,12 @@ body {
   background: transparent;
 }
 
+h1,
+h2,
+h3 {
+  border-bottom: 1px solid var(--border-color-muted);
+}
+
 hr {
   border: none;
   border-bottom: 1px dashed black;
