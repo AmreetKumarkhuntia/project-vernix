@@ -39,15 +39,15 @@
 
   /* Font Sizes */
   --font-xxxl: 48px;
-  --font-xxl: 36px;
-  --font-xl: 28px;
-  --font-lg: 22px;
-  --font-md: 18px;
-  --font-base: 15px;
-  --font-sm: 13px;
-  --font-xs: 11px;
-  --font-xxs: 9px;
-  --font-xxxs: 8px;
+  --font-xxl: 30px;
+  --font-xl: 24px;
+  --font-lg: 20px;
+  --font-md: 16px;
+  --font-base: 14px;
+  --font-sm: 12px;
+  --font-xs: 10px;
+  --font-xxs: 8px;
+  --font-xxxs: 7px;
 
   /* Font Weights */
   --font-weight-very-bold: 800;
@@ -131,14 +131,19 @@
   --breadcrumb-active-color: var(--success-color);
 
   /* Button */
+  --button-height: 52px;
+  --button-width: 160px;
   --button-background-color: var(--primary-color);
   --button-text-color: var(--light-color-text);
   --button-padding: 8px 16px;
   --button-border-radius: 4px;
   --button-hover-color: var(--secondary-color);
-  --button-size-small: 5px 10px;
-  --button-size-medium: 8px 16px;
-  --button-size-large: 12px 24px;
+  --button-height-small: 42px;
+  --button-width-small: 96px;
+  --button-height-medium: 52px;
+  --button-width-medium: 120px;
+  --button-height-large: 60px;
+  --button-width-large: 144px;
   --button-transition-speed: var(--transition-mid);
 
   /* Card */
@@ -202,6 +207,7 @@
   --code-font-family: 'Courier New', Courier, monospace;
   --code-font-size: var(--font-base);
   --code-button-size: 20px;
+  --code-border: 1px dashed var(--border-color);
 
   /* Checkbox */
   --checkbox-border-color: var(--border-color);
@@ -329,9 +335,9 @@
   --header-three-font-size: var(--font-xl);
   --header-three-font-color: var(--primary-color);
   --header-four-font-size: var(--font-lg);
-  --header-four-font-color: var(--secondary-color);
+  --header-four-font-color: var(--primary-color);
   --header-five-font-size: var(--font-md);
-  --header-five-font-color: var(--secondary-color);
+  --header-five-font-color: var(--primary-color);
   --header-six-font-size: var(--font-base);
   --header-six-font-color: var(--secondary-color);
 
@@ -518,6 +524,36 @@ body {
   background: var(--background-color);
   padding: var(--body-padding, 0px);
   margin: var(--body-margin, 0px);
+}
+
+h1 {
+  font-size: var(--header-one-font-size);
+  color: var(--header-one-font-color);
+}
+
+h2 {
+  font-size: var(--header-two-font-size);
+  color: var(--header-two-font-color);
+}
+
+h3 {
+  font-size: var(--header-three-font-size);
+  color: var(--header-three-font-color);
+}
+
+h4 {
+  font-size: var(--header-four-font-size);
+  color: var(--header-four-font-color);
+}
+
+h5 {
+  font-size: var(--header-five-font-size);
+  color: var(--header-five-font-color);
+}
+
+h6 {
+  font-size: var(--header-six-font-size);
+  color: var(--header-six-font-color);
 }
 
 .dark-theme {

@@ -1,89 +1,326 @@
 <script lang="ts">
+  import * as Prism from 'prismjs';
+
+  import 'prismjs/components/prism-bash';
+  import 'prismjs/components/prism-jsx';
+  import 'prismjs/components/prism-jsx';
+
   import Button from '$lib/components/Button.svelte';
   import Code from '$lib/components/code/Code.svelte';
 </script>
 
-# Button
+# Button Component
 
-The `Button` component is a simple, versatile button that can be used for various actions.
+The `Button` component is a versatile, highly customizable button component built for modern web applications. It supports multiple sizes, visual styles, and states while maintaining excellent accessibility and user experience standards.
 
-## Usage
+## Installation
 
 <Code 
-lang="javascript"
-code={
-  `
-<script>
-  import Button from 'project-vernix/Button.svelte';
+lang="bash"
+code={`npm install vergins`}/>
+
+<Code 
+lang="bash"
+code={`pnpm add vergins`}/>
+
+<Code 
+lang="bash"
+code={`yarn add vergins`}/>
+
+---
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Button } from 'vergins';
 </script>
 
-<Button on:click={() => alert('Button clicked!')}>
+<Button onClick={() => alert('Button clicked!')}>
   Click me
-</Button>
-`
-}
->
-</Code>
+</Button>`}
+/>
 
-## Props
+---
 
-- `size`: `'small' | 'medium' | 'large' | 'fill'` (default: `'medium'`) - The size of the button.
-- `type`: `'filled' | 'outlined'` (default: `'filled'`) - The type of the button.
-- `disabled`: `boolean` (default: `false`) - Disables the button.
-- `componentClass`: `string` (default: `''`) - Additional classes to apply to the button.
+## API Reference
+
+##### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'small'` \| `'medium'` \| `'large'` \| `'fill'` | `'medium'` | Controls the button size and padding |
+| `type` | `'filled'` \| `'outlined'` | `'filled'` | Visual style - solid background or border only |
+| `disabled` | `boolean` | `false` | Disables button interactions and applies disabled styling |
+| `componentClass` | `string` | `''` | Additional CSS classes for custom styling |
+| `onClick` | `function` | `undefined` | Click event handler function |
+
+##### Events
+
+| Event | Description | Payload | When Triggered |
+|-------|-------------|---------|----------------|
+| `click` | Fired when button is clicked | `MouseEvent` | User clicks or presses Enter/Space |
+
+##### Size Guide
+
+- **Small**: Compact buttons for secondary actions, toolbars, or forms
+- **Medium**: Standard size for most use cases and primary actions
+- **Large**: Prominent buttons for call-to-actions and important interactions
+- **Fill**: Takes full width of parent container, ideal for mobile layouts
+
+---
 
 ## Examples
 
-### Default Button
+##### Default Button
 
-<div class="flex gap-2">
+<div class="doc-view">
   <Button>Default Button</Button>
 </div>
 
-<Code lang="javascript"
-code={`
-<Button>Default Button</Button>
-`}>
-</Code>
+<Code 
+lang="jsx"
+code={`<Button>Default Button</Button>`}
+/>
 
-### Sizes
+##### Button Sizes
 
-<div class="flex gap-2">
+Buttons come in four different sizes to fit various design contexts:
+
+<div class="doc-view">
   <Button size="small">Small</Button>
   <Button size="medium">Medium</Button>
   <Button size="large">Large</Button>
+  <div style="width: 200px; height: 60px;">
+    <Button size="fill">Fill Container</Button>
+  </div>
 </div>
 
-<Code lang="javascript"
-code= {`
-<Button size="small">Small</Button>
+<Code 
+lang="jsx"
+code={`<Button size="small">Small</Button>
 <Button size="medium">Medium</Button>
 <Button size="large">Large</Button>
-`}>
-</Code>
+<Button size="fill">Fill Container</Button>`}
+/>
 
-### Types
+##### Button Types
 
-<div class="flex gap-2">
-  <Button type="filled">Filled</Button>
-  <Button type="outlined">Outlined</Button>
+Choose between filled (solid) and outlined button styles:
+
+<div class="doc-view">
+  <Button type="filled">Filled Button</Button>
+  <Button type="outlined">Outlined Button</Button>
 </div>
 
-<Code lang="javascript"
-code={`
-<Button type="filled">Filled</Button>
-<Button type="outlined">Outlined</Button>
-`}>
-</Code>
+<Code 
+lang="jsx"
+code={`<Button type="filled">Filled Button</Button>
+<Button type="outlined">Outlined Button</Button>`}
+/>
 
-### Disabled
+##### Disabled State
 
-<div class="flex gap-2">
-  <Button disabled={true}>Disabled</Button>
+Disabled buttons prevent user interaction and provide visual feedback:
+
+<div class="doc-view">
+  <Button disabled={true}>Disabled Button</Button>
+  <Button type="outlined" disabled={true}>Disabled Outlined</Button>
 </div>
 
-<Code lang="javascript"
-code={`
-<Button disabled={true}>Disabled</Button>
-`}>
-</Code>
+<Code 
+lang="jsx"
+code={`<Button disabled={true}>Disabled Button</Button>
+<Button type="outlined" disabled={true}>Disabled Outlined</Button>`}
+/>
+
+### Interactive Examples
+
+#### With Click Handler
+
+<div class="doc-view">
+  <Button onClick={() => alert('Hello from Button!')}>
+    Show Alert
+  </Button>
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  function handleClick() {
+    alert('Hello from Button!');
+  }
+</script>
+
+<Button onClick={handleClick}>
+  Show Alert
+</Button>`}/>
+
+#### Custom Styling
+
+<div class="doc-view">
+  <Button componentClass="custom-button">
+    Custom Styled Button
+  </Button>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Button componentClass="custom-button">
+  Custom Styled Button
+</Button>
+
+<style>
+  :global(.custom-button) {
+    background: linear-gradient( #6204d5ff);
+    border: none;
+    color: white;
+  }
+</style>`}/>
+
+---
+
+## Accessibility
+
+The Button component includes comprehensive accessibility features out of the box:
+
+### Keyboard Navigation
+- **Tab**: Navigate to and from the button
+- **Enter/Space**: Activate the button when focused
+- **Escape**: Remove focus from the button (if applicable)
+
+### Screen Reader Support
+- Proper semantic HTML using `<button>` element
+- ARIA attributes for enhanced screen reader compatibility
+- Descriptive text content and labels
+- Announces button state (normal, disabled, pressed)
+
+### Focus Management
+- Visible focus indicators with high contrast
+- Proper focus handling on activation
+- Focus restoration after modal/dialog interactions
+- Skip-to-content compatibility
+
+### Color and Contrast
+- WCAG 2.1 AA compliant color contrast ratios
+- Sufficient color contrast in all states (normal, hover, focus, disabled)
+- Does not rely solely on color to convey information
+
+## Styling
+
+The Button component uses CSS custom properties for comprehensive theming and customization:
+
+<Code 
+lang="css"
+code={`:root {
+  --button-background-color: #0066cc;
+  --button-text-color: #ffffff;
+  --button-padding: 8px 16px;
+  --button-border-radius: 4px;
+  --button-hover-color: #0052a3;
+  --button-size-small: 5px 10px;
+  --button-size-medium: 8px 16px;
+  --button-size-large: 12px 24px;
+  --button-transition-speed: 0.3s;
+}`}
+/>
+
+### Best Practices
+
+##### Design Guidelines
+1. **Use descriptive labels**: Button text should clearly indicate the action it will perform
+2. **Choose appropriate sizes**: Match button size to the importance and context of the action
+3. **Maintain consistency**: Use the same button style for similar actions throughout your application
+4. **Provide visual hierarchy**: Use filled buttons for primary actions, outlined for secondary
+
+##### Interaction Guidelines
+5. **Limit outlined buttons**: Use sparingly for secondary actions to maintain visual hierarchy
+6. **Provide feedback**: Use disabled state and loading indicators when appropriate
+7. **Consider touch targets**: Ensure buttons are large enough for mobile interaction (minimum 44px)
+8. **Handle loading states**: Disable buttons and show loading indicators during async operations
+
+##### Content Guidelines
+9. **Keep labels concise**: Use 1-3 words when possible
+10. **Use action verbs**: Start with verbs like "Save", "Submit", "Download", "Delete"
+11. **Avoid generic text**: Replace "Click here" with specific action descriptions
+12. **Consider context**: Button text should make sense within the surrounding content
+
+##### Technical Guidelines
+13. **Handle edge cases**: Account for long text, different screen sizes, and various states
+14. **Test accessibility**: Verify keyboard navigation and screen reader compatibility
+15. **Optimize performance**: Avoid inline functions in onClick handlers when possible
+16. **Use semantic HTML**: Prefer `<button>` over `<div>` with click handlers
+
+### Common Patterns
+
+##### Form Submission
+<Code 
+lang="jsx"
+code={`<Button type="filled" size="large" onClick={handleSubmit}>
+  Submit Form
+</Button>
+`}/>
+
+##### Destructive Actions
+<Code 
+lang="jsx"
+code={`<Button type="outlined" componentClass="destructive" onClick={handleDelete}>
+  Delete Item
+</Button>`}/>
+
+##### Loading States
+<Code 
+lang="jsx"
+code={`<Button disabled={isLoading} onClick={handleAction}>
+  {isLoading ? 'Processing...' : 'Save Changes'}
+</Button>`}/>
+
+##### Call-to-Action
+<Code 
+lang="jsx"
+code={`<Button type="filled" size="fill" onClick={handleSignup}>
+  Get Started Free
+</Button>`}/>
+
+---
+
+## Troubleshooting
+
+##### Common Issues
+
+**Button not responding to clicks**
+- Ensure the `onClick` handler is properly defined
+- Check if the button is disabled
+- Verify there are no overlapping elements blocking the click
+
+**Styling not applied correctly**
+- Check if CSS custom properties are defined in your stylesheet
+- Ensure the `componentClass` prop is spelled correctly
+- Verify CSS specificity isn't being overridden by other styles
+
+**Accessibility warnings**
+- Ensure button text is descriptive and not just "Click here"
+- Check color contrast ratios meet WCAG guidelines
+- Verify keyboard navigation works properly
+
+**Button text overflowing**
+- Use appropriate size for your content
+- Consider shorter, more concise button text
+- Test on different screen sizes and zoom levels
+
+##### Performance Considerations
+
+- Avoid creating new function instances in onClick handlers on every render
+- Use `componentClass` for custom styling instead of inline styles when possible
+- Consider lazy loading for buttons that trigger heavy operations
+
+---
+
+## Related Components
+
+- **InputField**: For form inputs that work well with button submissions
+- **Modal**: For buttons that trigger modal dialogs
+- **Card**: For buttons within card layouts
+- **Navbar**: For navigation buttons and menu items

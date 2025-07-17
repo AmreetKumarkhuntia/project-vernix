@@ -42,10 +42,11 @@ Here's a basic example of how to import and use a component from the library:
 
 ```svelte
 <script>
+  import 'vergins/css/improved-theme-2';
   import { Button } from 'vergins';
 </script>
 
-<Button on:click={() => alert('Button clicked!')}>
+<Button onClick={() => alert('Button clicked!')}>
   Click me
 </Button>
 ```
@@ -54,14 +55,15 @@ Here's a basic example of how to import and use a component from the library:
 
 vergins comes with two pre-built themes:
 
-- `default-theme.css`
-- `improved-theme.css`
+- `default-theme`
+- `improved-theme`
+- `improved-theme-2`
 
 To use a theme, import it in your main `+layout.svelte` or `+page.svelte` file:
 
 ```svelte
 <script>
-  import 'vergins/css/improved-theme.css';
+  import 'vergins/css/improved-theme-2';
 </script>
 ```
 
