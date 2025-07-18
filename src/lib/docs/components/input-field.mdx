@@ -1,0 +1,462 @@
+<script lang="ts">
+  import * as Prism from 'prismjs';
+
+  import 'prismjs/components/prism-bash';
+  import 'prismjs/components/prism-jsx';
+
+  import InputField from '$lib/components/InputField.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# InputField Component
+
+The `InputField` component is a versatile form input component with floating labels, multiple input types, and consistent styling. It provides a modern user experience with smooth animations and accessibility features built-in.
+
+## Installation
+
+<Code 
+lang="bash"
+code={`npm install vergins`}/>
+
+<Code 
+lang="bash"
+code={`pnpm add vergins`}/>
+
+<Code 
+lang="bash"
+code={`yarn add vergins`}/>
+
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { InputField } from 'vergins';
+  
+  let email = '';
+  let name = '';
+</script>
+
+<InputField bind:value={email} placeholder="Email Address" type="email" />
+<InputField bind:value={name} placeholder="Full Name" type="text" />`}/>
+
+
+## API Reference
+
+##### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `placeholder` | `string` | `'Enter text'` | Placeholder text and floating label content |
+| `value` | `string` | `''` | Current input value (bindable) |
+| `type` | `string` | `'text'` | Input type: `'text'`, `'email'`, `'password'`, `'number'`, `'file'`, `'textarea'` |
+| `onInput` | `function` | `() => {}` | Input event handler |
+| `onChange` | `function` | `() => {}` | Change event handler |
+
+##### CSS Properties Reference
+
+| Property | Description | Default |
+|----------|-------------|---------|
+| `--input-padding` | Internal padding | Browser default |
+| `--input-height` | Input field height | Browser default |
+| `--input-font-color` | Text color | Browser default |
+| `--input-border` | Border width and style | Browser default |
+| `--input-border-color` | Border color | Browser default |
+| `--input-border-radius` | Border radius | Browser default |
+| `--input-font-family` | Font family | Browser default |
+| `--input-focus-color` | Focus/active border and label color | Browser default |
+| `--input-label-left` | Label left position | `12px` |
+| `--input-label-top` | Label top position when inactive | `50%` |
+| `--input-navigation-font-size` | Label font size when inactive | Browser default |
+
+##### Events
+
+| Event | Description | Payload | When Triggered |
+|-------|-------------|---------|----------------|
+| `input` | Fired on each keystroke | `Event` | User types in the field |
+| `change` | Fired when input loses focus | `Event` | Input value changes and field loses focus |
+| `focus` | Fired when input gains focus | `FocusEvent` | User clicks or tabs into field |
+| `blur` | Fired when input loses focus | `FocusEvent` | User clicks outside or tabs away |
+
+##### Input Type Guide
+
+- **text**: Standard text input for general text entry
+- **email**: Email input with validation styling
+- **password**: Password input with hidden characters
+- **number**: Numeric input with number controls
+- **file**: File upload input
+- **textarea**: Multi-line text input
+
+
+## Examples
+
+##### Basic Text Input
+
+<div class="doc-view">
+  <InputField placeholder="Enter your name" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let name = '';
+</script>
+
+<InputField bind:value={name} placeholder="Enter your name" />`}/>
+
+##### Different Input Types
+
+<div class="doc-view" style="gap: 16px;">
+  <InputField placeholder="Email Address" type="email" />
+  <InputField placeholder="Password" type="password" />
+  <InputField placeholder="Age" type="number" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let email = '';
+  let password = '';
+  let age = '';
+</script>
+
+<InputField bind:value={email} placeholder="Email Address" type="email" />
+<InputField bind:value={password} placeholder="Password" type="password" />
+<InputField bind:value={age} placeholder="Age" type="number" />`}/>
+
+##### Textarea Input
+
+<div class="doc-view">
+  <InputField placeholder="Write your message" type="textarea" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let message = '';
+</script>
+
+<InputField bind:value={message} placeholder="Write your message" type="textarea" />`}/>
+
+##### File Upload
+
+<div class="doc-view">
+  <InputField placeholder="Choose file" type="file" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let selectedFile = '';
+</script>
+
+<InputField bind:value={selectedFile} placeholder="Choose file" type="file" />`}/>
+
+##### Form with Event Handlers
+
+<div class="doc-view">
+  <InputField 
+    placeholder="Search..." 
+    onInput={(e) => console.log('Typing:', e.target.value)}
+    onChange={(e) => console.log('Changed:', e.target.value)}
+  />
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let searchTerm = '';
+  
+  function handleInput(e) {
+    console.log('User is typing:', e.target.value);
+    // Real-time search logic here
+  }
+  
+  function handleChange(e) {
+    console.log('Final value:', e.target.value);
+    // Save to database, validate, etc.
+  }
+</script>
+
+<InputField 
+  bind:value={searchTerm}
+  placeholder="Search..." 
+  onInput={handleInput}
+  onChange={handleChange}
+/>`}/>
+
+##### Contact Form Example
+
+<div class="doc-view">
+  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+    <InputField placeholder="Full Name" type="text" />
+    <InputField placeholder="Email Address" type="email" />
+    <InputField placeholder="Phone Number" type="text" />
+    <InputField placeholder="Your Message" type="textarea" />
+  </div>
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let formData = {
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  };
+</script>
+
+<form class="contact-form">
+  <InputField bind:value={formData.name} placeholder="Full Name" type="text" />
+  <InputField bind:value={formData.email} placeholder="Email Address" type="email" />
+  <InputField bind:value={formData.phone} placeholder="Phone Number" type="text" />
+  <InputField bind:value={formData.message} placeholder="Your Message" type="textarea" />
+</form>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+  }
+</style>`}/>
+
+
+## Styling
+
+The InputField component uses CSS custom properties for comprehensive theming:
+
+<Code 
+lang="css"
+code={`:root {
+  /* Input field dimensions */
+  --input-padding: 12px 16px;
+  --input-height: 48px;
+  --input-border-radius: 8px;
+  
+  /* Input colors */
+  --input-font-color: #333333;
+  --input-border-color: #cccccc;
+  --input-focus-color: #0066cc;
+  --input-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  
+  /* Border styling */
+  --input-border: 1px solid;
+  
+  /* Floating label positioning */
+  --input-label-left: 12px;
+  --input-label-top: 50%;
+  --input-navigation-font-size: 16px;
+}`}/>
+
+
+## Common Patterns
+
+##### Login Form
+<Code 
+lang="jsx"
+code={`<script>
+  let credentials = {
+    email: '',
+    password: ''
+  };
+  
+  function handleLogin() {
+    // Login logic
+    console.log('Logging in:', credentials);
+  }
+</script>
+
+<InputField bind:value={credentials.email} placeholder="Email" type="email" />
+<InputField bind:value={credentials.password} placeholder="Password" type="password" />
+<button on:click={handleLogin}>Login</button>`}/>
+
+##### Search with Real-time Results
+<Code 
+lang="jsx"
+code={`<script>
+  let searchQuery = '';
+  let results = [];
+  
+  function handleSearch(e) {
+    searchQuery = e.target.value;
+    if (searchQuery.length > 2) {
+      // Perform search
+      fetchResults(searchQuery);
+    }
+  }
+</script>
+
+<InputField 
+  bind:value={searchQuery} 
+  placeholder="Search products..." 
+  onInput={handleSearch}
+/>`}/>
+
+##### Profile Update Form
+<Code 
+lang="jsx"
+code={`<script>
+  let profile = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    bio: ''
+  };
+</script>
+
+<InputField bind:value={profile.firstName} placeholder="First Name" type="text" />
+<InputField bind:value={profile.lastName} placeholder="Last Name" type="text" />
+<InputField bind:value={profile.email} placeholder="Email" type="email" />
+<InputField bind:value={profile.bio} placeholder="Tell us about yourself" type="textarea" />`}/>
+
+##### File Upload with Preview
+<Code 
+lang="jsx"
+code={`<script>
+  let selectedFile = '';
+  
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      console.log('Selected file:', file.name);
+      // Handle file preview or upload
+    }
+  }
+</script>
+
+<InputField 
+  bind:value={selectedFile}
+  placeholder="Choose profile picture" 
+  type="file" 
+  onChange={handleFileChange}
+/>`}/>
+
+
+## Accessibility
+
+The InputField component includes comprehensive accessibility features:
+
+##### Form Accessibility
+- Proper label association with floating label technique
+- Screen reader compatible placeholder text
+- Keyboard navigation support
+- Focus management and visual indicators
+
+##### Input Types Support
+- Semantic input types for better mobile keyboards
+- Native browser validation for email, number types
+- Proper ARIA attributes for form controls
+- Screen reader announcements for input changes
+
+##### Keyboard Navigation
+- Tab navigation between form fields
+- Enter key submission support
+- Escape key to clear focus
+- Arrow keys for number inputs
+
+##### Visual Accessibility
+- High contrast focus indicators
+- Smooth label animations
+- Clear visual feedback for different states
+- Support for reduced motion preferences
+
+
+## Best Practices
+
+##### Form Design
+1. **Use descriptive placeholders**: Make placeholder text clear and helpful
+2. **Choose appropriate input types**: Use semantic input types for better UX
+3. **Provide validation feedback**: Show clear error messages and success states
+4. **Group related inputs**: Use fieldsets and logical grouping
+
+##### User Experience
+5. **Real-time validation**: Validate inputs as users type when appropriate
+6. **Clear error messages**: Provide specific, actionable error messages
+7. **Save user progress**: Consider auto-saving for long forms
+8. **Mobile optimization**: Test inputs on mobile devices
+
+##### Technical Guidelines
+9. **Bind values properly**: Use two-way binding for reactive updates
+10. **Handle events appropriately**: Use onInput for real-time, onChange for final values
+11. **Sanitize inputs**: Always sanitize and validate user input
+12. **Performance**: Debounce expensive operations like API calls
+
+##### Accessibility Guidelines
+13. **Label association**: Ensure proper label-input association
+14. **Error announcements**: Make errors accessible to screen readers
+15. **Focus management**: Handle focus properly in dynamic forms
+16. **Keyboard support**: Test all functionality with keyboard only
+
+
+## Troubleshooting
+
+#### Common Issues
+
+**Floating label not animating**
+- Check that CSS custom properties are defined
+- Ensure the input has proper placeholder attribute
+- Verify CSS transitions are not disabled
+
+**Values not updating**
+- Use `bind:value` for two-way data binding
+- Check that the bound variable is declared
+- Ensure proper event handling setup
+
+**Styling not applying**
+- Verify CSS custom properties are defined in your stylesheet
+- Check CSS specificity and inheritance
+- Ensure theme imports are correct
+
+**File input not working**
+- File inputs have special handling - check the file input example
+- Use `e.target.files[0]` to access selected files
+- Handle file validation and size limits
+
+**Mobile keyboard issues**
+- Use appropriate input types (`email`, `number`, etc.)
+- Test on actual mobile devices
+- Consider input mode attributes for better keyboards
+
+##### Performance Considerations
+
+- Debounce expensive operations triggered by `onInput`
+- Use `onChange` for non-critical updates to reduce re-renders
+- Consider lazy loading for forms with many fields
+- Optimize validation logic to avoid blocking the UI
+
+##### Form Validation
+
+<Code 
+lang="jsx"
+code={`<script>
+  let email = '';
+  let emailError = '';
+  
+  function validateEmail() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    emailError = emailRegex.test(email) ? '' : 'Please enter a valid email';
+  }
+</script>
+
+<InputField 
+  bind:value={email} 
+  placeholder="Email Address" 
+  type="email" 
+  onChange={validateEmail}
+/>
+{#if emailError}
+  <span class="error">{emailError}</span>
+{/if}`}/>
+
+
+## Related Components
+
+- **Button**: For form submissions and actions
+- **Header**: For form section headings and labels
+- **Card**: For grouping form sections
+- **Modal**: For forms within dialog boxes
