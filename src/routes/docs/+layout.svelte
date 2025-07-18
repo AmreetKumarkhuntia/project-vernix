@@ -100,8 +100,9 @@
 
   .docs-content {
     flex-grow: 1;
-    margin-top: var(--navbar-layout-height);
+    /* margin-top: var(--navbar-layout-height); */
     padding: 5% 8%;
+    padding-top: calc(5% + var(--navbar-layout-height));
     overflow-y: auto;
   }
 </style>

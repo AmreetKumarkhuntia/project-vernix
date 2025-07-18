@@ -157,7 +157,8 @@ table {
 
   /* Button */
   --button-width: 30%;
-  --button-size-large: 5%;
+  --button-height-large: 42px;
+  --button-width-large: 30%;
 
   /* Card */
   --card-width: 100%;

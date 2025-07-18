@@ -342,6 +342,9 @@
     -webkit-text-fill-color: transparent;
   }
 
+  h1 {
+    border: none;
+  }
   /* .blob {
     position: absolute;
     top: -5px;
