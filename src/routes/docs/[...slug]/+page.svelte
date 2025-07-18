@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ButtonDocs from '$lib/docs/components/Button.mdx';
+  import ButtonDocs from '$lib/docs/components/button.mdx';
   import Introduction from '$lib/docs/introduction.mdx';
   import { page } from '$app/stores';
 
