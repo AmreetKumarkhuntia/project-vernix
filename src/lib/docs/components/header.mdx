@@ -1,0 +1,309 @@
+<script lang="ts">
+  import * as Prism from 'prismjs';
+
+  import 'prismjs/components/prism-bash';
+  import 'prismjs/components/prism-jsx';
+
+  import Header from '$lib/components/Header.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Header Component
+
+The `Header` component is a semantic heading component that provides consistent typography and styling for different heading levels (H1-H6). It ensures proper document structure and accessibility while maintaining design consistency across your application.
+
+## Installation
+
+<Code 
+lang="bash"
+code={`npm install vergins`}/>
+
+<Code 
+lang="bash"
+code={`pnpm add vergins`}/>
+
+<Code 
+lang="bash"
+code={`yarn add vergins`}/>
+
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Header } from 'vergins';
+</script>
+
+<Header hLevel={1}>Main Page Title</Header>
+<Header hLevel={2}>Section Heading</Header>`}
+/>
+
+
+## API Reference
+
+##### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `hLevel` | `number` | `1` | Heading level (1-6), automatically clamped to valid range |
+
+##### CSS Properties Reference
+
+| Property | Description | Default |
+|----------|-------------|---------|
+| `--header-one-font-size` | H1 font size | Browser default |
+| `--header-one-font-color` | H1 text color | Browser default |
+| `--header-two-font-size` | H2 font size | Browser default |
+| `--header-two-font-color` | H2 text color | Browser default |
+| `--header-three-font-size` | H3 font size | Browser default |
+| `--header-three-font-color` | H3 text color | Browser default |
+| `--header-four-font-size` | H4 font size | Browser default |
+| `--header-four-font-color` | H4 text color | Browser default |
+| `--header-five-font-size` | H5 font size | Browser default |
+| `--header-five-font-color` | H5 text color | Browser default |
+| `--header-six-font-size` | H6 font size | Browser default |
+| `--header-six-font-color` | H6 text color | Browser default |
+
+##### Heading Level Guide
+
+- **H1**: Main page titles, primary headings (only one per page recommended)
+- **H2**: Major section headings, secondary content divisions
+- **H3**: Subsection headings, tertiary content organization
+- **H4**: Minor headings, detailed content sections
+- **H5**: Small headings for fine-grained content organization
+- **H6**: Smallest headings, used for very specific content labels
+
+
+## Examples
+
+##### All Heading Levels
+
+<div class="doc-view" style="flex-direction: column !important;">
+  <Header hLevel={1}>This is an H1 Heading</Header>
+  <Header hLevel={2}>This is an H2 Heading</Header>
+  <Header hLevel={3}>This is an H3 Heading</Header>
+  <Header hLevel={4}>This is an H4 Heading</Header>
+  <Header hLevel={5}>This is an H5 Heading</Header>
+  <Header hLevel={6}>This is an H6 Heading</Header>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Header hLevel={1}>This is an H1 Heading</Header>
+<Header hLevel={2}>This is an H2 Heading</Header>
+<Header hLevel={3}>This is an H3 Heading</Header>
+<Header hLevel={4}>This is an H4 Heading</Header>
+<Header hLevel={5}>This is an H5 Heading</Header>
+<Header hLevel={6}>This is an H6 Heading</Header>`}
+/>
+
+##### Document Structure Example
+
+<div class="doc-view" style="flex-direction: column !important;">
+  <Header hLevel={1}>Article Title</Header>
+  <Header hLevel={2}>Introduction</Header>
+  <Header hLevel={3}>Background Information</Header>
+  <Header hLevel={2}>Main Content</Header>
+  <Header hLevel={3}>Section A</Header>
+  <Header hLevel={4}>Subsection A.1</Header>
+  <Header hLevel={4}>Subsection A.2</Header>
+  <Header hLevel={3}>Section B</Header>
+  <Header hLevel={2}>Conclusion</Header>
+</div>
+
+<Code 
+lang="jsx"
+code={`<!-- Proper document hierarchy -->
+<Header hLevel={1}>Article Title</Header>
+<Header hLevel={2}>Introduction</Header>
+<Header hLevel={3}>Background Information</Header>
+<Header hLevel={2}>Main Content</Header>
+<Header hLevel={3}>Section A</Header>
+<Header hLevel={4}>Subsection A.1</Header>
+<Header hLevel={4}>Subsection A.2</Header>
+<Header hLevel={3}>Section B</Header>
+<Header hLevel={2}>Conclusion</Header>`}
+/>
+
+##### Dynamic Heading Levels
+
+<div class="doc-view">
+  <Header hLevel={2}>Dynamic Header (Level 2)</Header>
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  let currentLevel = 2;
+  
+  function changeLevel() {
+    currentLevel = currentLevel === 6 ? 1 : currentLevel + 1;
+  }
+</script>
+
+<Header hLevel={currentLevel}>Dynamic Header (Level {currentLevel})</Header>
+<button on:click={changeLevel}>Change Level</button>`}
+/>
+
+
+## Styling
+
+The Header component uses CSS custom properties for comprehensive theming:
+
+<Code 
+lang="css"
+code={`:root {
+  /* H1 Styling */
+  --header-one-font-size: 2.5rem;
+  --header-one-font-color: #1a1a1a;
+  
+  /* H2 Styling */
+  --header-two-font-size: 2rem;
+  --header-two-font-color: #2a2a2a;
+  
+  /* H3 Styling */
+  --header-three-font-size: 1.75rem;
+  --header-three-font-color: #3a3a3a;
+  
+  /* H4 Styling */
+  --header-four-font-size: 1.5rem;
+  --header-four-font-color: #4a4a4a;
+  
+  /* H5 Styling */
+  --header-five-font-size: 1.25rem;
+  --header-five-font-color: #5a5a5a;
+  
+  /* H6 Styling */
+  --header-six-font-size: 1rem;
+  --header-six-font-color: #6a6a6a;
+}`}
+/>
+
+
+## Common Patterns
+
+##### Page Title
+<Code 
+lang="jsx"
+code={`<Header hLevel={1}>Welcome to Our Application</Header>`}/>
+
+##### Section Headings
+<Code 
+lang="jsx"
+code={`<Header hLevel={2}>User Settings</Header>
+<Header hLevel={3}>Account Information</Header>
+<Header hLevel={3}>Privacy Settings</Header>`}/>
+
+##### Article Structure
+<Code 
+lang="jsx"
+code={`<article>
+  <Header hLevel={1}>Article Title</Header>
+  <Header hLevel={2}>Introduction</Header>
+  <p>Content...</p>
+  <Header hLevel={2}>Main Points</Header>
+  <Header hLevel={3}>Point One</Header>
+  <p>Content...</p>
+  <Header hLevel={3}>Point Two</Header>
+  <p>Content...</p>
+</article>`}/>
+
+##### Card Headers
+<Code 
+lang="jsx"
+code={`<div class="card">
+  <Header hLevel={3}>Card Title</Header>
+  <p>Card content...</p>
+</div>`}/>
+
+
+## Accessibility
+
+The Header component includes comprehensive accessibility features:
+
+##### Semantic HTML
+- Uses proper HTML heading elements (`<h1>` through `<h6>`)
+- Maintains semantic document structure
+- Supports screen reader navigation
+- Provides proper document outline
+
+##### Document Structure
+- Automatic level clamping ensures valid heading levels (1-6)
+- Supports proper hierarchical content organization
+- Enables screen reader heading navigation
+- Improves SEO with semantic markup
+
+##### Screen Reader Support
+- Native heading element support
+- Proper heading level announcement
+- Document outline navigation
+- Skip-to-heading functionality
+
+##### Focus Management
+- Headings can receive programmatic focus
+- Support for focus-based navigation
+- Integration with skip links
+- Proper focus indicators
+
+
+## Best Practices
+
+##### Document Hierarchy
+1. **Use only one H1**: Each page should have only one H1 element
+2. **Don't skip levels**: Follow proper heading hierarchy (H1 → H2 → H3)
+3. **Be descriptive**: Heading text should clearly describe the section content
+4. **Keep it concise**: Use brief, meaningful headings
+
+##### Content Organization
+5. **Logical structure**: Organize content in a logical, hierarchical manner
+6. **Consistent styling**: Use consistent heading styles throughout your application
+7. **Appropriate levels**: Choose heading levels based on content importance, not appearance
+8. **Avoid styling headers**: Don't use headings solely for visual styling
+
+##### Technical Guidelines
+9. **Dynamic levels**: Use computed values for dynamic heading levels
+10. **Accessibility testing**: Test with screen readers and keyboard navigation
+11. **SEO optimization**: Proper heading structure improves search engine indexing
+12. **Performance**: Headers are lightweight and don't impact performance
+
+
+## Troubleshooting
+
+#### Common Issues
+
+**Heading styles not applying**
+- Ensure CSS custom properties are defined in your stylesheet
+- Check CSS specificity and inheritance
+- Verify theme imports are correct
+
+**Invalid heading levels**
+- The component automatically clamps levels to 1-6 range
+- Check that hLevel prop is a valid number
+- Verify dynamic level calculations
+
+**Accessibility warnings**
+- Ensure proper heading hierarchy (don't skip levels)
+- Use only one H1 per page
+- Provide meaningful heading text
+
+**SEO issues**
+- Follow proper heading hierarchy for better SEO
+- Use descriptive, keyword-relevant heading text
+- Don't use headings purely for styling
+
+##### Performance Considerations
+
+- Headers are lightweight and have minimal performance impact
+- CSS custom properties enable efficient theming
+- No JavaScript processing overhead
+- Optimized for fast rendering
+
+
+## Related Components
+
+- **Button**: For interactive elements within sections
+- **Card**: Headers work well with card layouts
+- **Navbar**: For site navigation structure
+- **InputField**: Form headings and labels

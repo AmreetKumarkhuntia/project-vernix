@@ -15,6 +15,14 @@ export function load() {
           label: 'button',
           href: '/docs/components/button',
         },
+        {
+          label: 'header',
+          href: '/docs/components/header',
+        },
+        {
+          label: 'inputField',
+          href: '/docs/components/input-field',
+        },
       ],
     },
   ];
