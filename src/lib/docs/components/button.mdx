@@ -54,6 +54,24 @@ code={`<script>
 | `componentClass` | `string` | `''` | Additional CSS classes for custom styling |
 | `onClick` | `function` | `undefined` | Click event handler function |
 
+##### CSS Properties Reference
+
+| Property | Description | Default |
+|----------|-------------|---------|
+| `--button-border` | Button border style | `none` |
+| `--button-border-radius` | Border radius | `4px` |
+| `--button-padding` | Internal padding | `8px 16px` |
+| `--button-transition-speed` | Transition duration | `0.3s` |
+| `--button-background-color` | Background color (filled) | `#0066cc` |
+| `--button-text-color` | Text color | `#ffffff` |
+| `--button-hover-color` | Hover background color | `#0052a3` |
+| `--button-text-color-disabled` | Disabled text color | `#ccc` |
+| `--button-border-disabled` | Disabled border | `1px solid #ccc` |
+| `--button-height-small` | Small button height | `32px` |
+| `--button-height-medium` | Medium button height | `40px` |
+| `--button-height-large` | Large button height | `48px` |
+| `--button-outlined-border` | Outlined button border | `1px solid var(--button-background-color)` |
+
 ##### Events
 
 | Event | Description | Payload | When Triggered |
@@ -65,7 +83,7 @@ code={`<script>
 - **Small**: Compact buttons for secondary actions, toolbars, or forms
 - **Medium**: Standard size for most use cases and primary actions
 - **Large**: Prominent buttons for call-to-actions and important interactions
-- **Fill**: Takes full width of parent container, ideal for mobile layouts
+- **Fill**: Takes full width and height of parent container, ideal for mobile layouts
 
 
 ## Examples
@@ -73,12 +91,12 @@ code={`<script>
 ##### Default Button
 
 <div class="doc-view">
-  <Button>Default Button</Button>
+  <Button onClick={() => alert('Default button clicked!')}>Default Button</Button>
 </div>
 
 <Code 
 lang="jsx"
-code={`<Button>Default Button</Button>`}
+code={`<Button onClick={() => alert('Default button clicked!')}>Default Button</Button>`}
 />
 
 ##### Button Sizes
@@ -86,20 +104,20 @@ code={`<Button>Default Button</Button>`}
 Buttons come in four different sizes to fit various design contexts:
 
 <div class="doc-view">
-  <Button size="small">Small</Button>
-  <Button size="medium">Medium</Button>
-  <Button size="large">Large</Button>
+  <Button size="small" onClick={() => alert('Small button clicked!')}>Small</Button>
+  <Button size="medium" onClick={() => alert('Medium button clicked!')}>Medium</Button>
+  <Button size="large" onClick={() => alert('Large button clicked!')}>Large</Button>
   <div style="width: 200px; height: 60px;">
-    <Button size="fill">Fill Container</Button>
+    <Button size="fill" onClick={() => alert('Fill button clicked!')}>Fill Container</Button>
   </div>
 </div>
 
 <Code 
 lang="jsx"
-code={`<Button size="small">Small</Button>
-<Button size="medium">Medium</Button>
-<Button size="large">Large</Button>
-<Button size="fill">Fill Container</Button>`}
+code={`<Button size="small" onClick={() => alert('Small button clicked!')}>Small</Button>
+<Button size="medium" onClick={() => alert('Medium button clicked!')}>Medium</Button>
+<Button size="large" onClick={() => alert('Large button clicked!')}>Large</Button>
+<Button size="fill" onClick={() => alert('Fill button clicked!')}>Fill Container</Button>`}
 />
 
 ##### Button Types
@@ -107,14 +125,14 @@ code={`<Button size="small">Small</Button>
 Choose between filled (solid) and outlined button styles:
 
 <div class="doc-view">
-  <Button type="filled">Filled Button</Button>
-  <Button type="outlined">Outlined Button</Button>
+  <Button type="filled" onClick={() => alert('Filled button clicked!')}>Filled Button</Button>
+  <Button type="outlined" onClick={() => alert('Outlined button clicked!')}>Outlined Button</Button>
 </div>
 
 <Code 
 lang="jsx"
-code={`<Button type="filled">Filled Button</Button>
-<Button type="outlined">Outlined Button</Button>`}
+code={`<Button type="filled" onClick={() => alert('Filled button clicked!')}>Filled Button</Button>
+<Button type="outlined" onClick={() => alert('Outlined button clicked!')}>Outlined Button</Button>`}
 />
 
 ##### Disabled State
@@ -122,59 +140,116 @@ code={`<Button type="filled">Filled Button</Button>
 Disabled buttons prevent user interaction and provide visual feedback:
 
 <div class="doc-view">
-  <Button disabled={true}>Disabled Button</Button>
-  <Button type="outlined" disabled={true}>Disabled Outlined</Button>
+  <Button disabled={true} onClick={() => alert('This will not fire')}>Disabled Button</Button>
+  <Button type="outlined" disabled={true} onClick={() => alert('This will not fire')}>Disabled Outlined</Button>
 </div>
 
 <Code 
 lang="jsx"
-code={`<Button disabled={true}>Disabled Button</Button>
-<Button type="outlined" disabled={true}>Disabled Outlined</Button>`}
+code={`<Button disabled={true} onClick={() => alert('This will not fire')}>Disabled Button</Button>
+<Button type="outlined" disabled={true} onClick={() => alert('This will not fire')}>Disabled Outlined</Button>`}
 />
-
-### Interactive Examples
-
-##### With Click Handler
-
-<div class="doc-view">
-  <Button onClick={() => alert('Hello from Button!')}>
-    Show Alert
-  </Button>
-</div>
-
-<Code 
-lang="jsx"
-code={`<script>
-  function handleClick() {
-    alert('Hello from Button!');
-  }
-</script>
-
-<Button onClick={handleClick}>
-  Show Alert
-</Button>`}/>
 
 ##### Custom Styling
 
 <div class="doc-view">
-  <Button componentClass="custom-button">
+  <Button componentClass="custom-button" onClick={() => alert('Custom styled button clicked!')}>
     Custom Styled Button
   </Button>
 </div>
 
 <Code 
 lang="jsx"
-code={`<Button componentClass="custom-button">
+code={`<Button componentClass="custom-button" onClick={() => alert('Custom styled button clicked!')}>
   Custom Styled Button
 </Button>
 
 <style>
   :global(.custom-button) {
-    background: linear-gradient( #6204d5ff);
+    background: linear-gradient(45deg, #530d0dff, #901313ff);
     border: none;
     color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   }
 </style>`}/>
+
+
+## Styling
+
+The Button component uses CSS custom properties for comprehensive theming and customization:
+
+<Code 
+lang="css"
+code={`:root {
+  /* Basic button properties */
+  --button-border: none;
+  --button-border-radius: 4px;
+  --button-padding: 8px 16px;
+  --button-transition-speed: 0.3s;
+  
+  /* Button colors */
+  --button-background-color: #0066cc;
+  --button-text-color: #ffffff;
+  --button-hover-color: #0052a3;
+  --button-text-color-disabled: #ccc;
+  --button-border-disabled: 1px solid #ccc;
+  
+  /* Button sizes */
+  --button-height: auto;
+  --button-width: auto;
+  --button-height-small: 32px;
+  --button-width-small: auto;
+  --button-height-medium: 40px;
+  --button-width-medium: auto;
+  --button-height-large: 48px;
+  --button-width-large: auto;
+  
+  /* Outlined button border */
+  --button-outlined-border: 1px solid var(--button-background-color);
+}`}
+/>
+
+## Common Patterns
+
+##### Form Submission
+<Code 
+lang="jsx"
+code={`<Button type="filled" size="large" onClick={handleSubmit}>
+  Submit Form
+</Button>`}/>
+
+##### Destructive Actions
+<Code 
+lang="jsx"
+code={`<Button type="outlined" componentClass="destructive" onClick={handleDelete}>
+  Delete Item
+</Button>`}/>
+
+##### Loading States
+<Code 
+lang="jsx"
+code={`<script>
+  let isLoading = false;
+  
+  function handleAction() {
+    isLoading = true;
+    // Perform async operation
+    setTimeout(() => {
+      isLoading = false;
+    }, 2000);
+  }
+</script>
+
+<Button disabled={isLoading} onClick={handleAction}>
+  {isLoading ? 'Processing...' : 'Save Changes'}
+</Button>`}/>
+
+##### Call-to-Action
+<Code 
+lang="jsx"
+code={`<Button type="filled" size="fill" onClick={handleSignup}>
+  Get Started Free
+</Button>`}/>
 
 
 ## Accessibility
@@ -203,26 +278,8 @@ The Button component includes comprehensive accessibility features out of the bo
 - Sufficient color contrast in all states (normal, hover, focus, disabled)
 - Does not rely solely on color to convey information
 
-##### Styling
 
-The Button component uses CSS custom properties for comprehensive theming and customization:
-
-<Code 
-lang="css"
-code={`:root {
-  --button-background-color: #0066cc;
-  --button-text-color: #ffffff;
-  --button-padding: 8px 16px;
-  --button-border-radius: 4px;
-  --button-hover-color: #0052a3;
-  --button-size-small: 5px 10px;
-  --button-size-medium: 8px 16px;
-  --button-size-large: 12px 24px;
-  --button-transition-speed: 0.3s;
-}`}
-/>
-
-### Best Practices
+## Best Practices
 
 ##### Design Guidelines
 1. **Use descriptive labels**: Button text should clearly indicate the action it will perform
@@ -247,37 +304,6 @@ code={`:root {
 14. **Test accessibility**: Verify keyboard navigation and screen reader compatibility
 15. **Optimize performance**: Avoid inline functions in onClick handlers when possible
 16. **Use semantic HTML**: Prefer `<button>` over `<div>` with click handlers
-
-### Common Patterns
-
-##### Form Submission
-<Code 
-lang="jsx"
-code={`<Button type="filled" size="large" onClick={handleSubmit}>
-  Submit Form
-</Button>
-`}/>
-
-##### Destructive Actions
-<Code 
-lang="jsx"
-code={`<Button type="outlined" componentClass="destructive" onClick={handleDelete}>
-  Delete Item
-</Button>`}/>
-
-##### Loading States
-<Code 
-lang="jsx"
-code={`<Button disabled={isLoading} onClick={handleAction}>
-  {isLoading ? 'Processing...' : 'Save Changes'}
-</Button>`}/>
-
-##### Call-to-Action
-<Code 
-lang="jsx"
-code={`<Button type="filled" size="fill" onClick={handleSignup}>
-  Get Started Free
-</Button>`}/>
 
 
 ## Troubleshooting
