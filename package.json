@@ -24,7 +24,7 @@
     "package": "svelte-kit sync && svelte-package",
     "package:lint": "publint",
     "build": "BUILD_TARGET=package vite build && npm run package",
-    "build:site": "BUILD_TARGET=site vite build",
+    "build:site": "vite build",
     "format": "npx prettier --write .",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

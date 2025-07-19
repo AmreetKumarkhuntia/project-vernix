@@ -50,10 +50,12 @@
 
 <div class="navbar-layout">
   <Navbar
-    navbarProps={topNavbarProps}
-    activeNavigation={$clientStore.activeNavigation}
-    onClick={handleNavClick}
-  />
+  navbarProps={topNavbarProps}
+  activeNavigation={$clientStore.activeNavigation}
+  onClick={handleNavClick}
+  >
+  <div slot="left" class="navbar-logo">Vergins.js</div>
+  </Navbar>
 </div>
 <div class="blob-bg"></div>
 <div class="blob-bg-2"></div>

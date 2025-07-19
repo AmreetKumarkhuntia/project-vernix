@@ -4,7 +4,7 @@
 
 <div class="error-container">
   <h1>{$page.status}{#if $page.error}: {$page.error.message}{/if}</h1>
-  <p>Sorry, the page you are looking for does not exist.</p>
+  <p>Sorry, the page you are looking for does not exist or is under development.</p>
   <a href="/">Go back to the homepage</a>
 </div>
 

@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+
 :root {
+  /* Font Families */
+  --font-family-artistic: 'Lavishly Yours', cursive;
+  /* --font-family-artistic: "Mr Dafoe", cursive; */
+
   /* Gradient Colors */
   --gradient-color-1: linear-gradient(270deg, #00dfd8, #007cf0, #ff75e3);
   --gradient-color-2: linear-gradient(90deg, #d16ba5, #86a8e7, #5ffbf1);
@@ -228,4 +235,9 @@ table {
     rgba(0, 0, 0, 0.03) 0px 8px 4px,
     rgba(0, 0, 0, 0.03) 0px 16px 8px,
     rgba(0, 0, 0, 0.03) 0px 32px 16px;
+}
+
+.navbar-logo {
+  font-family: var(--font-family-artistic);
+  font-size: 36px;
 }

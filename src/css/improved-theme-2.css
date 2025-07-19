@@ -5,7 +5,7 @@
   /* Font */
   --font-family-roboto-mono: 'Roboto Mono', monospace;
   --font-family-sans-serif: 'Open Sans', sans-serif;
-  --global-font-family: var(--font-family-sans-serif);
+  --global-font-family: var(--font-family-roboto-mono);
 
   /* Light Theme Palette */
   --primary-color: #08365c;
