@@ -272,10 +272,8 @@ code={`<script>
 <Code 
 lang="jsx"
 code={`<script>
-import { Button, InputField } from 'vergins';
-
+import { Button, InputField } from 'vergins';\n
 import * as Vergins from 'vergins';
-
 import Button from 'vergins/components/Button';
 </script>`}/>
 
@@ -285,13 +283,11 @@ import Button from 'vergins/components/Button';
 lang="jsx"
 code={`<script>
   import { Button, Card } from 'vergins';
-</script>
-
+</script>\n
 <!-- Responsive button sizing -->
 <Button size="small" class="sm:size-medium lg:size-large">
   Responsive Button
-</Button>
-
+</Button>\n
 <!-- Responsive card layout -->
 <Card class="w-full md:w-1/2 lg:w-1/3">
   Content adapts to screen size
@@ -383,18 +379,17 @@ pnpm run build
 
 <Code 
 lang="jsx"
-code={`
-<script lang="ts">
-  export let size: 'small' | 'medium' | 'large' = 'medium';
-  export let disabled: boolean = false;
-  export let componentClass: string = '';
-  
-  // Component logic here
-</script>
+code={`<script lang="ts">
+export let size: 'small' | 'medium' | 'large' = 'medium';
+export let disabled: boolean = false;
+export let componentClass: string = '';
+
+// Component logic here
+</script>\n
 
 <div class="component-name {componentClass}" class:disabled>
   <slot />
-</div>
+</div>\n
 
 <style>
   .component-name {
