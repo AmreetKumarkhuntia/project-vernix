@@ -1,0 +1,83 @@
+<script lang="ts">
+  import Avatar from '$lib/components/avatar/Avatar.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Avatar Component
+
+The `Avatar` component is used to represent a user.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Avatar } from 'vergins';
+</script>
+
+<Avatar src="https://example.com/avatar.png" alt="User Avatar" />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop           | Type                                           | Default        | Description                                                |
+| -------------- | ---------------------------------------------- | -------------- | ---------------------------------------------------------- |
+| `src`          | `string`                                       | `''`           | The source URL for the image avatar.                       |
+| `alt`          | `string`                                       | `'User Avatar'`| The alt text for the avatar. Used for the initial if no `src` is provided. |
+| `dataType`     | `'image' \| 'svg' \| 'user'`                   | `'image'`      | The type of avatar to display.                             |
+| `size`         | `string`                                       | `'50px'`       | The size of the avatar.                                    |
+| `onClick`      | `(e: MouseEvent, elementType: string) => void` | `() => {}`     | A callback function when the avatar is clicked.            |
+| `smallSize`    | `string`                                       | `'16px'`       | The size of the avatar on small screens.                   |
+| `letterColors` | `Record<string, string>`                       | `{...}`        | A map of letters to background colors for initial avatars. |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content for an SVG avatar. |
+
+## Examples
+
+##### Image Avatar
+
+<div class="doc-view">
+  <Avatar src="https://www.w3schools.com/howto/img_avatar.png" alt="User Avatar" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Avatar src="https://www.w3schools.com/howto/img_avatar.png" alt="User Avatar" />`}
+/>
+
+##### SVG Avatar
+
+<div class="doc-view">
+  <Avatar dataType="svg">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="white"/>
+    </svg>
+  </Avatar>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Avatar dataType="svg">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="white"/>
+  </svg>
+</Avatar>`}
+/>
+
+##### User Initial Avatar
+
+<div class="doc-view">
+  <Avatar alt="John Doe" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Avatar alt="John Doe" />`}
+/>

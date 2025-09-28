@@ -1,0 +1,73 @@
+<script lang="ts">
+  import TimeLine from '$lib/components/timeLine/TimeLine.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# TimeLine Component
+
+The `TimeLine` component is used to display a series of events in a timeline.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { TimeLine } from 'vergins';
+</script>
+
+<TimeLine events={[{ alignment: 'left', dateStart: '2022', dateEnd: '2023', position: 'Developer', description: 'Worked on stuff.', name: 'Company', event: 'work', location: 'City', link: null }]} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                      | Type                 | Default | Description                               |
+| ------------------------- | -------------------- | ------- | ----------------------------------------- |
+| `timeLineProps`           | `TimeLineProps \| null` | `null`  | An object of timeline properties.         |
+| `events`                  | `TimeLineDetails[]`  | `[]`    | An array of timeline events.              |
+| `maxLoadTries`            | `number`             | `1`     | The maximum number of times the content can be loaded. |
+| `shouldUsePositionForIcons` | `boolean`            | `false` | Whether to use the position for icons.    |
+
+##### `TimeLineProps`
+
+| Prop      | Type                   | Description                               |
+| --------- | ---------------------- | ----------------------------------------- |
+| `icons`   | `Map<string, string> \| null` | A map of icons for the timeline events.   |
+| `duration`| `number \| null`         | The duration of the animations.           |
+| `delay`   | `number \| null`         | The delay of the animations.              |
+
+##### `TimeLineDetails`
+
+| Prop           | Type                         | Description                               |
+| -------------- | ---------------------------- | ----------------------------------------- |
+| `alignment`    | `TimeLineDetailsAlignment`   | The alignment of the event.               |
+| `dateStart`    | `string`                     | The start date of the event.              |
+| `dateEnd`      | `string`                     | The end date of the event.                |
+| `position`     | `string`                     | The position of the event.                |
+| `description`  | `string`                     | The description of the event.             |
+| `name`         | `string`                     | The name of the event.                    |
+| `event`        | `TimeLineEventType \| string` | The type of the event.                    |
+| `location`     | `string`                     | The location of the event.                |
+| `link`         | `string \| null`             | A link for the event.                     |
+| `iconDataType` | `AvatarDataType \| null`     | The data type of the icon.                |
+
+## Examples
+
+##### Default TimeLine
+
+<div class="doc-view">
+  <TimeLine events={[
+    { alignment: 'left', dateStart: '2022', dateEnd: '2023', position: 'Developer', description: 'Worked on stuff.', name: 'Company', event: 'work', location: 'City', link: null, iconDataType: 'user' },
+    { alignment: 'right', dateStart: '2021', dateEnd: '2022', position: 'Student', description: 'Studied stuff.', name: 'University', event: 'education', location: 'City', link: null, iconDataType: 'user' }
+  ]} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<TimeLine events={[
+    { alignment: 'left', dateStart: '2022', dateEnd: '2023', position: 'Developer', description: 'Worked on stuff.', name: 'Company', event: 'work', location: 'City', link: null, iconDataType: 'user' },
+    { alignment: 'right', dateStart: '2021', dateEnd: '2022', position: 'Student', description: 'Studied stuff.', name: 'University', event: 'education', location: 'City', link: null, iconDataType: 'user' }
+  ]} />`}
+/>

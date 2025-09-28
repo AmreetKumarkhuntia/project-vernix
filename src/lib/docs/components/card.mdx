@@ -1,0 +1,53 @@
+<script lang="ts">
+  import Card from '$lib/components/card/Card.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Card Component
+
+The `Card` component is a flexible and extensible content container.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Card } from 'vergins';
+</script>
+
+<Card title="Card Title">
+  <p>Card content</p>
+</Card>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop    | Type     | Default | Description              |
+| ------- | -------- | ------- | ------------------------ |
+| `title` | `string` | `null`  | The title of the card.   |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content of the card. |
+
+## Examples
+
+##### Default Card
+
+<div class="doc-view">
+  <Card title="Card Title">
+    <p>Card content</p>
+  </Card>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Card title="Card Title">
+  <p>Card content</p>
+</Card>`}
+/>

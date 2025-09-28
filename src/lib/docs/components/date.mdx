@@ -1,0 +1,46 @@
+<script lang="ts">
+  import Date from '$lib/components/date/Date.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Date Component
+
+The `Date` component is a date picker.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Date } from 'vergins';
+</script>
+
+<Date />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop           | Type        | Default                                  | Description                               |
+| -------------- | ----------- | ---------------------------------------- | ----------------------------------------- |
+| `selectedDate` | `Date`      | `new Date()`                             | The currently selected date.              |
+| `format`       | `string`    | `'MM/DD/YYYY'`                           | The format for the displayed date.        |
+| `disabled`     | `boolean`   | `false`                                  | Whether the date picker is disabled.      |
+| `expanded`     | `boolean`   | `false`                                  | Whether the calendar is always visible.   |
+| `zIndex`       | `number`    | `1`                                      | The z-index of the component.             |
+| `years`        | `number[]`  | `Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i)` | The range of years to display.            |
+
+## Examples
+
+##### Default Date
+
+<div class="doc-view">
+  <Date />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Date />`}
+/>

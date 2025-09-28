@@ -1,0 +1,67 @@
+<script lang="ts">
+  import Accordion from '$lib/components/accordion/Accordion.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Accordion Component
+
+The `Accordion` component allows the user to show and hide sections of related content on a page.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Accordion } from 'vergins';
+</script>
+
+<Accordion>
+  <div slot="accordion-title">Accordion Title</div>
+  <p>Accordion content</p>
+</Accordion>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop               | Type                          | Default           | Description                                  |
+| ------------------ | ----------------------------- | ----------------- | -------------------------------------------- |
+| `isClose`          | `boolean`                     | `true`            | Controls the open/closed state.              |
+| `accordionProps`   | `AccordionProps`              | `defaultAccordionProps` | An object of accordion properties.           |
+
+##### `AccordionProps`
+
+| Prop                 | Type                          | Default           | Description                                  |
+| -------------------- | ----------------------------- | ----------------- | -------------------------------------------- |
+| `closeButtonContent` | `string \| null`              | `'&times;'`       | The HTML content for the close button.       |
+| `title`              | `string \| null`              | `'Accordion Title'` | The title of the accordion.                  |
+| `duration`           | `number \| null`              | `300`             | The duration of the open/close animation.    |
+| `onToggle`           | `(isClose: boolean) => void`  | `() => {}`        | A callback function when the accordion is toggled. |
+
+##### Slots
+
+| Name                | Description                   |
+| ------------------- | ----------------------------- |
+| `accordion-title`   | The title of the accordion.   |
+| `default`           | The content of the accordion. |
+
+## Examples
+
+##### Default Accordion
+
+<div class="doc-view">
+  <Accordion>
+    <div slot="accordion-title">Accordion Title</div>
+    <p>Accordion content</p>
+  </Accordion>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Accordion>
+  <div slot="accordion-title">Accordion Title</div>
+  <p>Accordion content</p>
+</Accordion>`}
+/>

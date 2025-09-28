@@ -1,0 +1,65 @@
+<script lang="ts">
+  import LazyLoader from '$lib/components/lazyLoader/LazyLoader.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# LazyLoader Component
+
+The `LazyLoader` component is used to lazy load content.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { LazyLoader } from 'vergins';
+</script>
+
+<LazyLoader>
+  <p>This content will be loaded lazily.</p>
+</LazyLoader>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop            | Type             | Default                  | Description                               |
+| --------------- | ---------------- | ------------------------ | ----------------------------------------- |
+| `lazyLoaderProps` | `LazyLoaderProps`| `defaultLazyLoaderProps` | An object of lazy loader properties.      |
+| `className`     | `string`         | `''`                     | A class name to apply to the component.   |
+| `maxCount`      | `number \| null` | `null`                   | The maximum number of times the content can be loaded. |
+
+##### `LazyLoaderProps`
+
+| Prop            | Type                | Description                               |
+| --------------- | ------------------- | ----------------------------------------- |
+| `inTransition`  | `TransitionWrapper` | The in transition for the content.        |
+| `outTransition` | `TransitionWrapper` | The out transition for the content.       |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content to be loaded lazily. |
+
+## Examples
+
+##### Default LazyLoader
+
+<div class="doc-view" style="height: 200px; overflow: scroll;">
+  <LazyLoader>
+    <p>This content was loaded lazily.</p>
+  </LazyLoader>
+</div>
+
+<Code 
+lang="jsx"
+code={`<div style="height: 200px; overflow: scroll;">
+  <div style="height: 500px;">Scroll down</div>
+  <LazyLoader>
+    <p>This content was loaded lazily.</p>
+  </LazyLoader>
+</div>`}
+/>

@@ -1,0 +1,65 @@
+<script lang="ts">
+  import Navbar from '$lib/components/navbar/Navbar.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Navbar Component
+
+The `Navbar` component is a navigation bar.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Navbar } from 'vergins';
+</script>
+
+<Navbar />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                | Type                                        | Default              | Description                               |
+| ------------------- | ------------------------------------------- | -------------------- | ----------------------------------------- |
+| `navbarProps`       | `NavbarProps`                               | `defaultNavbarProps` | An object of navbar properties.           |
+| `navbarAlignment`   | `NavbarAlignment`                           | `'horizontal'`       | The alignment of the navbar.              |
+| `activeNavigation`  | `string`                                    | `''`                 | The ID of the currently active navigation item. |
+| `onClick`           | `(navigationOption: NavigationOptions) => void` | `() => {}`           | A callback function when a navigation item is clicked. |
+
+##### `NavbarProps`
+
+| Prop                | Type                  | Description                               |
+| ------------------- | --------------------- | ----------------------------------------- |
+| `navigationOptions` | `NavigationOptions[]` | An array of navigation options.           |
+
+##### `NavigationOptions`
+
+| Prop            | Type     | Description                               |
+| --------------- | -------- | ----------------------------------------- |
+| `id`            | `string` | The ID of the navigation option.          |
+| `title`         | `string` | The title of the navigation option.       |
+| `navigationURL` | `string` | The URL for the navigation option.        |
+
+##### Slots
+
+| Name    | Description              |
+| ------- | ------------------------ |
+| `left`  | Content to be placed on the left side of the navbar. |
+| `right` | Content to be placed on the right side of the navbar. |
+
+## Examples
+
+##### Default Navbar
+
+<div class="doc-view">
+  <Navbar />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Navbar />`}
+/>

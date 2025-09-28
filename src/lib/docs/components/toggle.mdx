@@ -1,0 +1,42 @@
+<script lang="ts">
+  import Toggle from '$lib/components/toggle/Toggle.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Toggle Component
+
+The `Toggle` component is a switch that can be turned on or off.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Toggle } from 'vergins';
+  let toggled = false;
+</script>
+
+<Toggle bind:toggled />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop      | Type      | Default | Description                       |
+| --------- | --------- | ------- | --------------------------------- |
+| `toggled` | `boolean` | `false` | Whether the toggle is on or off. |
+
+## Examples
+
+##### Default Toggle
+
+<div class="doc-view">
+  <Toggle />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Toggle />`}
+/>
