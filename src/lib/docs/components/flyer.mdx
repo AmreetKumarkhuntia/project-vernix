@@ -1,0 +1,81 @@
+<script lang="ts">
+  import Flyer from '$lib/components/flyer/Flyer.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Flyer Component
+
+The `Flyer` component is a notification that appears on the screen.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Flyer } from 'vergins';
+  let isVisible = false;
+</script>
+
+<button on:click={() => (isVisible = true)}>Show Flyer</button>
+
+<Flyer bind:isVisible>
+  <p>This is a flyer notification.</p>
+</Flyer>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop        | Type         | Default           | Description                               |
+| ----------- | ------------ | ----------------- | -------------------------------------------- |
+| `isVisible` | `boolean`    | `false`           | Controls the visibility of the flyer.        |
+| `flyerProps`| `FlyerProps` | `defaultFlyerProps` | An object of flyer properties.               |
+| `onClose`   | `() => void` | `() => {}`        | A callback function when the flyer is closed. |
+
+##### `FlyerProps`
+
+| Prop                 | Type                               | Default            | Description                                  |
+| -------------------- | ---------------------------------- | ------------------ | -------------------------------------------- |
+| `position`           | `FlyerPosition`                    | `'bottom-right'`   | The position of the flyer.                   |
+| `flyerType`          | `FlyerType \| null`                | `'summary'`        | The type of flyer.                           |
+| `title`              | `string \| null`                   | `null`             | The title of the flyer.                      |
+| `duration`           | `number \| null`                   | `3000`             | The duration the flyer is visible.           |
+| `closeAfterDuration` | `number \| null`                   | `400`              | The duration of the closing animation.       |
+| `flyerLeftImage`     | `string \| null`                   | `null`             | The image to display on the left of the flyer. |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content of the flyer. |
+
+## Examples
+
+##### Default Flyer
+
+<div class="doc-view">
+  <button on:click={() => {
+    const flyer = new Flyer({
+      target: document.body,
+      props: {
+        isVisible: true,
+      }
+    });
+  }}>Show Flyer</button>
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Flyer } from 'vergins';
+  let isVisible = false;
+</script>
+
+<button on:click={() => (isVisible = true)}>Show Flyer</button>
+
+<Flyer bind:isVisible>
+  <p>This is a flyer notification.</p>
+</Flyer>`}
+/>

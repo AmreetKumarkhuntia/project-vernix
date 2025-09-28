@@ -1,0 +1,52 @@
+<script lang="ts">
+  import BreadCrumbs from '$lib/components/breadcrumbs/BreadCrumbs.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# BreadCrumbs Component
+
+The `BreadCrumbs` component is used to show the user's location in a hierarchy of pages.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { BreadCrumbs } from 'vergins';
+</script>
+
+<BreadCrumbs items={[{ index: '0', text: 'Home', href: '/' }, { index: '1', text: 'Components', href: '/components' }, { index: '2', text: 'BreadCrumbs' }]} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                     | Type                               | Default     | Description                               |
+| ------------------------ | ---------------------------------- | ----------- | ----------------------------------------- |
+| `items`                  | `BreadcrumbItem[]`                 | `[]`        | An array of breadcrumb items.             |
+| `separator`              | `string`                           | `'---------'` | The separator between breadcrumb items.   |
+| `onClick`                | `(breadCrumb: BreadcrumbItem) => void` | `() => {}`  | A callback function when a breadcrumb is clicked. |
+| `useCheckMarkOnCompletion` | `boolean`                          | `true`      | Whether to show a checkmark on completed items. |
+
+##### `BreadcrumbItem`
+
+| Prop    | Type     | Description                   |
+| ------- | -------- | ----------------------------- |
+| `index` | `string` | The index of the breadcrumb.  |
+| `text`  | `string` | The text of the breadcrumb.   |
+| `href`  | `string` | The href of the breadcrumb.   |
+
+## Examples
+
+##### Default BreadCrumbs
+
+<div class="doc-view">
+  <BreadCrumbs items={[{ index: '0', text: 'Home', href: '/' }, { index: '1', text: 'Components', href: '/components' }, { index: '2', text: 'BreadCrumbs' }]} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<BreadCrumbs items={[{ index: '0', text: 'Home', href: '/' }, { index: '1', text: 'Components', href: '/components' }, { index: '2', text: 'BreadCrumbs' }]} />`}
+/>

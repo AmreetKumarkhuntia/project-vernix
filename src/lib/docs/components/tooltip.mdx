@@ -1,0 +1,60 @@
+<script lang="ts">
+  import Tooltip from '$lib/components/tooltip/Tooltip.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Tooltip Component
+
+The `Tooltip` component is used to display a tooltip.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Tooltip } from 'vergins';
+</script>
+
+<Tooltip>
+  <button>Hover me</button>
+  <div slot="tooltip-content">Tooltip content</div>
+</Tooltip>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                | Type                               | Default | Description                               |
+| ------------------- | ---------------------------------- | ------- | ----------------------------------------- |
+| `position`          | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` | The position of the tooltip.              |
+| `disableAnimation`  | `boolean`                          | `false` | Whether to disable the animation.         |
+| `offset`            | `number`                           | `8`     | The offset of the tooltip from the element. |
+| `animationDuration` | `number`                           | `200`   | The duration of the animation.            |
+
+##### Slots
+
+| Name              | Description              |
+| ----------------- | ------------------------ |
+| `default`         | The element to apply the tooltip to. |
+| `tooltip-content` | The content of the tooltip. |
+
+## Examples
+
+##### Default Tooltip
+
+<div class="doc-view">
+  <Tooltip>
+    <button>Hover me</button>
+    <div slot="tooltip-content">Tooltip content</div>
+  </Tooltip>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Tooltip>
+  <button>Hover me</button>
+  <div slot="tooltip-content">Tooltip content</div>
+</Tooltip>`}
+/>

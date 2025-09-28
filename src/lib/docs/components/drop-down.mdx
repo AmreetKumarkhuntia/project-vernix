@@ -1,0 +1,57 @@
+<script lang="ts">
+  import DropDown from '$lib/components/dropDown/DropDown.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# DropDown Component
+
+The `DropDown` component is a drop-down menu.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { DropDown } from 'vergins';
+</script>
+
+<DropDown items={[{ id: '1', label: 'Item 1', action: () => {}, active: false }]} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                 | Type                                                       | Default     | Description                               |
+| -------------------- | ---------------------------------------------------------- | ----------- | ----------------------------------------- |
+| `items`              | `DropdownItem[]`                                           | `[]`        | An array of dropdown items.               |
+| `buttonLabel`        | `string`                                                   | `'Menu'`    | The label for the dropdown button.        |
+| `transitionDuration` | `number`                                                   | `200`       | The duration of the dropdown animation.   |
+| `multi`              | `boolean`                                                  | `false`     | Whether to allow multiple selections.     |
+| `zIndex`             | `number`                                                   | `1`         | The z-index of the component.             |
+| `disableNoSelection` | `boolean`                                                  | `false`     | Whether to disable unselecting an item.   |
+| `currentActiveItem`  | `DropdownItem \| null`                                     | `null`      | The currently active item.                |
+| `onChange`           | `(items: DropdownItem[], currentActiveItem: DropdownItem \| null) => void` | `(items) => {}` | A callback function when the selection changes. |
+
+##### `DropdownItem`
+
+| Prop     | Type          | Description                   |
+| -------- | ------------- | ----------------------------- |
+| `id`     | `string`      | The ID of the dropdown item.  |
+| `label`  | `string`      | The label of the dropdown item. |
+| `action` | `() => void`  | The action to perform when the item is clicked. |
+| `active` | `boolean`     | Whether the item is active.   |
+
+## Examples
+
+##### Default DropDown
+
+<div class="doc-view">
+  <DropDown items={[{ id: '1', label: 'Item 1', action: () => {}, active: false }, { id: '2', label: 'Item 2', action: () => {}, active: false }]} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<DropDown items={[{ id: '1', label: 'Item 1', action: () => {}, active: false }, { id: '2', label: 'Item 2', action: () => {}, active: false }]} />`}
+/>

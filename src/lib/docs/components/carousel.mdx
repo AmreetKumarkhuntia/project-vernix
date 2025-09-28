@@ -1,0 +1,73 @@
+<script lang="ts">
+  import Carousel from '$lib/components/carousel/Carousel.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Carousel Component
+
+The `Carousel` component is a slideshow component for cycling through elements.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Carousel } from 'vergins';
+</script>
+
+<Carousel length={3}>
+  <div>Slide 1</div>
+  <div>Slide 2</div>
+  <div>Slide 3</div>
+</Carousel>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                      | Type                               | Default | Description                                               |
+| ------------------------- | ---------------------------------- | ------- | --------------------------------------------------------- |
+| `length`                  | `number`                           | `0`     | The number of slides in the carousel.                     |
+| `hoverAngle`              | `number`                           | `20`    | The angle of the hover effect.                            |
+| `hoverShadowDisplacement` | `number`                           | `20`    | The displacement of the shadow on hover.                  |
+| `shadowBlur`              | `number`                           | `30`    | The blur of the shadow.                                   |
+| `shadowIntensity`         | `number`                           | `0.3`   | The intensity of the shadow.                              |
+| `buttonConfig`            | `CarouselNavigationButtonConfig`   | `{}`    | An object to configure the navigation buttons.            |
+| `disableAnimation`        | `boolean`                          | `false` | Whether to disable the hover animation.                   |
+
+##### `CarouselNavigationButtonConfig`
+
+| Prop              | Type                               | Default     | Description                               |
+| ----------------- | ---------------------------------- | ----------- | ----------------------------------------- |
+| `showButtons`     | `boolean`                          | `undefined` | Whether to show the navigation buttons.   |
+| `buttonPosition`  | `'sideways' \| 'below'`            | `undefined` | The position of the navigation buttons.   |
+| `keyboardControl` | `boolean`                          | `undefined` | Whether to enable keyboard control.       |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The slides of the carousel. |
+
+## Examples
+
+##### Default Carousel
+
+<div class="doc-view">
+  <Carousel length={3}>
+    <div style="width: 100%; height: 100%; background-color: #ff0000;"></div>
+    <div style="width: 100%; height: 100%; background-color: #00ff00;"></div>
+    <div style="width: 100%; height: 100%; background-color: #0000ff;"></div>
+  </Carousel>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Carousel length={3}>
+  <div style="width: 100%; height: 100%; background-color: #ff0000;"></div>
+  <div style="width: 100%; height: 100%; background-color: #00ff00;"></div>
+  <div style="width: 100%; height: 100%; background-color: #0000ff;"></div>
+</Carousel>`}
+/>

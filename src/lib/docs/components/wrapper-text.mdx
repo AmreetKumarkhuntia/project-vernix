@@ -1,0 +1,50 @@
+<script lang="ts">
+  import WrapperText from '$lib/components/wrapperText/WrapperText.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# WrapperText Component
+
+The `WrapperText` component is used to wrap text with a cool animation.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { WrapperText } from 'vergins';
+</script>
+
+<WrapperText text="Hello, World!" />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop             | Type               | Default                   | Description                               |
+| ---------------- | ------------------ | ------------------------- | ----------------------------------------- |
+| `text`           | `string`           | `'Hello, This is an Example Wrapper!'` | The text to wrap.                         |
+| `wrapperTextProps` | `WrapperTextProps` | `defaultWrapperTextProps` | An object of wrapper text properties.     |
+
+##### `WrapperTextProps`
+
+| Prop                | Type                | Default | Description                               |
+| ------------------- | ------------------- | ------- | ----------------------------------------- |
+| `wrapFrom`          | `WrapFromDirection` | `'top'` | The direction to wrap the text from.      |
+| `enableWrapOnLoad`  | `boolean \| null`   | `true`  | Whether to wrap the text on load.         |
+| `enableHoverGlitch` | `boolean \| null`   | `null`  | Whether to enable the hover glitch effect. |
+
+## Examples
+
+##### Default WrapperText
+
+<div class="doc-view">
+  <WrapperText text="Hello, World!" />
+</div>
+
+<Code 
+lang="jsx"
+code={`<WrapperText text="Hello, World!" />`}
+/>

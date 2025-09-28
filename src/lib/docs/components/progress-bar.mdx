@@ -1,0 +1,41 @@
+<script lang="ts">
+  import ProgressBar from '$lib/components/progressBar/ProgressBar.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# ProgressBar Component
+
+The `ProgressBar` component is used to display the progress of a task.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { ProgressBar } from 'vergins';
+</script>
+
+<ProgressBar progress={50} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop       | Type     | Default | Description                               |
+| ---------- | -------- | ------- | ----------------------------------------- |
+| `progress` | `number` | `50`    | The progress of the task, from 0 to 100. |
+
+## Examples
+
+##### Default ProgressBar
+
+<div class="doc-view">
+  <ProgressBar progress={50} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<ProgressBar progress={50} />`}
+/>

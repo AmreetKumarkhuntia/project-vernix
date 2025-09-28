@@ -1,0 +1,80 @@
+<script lang="ts">
+  import Modal from '$lib/components/modal/Modal.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Modal Component
+
+The `Modal` component is a dialog that appears on top of the app's content.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Modal } from 'vergins';
+  let isOpen = false;
+</script>
+
+<button on:click={() => (isOpen = true)}>Open Modal</button>
+
+<Modal bind:isOpen>
+  <h2>Modal Title</h2>
+  <p>Modal content</p>
+</Modal>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop       | Type         | Default           | Description                               |
+| ---------- | ------------ | ----------------- | ----------------------------------------- |
+| `isOpen`   | `boolean`    | `false`           | Controls the visibility of the modal.     |
+| `onClose`  | `() => void` | `() => {}`        | A callback function when the modal is closed. |
+| `modalProps` | `ModalProps` | `defaultModalProps` | An object of modal properties.            |
+
+##### `ModalProps`
+
+| Prop              | Type                               | Default | Description                               |
+| ----------------- | ---------------------------------- | ------- | ----------------------------------------- |
+| `inTransition`    | `TransitionWrapper`                | `{...}` | The in transition for the modal.          |
+| `outTransition`   | `TransitionWrapper`                | `{...}` | The out transition for the modal.         |
+| `closeButtonProp` | `string \| HTMLElement \| null`    | `null`  | The content for the close button.         |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content of the modal. |
+
+## Examples
+
+##### Default Modal
+
+<div class="doc-view">
+  <button on:click={() => {
+    const modal = new Modal({
+      target: document.body,
+      props: {
+        isOpen: true,
+      }
+    });
+  }}>Open Modal</button>
+</div>
+
+<Code 
+lang="jsx"
+code={`<script>
+  import { Modal } from 'vergins';
+  let isOpen = false;
+</script>
+
+<button on:click={() => (isOpen = true)}>Open Modal</button>
+
+<Modal bind:isOpen>
+  <h2>Modal Title</h2>
+  <p>Modal content</p>
+</Modal>`}
+/>

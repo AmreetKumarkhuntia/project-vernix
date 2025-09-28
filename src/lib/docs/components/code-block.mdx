@@ -1,0 +1,47 @@
+<script lang="ts">
+  import CodeBlock from '$lib/components/CodeBlock.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# CodeBlock Component
+
+The `CodeBlock` component is for displaying blocks of code with syntax highlighting.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { CodeBlock } from 'vergins';
+</script>
+
+<CodeBlock language="javascript" code={\`console.log("Hello, World!");\`} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop             | Type                  | Default              | Description                               |
+| ---------------- | --------------------- | -------------------- | ----------------------------------------- |
+| `lang`           | `string`              | `'javascript'`       | The language of the code.                 |
+| `grammars`       | `Prism.Languages`     | `undefined`          | Custom Prism grammars.                    |
+| `inTransition`   | `TransitionWrapper`   | `defaultInTransition`| The in transition for the code block.     |
+| `outTransition`  | `TransitionWrapper`   | `defaultOutTransition`| The out transition for the code block.    |
+| `copyIconsColor` | `string`              | `'#000'`             | The color of the copy icons.              |
+| `copyDuration`   | `number`              | `2000`               | The duration the "copied" icon is shown.  |
+| `code`           | `string`              | `''`                 | The code to display.                      |
+
+## Examples
+
+##### Default CodeBlock
+
+<div class="doc-view">
+  <CodeBlock language="javascript" code={`console.log("Hello, World!");`} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<CodeBlock language="javascript" code={\`console.log("Hello, World!");\`} />`}
+/>

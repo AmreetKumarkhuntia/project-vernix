@@ -17,7 +17,7 @@
 
   /* SideNav */
   --sidenav-width: -webkit-fill-available;
-  --sidenav-height: -webkit-fill-available;
+  --sidenav-height: auto;
   --sidenav-item-padding: 10px;
   --sidenav-item-text-margin-left: 4px;
 }
@@ -218,6 +218,8 @@ table {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+
+  --sidenav-padding: 30px;
 }
 
 .navbar-layout {

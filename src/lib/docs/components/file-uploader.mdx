@@ -1,0 +1,54 @@
+<script lang="ts">
+  import FileUploader from '$lib/components/fileUploader/FileUploader.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# FileUploader Component
+
+The `FileUploader` component is a file uploader.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { FileUploader } from 'vergins';
+
+  function uploadFile(files) {
+    console.log(files);
+  }
+</script>
+
+<FileUploader {uploadFile} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop                | Type                | Default                    | Description                               |
+| ------------------- | ------------------- | -------------------------- | ----------------------------------------- |
+| `fileUploaderProps` | `FileUploaderProps` | `defaultFileUploaderProps` | An object of file uploader properties.    |
+| `uploadFile`        | `(file: FileList[]) => void` | `(file) => console.log(file)` | A callback function when files are uploaded. |
+
+##### `FileUploaderProps`
+
+| Prop                   | Type                  | Default              | Description                               |
+| ---------------------- | --------------------- | -------------------- | ----------------------------------------- |
+| `fileIconLink`         | `string`              | `'fileIcon.svg'`     | The link to the file icon.                |
+| `inListItemTransition` | `TransitionWrapper \| null` | `null`               | The in transition for the list items.     |
+| `outlistItemTransition`| `TransitionWrapper \| null` | `null`               | The out transition for the list items.    |
+
+## Examples
+
+##### Default FileUploader
+
+<div class="doc-view">
+  <FileUploader uploadFile={(files) => console.log(files)} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<FileUploader uploadFile={(files) => console.log(files)} />`}
+/>

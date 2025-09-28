@@ -1,0 +1,61 @@
+<script lang="ts">
+  import Ripple from '$lib/components/ripple/Ripple.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Ripple Component
+
+The `Ripple` component is used to create a ripple effect on click.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Ripple } from 'vergins';
+</script>
+
+<Ripple>
+  <button>Click me</button>
+</Ripple>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop          | Type      | Default                   | Description                               |
+| ------------- | --------- | ------------------------- | ----------------------------------------- |
+| `color`       | `string`  | `'rgba(255, 255, 255, 0.6)'` | The color of the ripple effect.           |
+| `zIndex`      | `number`  | `1`                       | The z-index of the component.             |
+| `selfTrigger` | `boolean` | `true`                    | Whether the ripple should trigger on self-click. |
+
+##### Methods
+
+| Name           | Description                               |
+| -------------- | ----------------------------------------- |
+| `createRipple` | A function to create a ripple effect.     |
+
+##### Slots
+
+| Name      | Description              |
+| --------- | ------------------------ |
+| `default` | The content to apply the ripple effect to. |
+
+## Examples
+
+##### Default Ripple
+
+<div class="doc-view">
+  <Ripple>
+    <button style="width: 100px; height: 50px;">Click me</button>
+  </Ripple>
+</div>
+
+<Code 
+lang="jsx"
+code={`<Ripple>
+  <button>Click me</button>
+</Ripple>`}
+/>

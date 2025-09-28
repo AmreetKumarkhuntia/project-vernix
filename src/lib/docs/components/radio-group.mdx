@@ -1,0 +1,69 @@
+<script lang="ts">
+  import RadioGroup from '$lib/components/radio/RadioGroup.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# RadioGroup Component
+
+The `RadioGroup` component is a group of radio buttons.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { RadioGroup } from 'vergins';
+</script>
+
+<RadioGroup
+  name="my-radio-group"
+  legend="My Radio Group"
+  options={[{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }]}
+  selectedValue={'1'}
+/>`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop               | Type                               | Default    | Description                               |
+| ------------------ | ---------------------------------- | ---------- | ----------------------------------------- |
+| `options`          | `RadioOption[]`                    | `[]`       | An array of radio options.                |
+| `selectedValue`    | `string`                           | `''`       | The value of the selected radio option.   |
+| `name`             | `string`                           |            | The name of the radio group.              |
+| `legend`           | `string`                           |            | The legend for the radio group.           |
+| `disabled`         | `boolean`                          | `false`    | Whether the radio group is disabled.      |
+| `disableAnimation` | `boolean`                          | `false`    | Whether to disable the animation.         |
+| `onClick`          | `(value: RadioOption) => void`     | `() => {}` | A callback function when an option is clicked. |
+
+##### `RadioOption`
+
+| Prop    | Type     | Description                   |
+| ------- | -------- | ----------------------------- |
+| `label` | `string` | The label of the radio option. |
+| `value` | `string` | The value of the radio option. |
+
+## Examples
+
+##### Default RadioGroup
+
+<div class="doc-view">
+  <RadioGroup
+    name="my-radio-group-2"
+    legend="My Radio Group"
+    options={[{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }]}
+    selectedValue={'1'}
+  />
+</div>
+
+<Code 
+lang="jsx"
+code={`<RadioGroup
+  name="my-radio-group"
+  legend="My Radio Group"
+  options={[{ label: 'Option 1', value: '1' }, { label: 'Option 2', value: '2' }]}
+  selectedValue={'1'}
+/>`}
+/>

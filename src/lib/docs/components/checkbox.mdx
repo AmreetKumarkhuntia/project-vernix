@@ -1,0 +1,45 @@
+<script lang="ts">
+  import Checkbox from '$lib/components/checkbox/Checkbox.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# Checkbox Component
+
+The `Checkbox` component is a checkbox.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { Checkbox } from 'vergins';
+</script>
+
+<Checkbox label="My Checkbox" showLabel={true} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop        | Type      | Default                                  | Description                               |
+| ----------- | --------- | ---------------------------------------- | ----------------------------------------- |
+| `checked`   | `boolean` | `false`                                  | Whether the checkbox is checked.          |
+| `label`     | `string`  | `''`                                     | The label for the checkbox.               |
+| `disabled`  | `boolean` | `false`                                  | Whether the checkbox is disabled.         |
+| `id`        | `string`  | `checkbox-${Math.random().toString(36).substr(2, 9)}` | The ID of the checkbox.                   |
+| `showLabel` | `boolean` | `false`                                  | Whether to show the label.                |
+
+## Examples
+
+##### Default Checkbox
+
+<div class="doc-view">
+  <Checkbox label="My Checkbox" showLabel={true} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<Checkbox label="My Checkbox" showLabel={true} />`}
+/>

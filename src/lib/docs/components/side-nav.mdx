@@ -1,0 +1,61 @@
+<script lang="ts">
+  import SideNav from '$lib/components/sideNav/SideNav.svelte';
+  import Code from '$lib/components/code/Code.svelte';
+</script>
+
+# SideNav Component
+
+The `SideNav` component is a side navigation menu.
+
+## Basic Usage
+
+<Code 
+lang="jsx"
+code={`<script>
+  import "vergins/css/improved-theme-2";
+  import { SideNav } from 'vergins';
+</script>
+
+<SideNav items={[{ label: 'Home', href: '/' }]} />`}
+/>
+
+## API Reference
+
+##### Props
+
+| Prop         | Type                                                       | Default     | Description                               |
+| ------------ | ---------------------------------------------------------- | ----------- | ----------------------------------------- |
+| `items`      | `SideNavItem[]`                                            | `[]`        | An array of side navigation items.        |
+| `onClick`    | `(currentLayerIndex: number, item: SideNavItemType) => void` | `() => {}`  | A callback function when an item is clicked. |
+| `activeItem` | `SideNavItemType \| undefined`                             | `undefined` | The currently active item.                |
+
+##### `SideNavItem`
+
+| Prop       | Type                                           | Description                               |
+| ---------- | ---------------------------------------------- | ----------------------------------------- |
+| `label`    | `string`                                       | The label of the navigation item.         |
+| `href`     | `string`                                       | The href of the navigation item.          |
+| `icon`     | `ComponentType`                                | The icon for the navigation item.         |
+| `expanded` | `boolean`                                      | Whether the item is expanded.             |
+| `children` | `SideNavItem[]`                                | An array of child navigation items.       |
+| `onClick`  | `(item: SideNavItem, layerIndex: number) => void` | A callback function when the item is clicked. |
+
+##### Slots
+
+| Name                      | Description                               |
+| ------------------------- | ----------------------------------------- |
+| `side-nav-top-content`    | Content to be placed at the top of the side navigation. |
+| `side-nav-down-content` | Content to be placed at the bottom of the side navigation. |
+
+## Examples
+
+##### Default SideNav
+
+<div class="doc-view">
+  <SideNav items={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }]} />
+</div>
+
+<Code 
+lang="jsx"
+code={`<SideNav items={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }]} />`}
+/>
